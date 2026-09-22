@@ -2,161 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jaman Store | Quality products online</title>
-<meta name="description" content="Jaman Store — shop selected VITAFOAM products online.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jaman Store | VITAFOAM Mattresses & Pillows</title>
+<meta name="description" content="Shop selected VITAFOAM mattresses and pillows from Jaman Store. Choose a size, add to cart and pay securely online.">
 <meta name="theme-color" content="#0b63ce">
 <style>
-:root{--blue:#0b63ce;--blue2:#084b9f;--ink:#152033;--muted:#667085;--bg:#f6f8fb;--card:#fff;--line:#e6eaf0;--ok:#0b8f55}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}
-a{text-decoration:none;color:inherit}.top{background:#0d1b2a;color:#fff;font-size:13px;padding:8px 16px;text-align:center}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:14px 16px}
-.nav{max-width:1180px;margin:auto;display:flex;gap:14px;align-items:center}.brand{font-weight:900;font-size:22px;letter-spacing:-.5px}.tag{font-size:11px;color:var(--muted);display:block;margin-top:2px}
-.search{flex:1;display:flex;gap:8px}.search input{width:100%;border:1px solid #ccd3dd;border-radius:12px;padding:12px 14px;font-size:15px}.cartbtn,.primary{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}.cartbtn{white-space:nowrap}
-.hero{background:linear-gradient(135deg,#eaf3ff,#fff);padding:48px 18px}.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;margin:0 0 18px;letter-spacing:-2px}.hero p{font-size:18px;line-height:1.6;color:#536174;max-width:650px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 14px 40px #0b1b2a12}.hero-card strong{font-size:22px}.hero-card li{margin:11px 0;color:#536174}
-main{max-width:1180px;margin:auto;padding:26px 16px}.chips{display:flex;gap:9px;overflow:auto;padding-bottom:10px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;white-space:nowrap;cursor:pointer;font-weight:700}.chip.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:25px 0 14px}.section-head h2{margin:0;font-size:28px}.section-head span{color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px #10182808}.pic{height:220px;background:linear-gradient(135deg,#eef1f5,#fafbfc);display:flex;align-items:center;justify-content:center;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}.placeholder{color:#8a93a0;text-align:center;padding:20px;font-weight:700}.body{padding:16px}.cat{font-size:12px;color:var(--blue);font-weight:800;text-transform:uppercase}.name{font-size:18px;font-weight:900;margin:6px 0}.desc{font-size:13px;color:var(--muted);min-height:38px;line-height:1.45}.price{font-size:20px;font-weight:900;margin:12px 0}.card-actions{display:flex;gap:8px}.outline{flex:1;border:1px solid #ccd3dd;background:#fff;border-radius:10px;padding:10px;font-weight:800;cursor:pointer}.add{flex:1;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:10px;font-weight:800;cursor:pointer}
-.notice{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin:25px 0;color:#526074;line-height:1.6}.notice strong{color:var(--ink)}
+:root{--blue:#0b63ce;--ink:#152033;--muted:#667085;--bg:#f6f8fb;--card:#fff;--line:#e6eaf0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}a{text-decoration:none;color:inherit}
+.top{background:#0d1b2a;color:#fff;font-size:13px;padding:9px 16px;text-align:center}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:13px 16px;box-shadow:0 2px 10px #10182808}.nav{max-width:1180px;margin:auto;display:flex;gap:12px;align-items:center}.brand{font-weight:950;font-size:22px;letter-spacing:-.6px}.tag{font-size:11px;color:var(--muted);display:block;margin-top:2px}.search{flex:1;display:flex;position:relative}.search input{width:100%;border:1px solid #ccd3dd;border-radius:12px;padding:12px 14px 12px 42px;font-size:15px}.search:before{content:"⌕";position:absolute;left:14px;top:8px;font-size:23px;color:#667085;z-index:1}.cartbtn,.primary{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:12px 16px;font-weight:850;cursor:pointer}.cartbtn{white-space:nowrap}.outline{border:1px solid #ccd3dd;background:#fff;color:var(--ink);border-radius:10px;padding:10px;font-weight:800;cursor:pointer}.cartbtn:disabled,.primary:disabled{opacity:.6;cursor:not-allowed}
+.hero{background:linear-gradient(135deg,#eaf3ff,#fff);padding:42px 18px}.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}.eyebrow{display:inline-flex;background:#fff;border:1px solid #d9e5f7;color:var(--blue);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:850}.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;margin:15px 0 18px;letter-spacing:-2.5px}.hero p{font-size:18px;line-height:1.6;color:#536174;max-width:650px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 14px 40px #0b1b2a12}.hero-card strong{font-size:22px}.hero-card li{margin:11px 0;color:#536174}
+main{max-width:1180px;margin:auto;padding:26px 16px}.chips{display:flex;gap:9px;overflow:auto;padding-bottom:10px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;white-space:nowrap;cursor:pointer;font-weight:750}.chip.active{background:var(--blue);color:#fff;border-color:var(--blue)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:25px 0 14px}.section-head h2{margin:0;font-size:28px}.section-head span{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px #10182808;display:flex;flex-direction:column}.pic{height:220px;background:linear-gradient(135deg,#eef1f5,#fafbfc);display:flex;align-items:center;justify-content:center;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}.placeholder{color:#8a93a0;text-align:center;padding:20px;font-weight:800}.body{padding:16px;display:flex;flex-direction:column;flex:1}.cat{font-size:12px;color:var(--blue);font-weight:850;text-transform:uppercase}.name{font-size:18px;font-weight:900;margin:6px 0}.desc{font-size:13px;color:var(--muted);min-height:38px;line-height:1.45}.price{font-size:20px;font-weight:900;margin:12px 0}.from{font-size:12px;color:var(--muted);font-weight:600}.card-actions{display:flex;gap:8px;margin-top:auto}.card-actions .outline,.card-actions .add{flex:1}.add{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:10px;font-weight:800;cursor:pointer}.quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}.quick{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.quick b{display:block;margin-bottom:6px}.quick span{font-size:13px;color:var(--muted);line-height:1.5}.notice{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin:25px 0;color:#526074;line-height:1.6}.notice strong{color:var(--ink)}
 footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot h3{color:#fff;margin-top:0}.foot p{line-height:1.6;color:#b9c5d4}.foot a{color:#fff}.copyright{border-top:1px solid #ffffff20;margin-top:28px;padding-top:18px;font-size:13px;color:#9fb0c4}
-.modal{position:fixed;inset:0;background:#07111dcc;display:none;align-items:flex-end;justify-content:center;z-index:50;padding:12px}.modal.show{display:flex}.sheet{background:#fff;border-radius:24px 24px 0 0;width:min(760px,100%);max-height:92vh;overflow:auto;padding:22px}.close{float:right;border:0;background:#eef1f5;border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer}.product-view{display:grid;grid-template-columns:1fr 1fr;gap:20px}.product-view .pic{height:330px;border-radius:16px}.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}.field select,.field input,.field textarea{width:100%;padding:12px;border:1px solid #ccd3dd;border-radius:10px;font:inherit}.qty{display:flex;align-items:center;gap:10px}.qty button{width:38px;height:38px;border:1px solid #ccd3dd;background:#fff;border-radius:9px;font-size:18px}.cartline{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:14px 0}.small{font-size:12px;color:var(--muted)}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0d1b2a;color:#fff;padding:12px 18px;border-radius:999px;display:none;z-index:80}.toast.show{display:block}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero-inner{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.nav{flex-wrap:wrap}.brand{width:100%}.search{order:3;width:100%}.grid{grid-template-columns:1fr 1fr;gap:10px}.pic{height:175px}.body{padding:12px}.name{font-size:16px}.desc{font-size:12px}.price{font-size:17px}.card-actions{flex-direction:column}.hero{padding:35px 16px}.hero-card{display:none}.product-view{grid-template-columns:1fr}.product-view .pic{height:250px}}
+.modal{position:fixed;inset:0;background:#07111dcc;display:none;align-items:flex-end;justify-content:center;z-index:50;padding:12px}.modal.show{display:flex}.sheet{background:#fff;border-radius:24px 24px 0 0;width:min(760px,100%);max-height:92vh;overflow:auto;padding:22px}.close{float:right;border:0;background:#eef1f5;border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer}.product-view{display:grid;grid-template-columns:1fr 1fr;gap:20px}.product-view .pic{height:330px;border-radius:16px}.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}.field select,.field input,.field textarea{width:100%;padding:12px;border:1px solid #ccd3dd;border-radius:10px;font:inherit}.qty{display:flex;align-items:center;gap:10px}.qty button{width:38px;height:38px;border:1px solid #ccd3dd;background:#fff;border-radius:9px;font-size:18px}.cartline{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:14px 0}.small{font-size:12px;color:var(--muted)}.cartqty{display:flex;align-items:center;gap:7px}.cartqty button{width:30px;height:30px;border:1px solid #ccd3dd;background:#fff;border-radius:7px}.totalbox{display:flex;justify-content:space-between;gap:12px;padding:15px 0;font-size:20px}.paynote{font-size:12px;color:var(--muted);line-height:1.5}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0d1b2a;color:#fff;padding:12px 18px;border-radius:999px;display:none;z-index:80;max-width:90%;text-align:center}.toast.show{display:block}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero-inner{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.quick-links{grid-template-columns:1fr}}
+@media(max-width:620px){.nav{flex-wrap:wrap}.brand{width:100%}.search{order:3;width:100%}.grid{grid-template-columns:1fr 1fr;gap:10px}.pic{height:175px}.body{padding:12px}.name{font-size:16px}.desc{font-size:12px}.price{font-size:17px}.card-actions{flex-direction:column}.hero{padding:35px 16px}.hero-card{display:none}.product-view{grid-template-columns:1fr}.product-view .pic{height:250px}.cartline{grid-template-columns:1fr auto}.cartline>.outline{grid-column:2}.sheet{padding:18px}.hero h1{letter-spacing:-1.8px}}
 </style>
 </head>
 <body>
-<div class="top">Jaman Store • Online shopping made simple</div>
-<header>
-  <div class="nav">
-    <a href="#" class="brand">JAMAN STORE<span class="tag">A multi-brand online store</span></a>
-    <div class="search"><input id="search" placeholder="Search mattresses, pillows..."></div>
-    <button class="cartbtn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
-  </div>
-</header>
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>Comfort starts with the right choice.</h1>
-      <p>Shop selected VITAFOAM mattresses and pillows through Jaman Store. Choose your product, select a size where applicable, add to cart and continue to checkout.</p>
-      <button class="primary" onclick="document.getElementById('shop').scrollIntoView()">Shop now</button>
-    </div>
-    <div class="hero-card"><strong>Jaman Store V2</strong><ul><li>Real product catalogue structure</li><li>Size selection for mattresses</li><li>Working cart and checkout flow</li><li>Online payment and order support</li></ul></div>
-  </div>
-</section>
+<div class="top">Jaman Store • VITAFOAM mattresses & pillows • Secure online checkout</div>
+<header><div class="nav">
+<a href="#" class="brand">JAMAN STORE<span class="tag">Operated by Jaman Business Company</span></a>
+<div class="search"><input id="search" aria-label="Search products" placeholder="Search mattresses, pillows..."></div>
+<button class="cartbtn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
+</div></header>
+<section class="hero"><div class="hero-inner"><div>
+<span class="eyebrow">VITAFOAM • QUALITY COMFORT</span>
+<h1>Comfort starts with the right choice.</h1>
+<p>Shop selected VITAFOAM mattresses and pillows through Jaman Store. Choose your size, add to cart and continue to secure online payment.</p>
+<div class="hero-actions"><button class="primary" onclick="document.getElementById('shop').scrollIntoView()">Shop products</button><a class="outline" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 16px" href="mailto:Jamanbusinesscompany@gmail.com?subject=Jaman%20Store%20product%20enquiry">Contact support</a></div>
+</div><div class="hero-card"><strong>Shop with confidence</strong><ul><li>VITAFOAM product catalogue</li><li>Mattress size selection</li><li>Cart and order summary</li><li>Secure Paystack checkout</li><li>Payment verification</li></ul></div></div></section>
 <main id="shop">
-  <div class="chips" id="chips"></div>
-  <div class="section-head"><h2>Featured products</h2><span id="resultCount"></span></div>
-  <section class="grid" id="grid"></section>
-  <div class="notice"><strong>Important:</strong> Product prices and availability can change. Mattress prices shown are starting prices where the manufacturer lists multiple size/height variants. Final price should be confirmed for the selected size before payment.</div>
+<div class="chips" id="chips"></div>
+<div class="section-head"><h2>Featured products</h2><span id="resultCount"></span></div>
+<section class="grid" id="grid"></section>
+<div class="quick-links"><div class="quick"><b>Need help choosing?</b><span>Send the product name and preferred mattress size to Jaman Store for assistance.</span></div><div class="quick"><b>Online payment</b><span>Checkout is initialized securely on the server. Your Paystack secret key is never exposed in the browser.</span></div><div class="quick"><b>Delivery</b><span>Delivery timing and charges are confirmed with you before fulfilment, based on destination and product.</span></div></div>
+<div class="notice"><strong>Payment & price note:</strong> Mattress prices shown are starting prices. The final amount is calculated from the product selected and its base price; size-specific pricing should be confirmed where applicable before fulfilment.</div>
+<div class="notice"><strong>Bank transfer option</strong><p class="small">Bank transfer can be supported for orders. Please contact Jaman Store for the current transfer instructions and send your payment evidence with your order details.</p></div>
 </main>
-<footer>
-  <div class="foot">
-    <div><h3>Jaman Store</h3><p>Operated by Jaman Business Company. Starting with selected VITAFOAM products and designed to expand to other trusted brands.</p></div>
-    <div><h3>Customer support</h3><p><a href="mailto:Jamanbusinesscompany@gmail.com">Jamanbusinesscompany@gmail.com</a></p><p>WhatsApp support available for order evidence and assistance.</p></div>
-    <div><h3>Payment</h3><p>Online payment is available through the Jaman Business Company payment page. Bank transfer is also supported.</p></div>
-  </div>
-  <div class="copyright">© 2026 Jaman Store. All rights reserved.</div>
-</footer>
-
+<footer><div class="foot"><div><h3>Jaman Store</h3><p>Operated by Jaman Business Company. Starting with selected VITAFOAM products and designed to expand to other trusted brands.</p></div><div><h3>Customer support</h3><p><a href="mailto:Jamanbusinesscompany@gmail.com">Jamanbusinesscompany@gmail.com</a></p><p>Contact us by email for product, delivery and payment assistance.</p></div><div><h3>Payment</h3><p>Secure online payment through Paystack, with bank transfer available for supported orders.</p><p><a href="https://paystack.shop/pay/jamanbusinesscompany" target="_blank" rel="noopener">Open online payment page</a></p></div></div><div class="copyright">© 2026 Jaman Store. All rights reserved.</div></footer>
 <div class="modal" id="productModal"><div class="sheet"><button class="close" onclick="closeModal('productModal')">×</button><div id="productContent"></div></div></div>
 <div class="modal" id="cartModal"><div class="sheet"><button class="close" onclick="closeModal('cartModal')">×</button><h2>Your cart</h2><div id="cartContent"></div></div></div>
 <div class="modal" id="checkoutModal"><div class="sheet"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Checkout</h2><div id="checkoutContent"></div></div></div>
 <div class="toast" id="toast"></div>
-
 <script>
-const PRODUCTS = [{"id": "corona", "name": "Vita Corona", "category": "Mattresses", "price": 33468.08, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Corona-100x100.jpg", "description": "Medium-density mattress with tape-edged textile covering. Suitable for users up to 70kg.", "sizes": ["6 × 4 × 8\"", "6 × 5 × 8\"", "6 × 6 × 8\"", "6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 10\"", "6 × 7 × 12\""]}, {"id": "grand", "name": "Vita Grand", "category": "Mattresses", "price": 86106.7, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/11/THES9041-350x233.jpg", "description": "Medium-density mattress with quilted damask fabric and tape edging. Suitable for users up to 70kg.", "sizes": ["6 × 4.5 × 10\"", "6 × 5 × 10\"", "6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 10\"", "6 × 7 × 12\""]}, {"id": "haven", "name": "Vita Haven Mattress", "category": "Mattresses", "price": 105068.12, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Haven-100x100.jpg", "description": "Soft, contouring mattress with high-quality fabric. Suitable for users up to 100kg.", "sizes": ["6 × 4 × 8\"", "6 × 4.5 × 10\"", "6 × 5 × 10\"", "6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 12\""]}, {"id": "shine", "name": "Vita Shine Mattress", "category": "Mattresses", "price": 29535.36, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/11/Vita-Shine3%402x-scaled-350x350.jpg", "description": "Low-density, hypoallergenic mattress commonly used for students, hostels and lightweight sleepers.", "sizes": ["6 × 3 × 6\"", "6 × 3 × 8\"", "6 × 4 × 8\"", "6 × 5 × 8\"", "6 × 6 × 8\""]}, {"id": "supreme", "name": "Vita Supreme", "category": "Mattresses", "price": 133842.29, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/11/vita-supreme%402x-scaled-350x350.jpg", "description": "High-density mattress designed for balanced comfort and support. Suitable for users up to 100kg.", "sizes": ["6 × 4.5 × 10\"", "6 × 5 × 10\"", "6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 12\""]}, {"id": "galaxy-classic", "name": "Vita Galaxy Classic", "category": "Mattresses", "price": 168109.16, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/12/VITAGALAXY-CLASSIC-100x100.jpg", "description": "Premium VITAFOAM mattress. Size and final price should be confirmed before payment.", "sizes": ["6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 10\"", "6 × 7 × 12\""]}, {"id": "galaxy-orthopedic", "name": "Vita Galaxy Orthopedic", "category": "Mattresses", "price": 206776.1, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/11/GALAXY-ORTHOPAEDIC-1-100x100.jpg", "description": "Orthopedic mattress range. Size and final price should be confirmed before payment.", "sizes": ["6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 10\"", "6 × 7 × 12\""]}, {"id": "spring-flex", "name": "Vita Spring Flex", "category": "Mattresses", "price": 165637.11, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/11/spring-flex%402x-scaled-100x100.jpg", "description": "Spring-flex mattress range. Size and final price should be confirmed before payment.", "sizes": ["6 × 6 × 10\"", "6 × 6 × 12\"", "6 × 7 × 10\"", "6 × 7 × 12\""]}, {"id": "cool-plus", "name": "Cool Plus Pillow", "category": "Pillows", "price": 54080.85, "image": "https://www.vitafoamng.com/wp-content/uploads/2026/07/Cool-Plus-Memory-Pillow-3-350x307.jpeg", "description": "Memory pillow range. Confirm availability before payment.", "sizes": ["Standard"]}, {"id": "vitacool", "name": "Vitacool Memory Pillow", "category": "Pillows", "price": 24735.41, "image": "https://www.vitafoamng.com/wp-content/uploads/2021/12/Vitafoam-Vitacool-memory-pillow-100x100.jpg", "description": "Memory pillow with therapeutic support and a soft feel.", "sizes": ["Standard"]}, {"id": "vita-quilted", "name": "Vita Quilted", "category": "Pillows", "price": 10490.64, "image": "", "description": "VITAFOAM fibre pillow. Current approved product image will be added when available.", "sizes": ["Standard"]}, {"id": "flamingo", "name": "Flamingo", "category": "Pillows", "price": 11249.04, "image": "", "description": "VITAFOAM fibre pillow. Current approved product image will be added when available.", "sizes": ["Standard"]}];
-const PAYMENT_URL = ""; // V3 uses secure Paystack initialization via /api/paystack/initialize
-let cart = JSON.parse(localStorage.getItem("jaman_cart") || "[]");
-let activeCategory = "All";
-
-const money = n => "₦" + Number(n).toLocaleString("en-NG",{minimumFractionDigits:2,maximumFractionDigits:2});
+const PRODUCTS=[
+{id:"corona",name:"Vita Corona",category:"Mattresses",price:33468.08,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Corona-100x100.jpg",description:"Medium-density mattress with tape-edged textile covering. Suitable for users up to 70kg.",sizes:["6 × 4 × 8\\"","6 × 5 × 8\\"","6 × 6 × 8\\"","6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 10\\"","6 × 7 × 12\\""]},
+{id:"grand",name:"Vita Grand",category:"Mattresses",price:86106.70,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/THES9041-350x233.jpg",description:"Medium-density mattress with quilted damask fabric and tape edging.",sizes:["6 × 4.5 × 10\\"","6 × 5 × 10\\"","6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 10\\"","6 × 7 × 12\\""]},
+{id:"haven",name:"Vita Haven Mattress",category:"Mattresses",price:105068.12,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Haven-100x100.jpg",description:"Soft, contouring mattress with high-quality fabric. Suitable for users up to 100kg.",sizes:["6 × 4 × 8\\"","6 × 4.5 × 10\\"","6 × 5 × 10\\"","6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 12\\""]},
+{id:"shine",name:"Vita Shine Mattress",category:"Mattresses",price:29535.36,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/Vita-Shine3%402x-scaled-350x350.jpg",description:"Low-density, hypoallergenic mattress for students, hostels and lightweight sleepers.",sizes:["6 × 3 × 6\\"","6 × 3 × 8\\"","6 × 4 × 8\\"","6 × 5 × 8\\"","6 × 6 × 8\\""]},
+{id:"supreme",name:"Vita Supreme",category:"Mattresses",price:133842.29,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/vita-supreme%402x-scaled-350x350.jpg",description:"High-density mattress designed for balanced comfort and support.",sizes:["6 × 4.5 × 10\\"","6 × 5 × 10\\"","6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 12\\""]},
+{id:"galaxy-classic",name:"Vita Galaxy Classic",category:"Mattresses",price:168109.16,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/VITAGALAXY-CLASSIC-100x100.jpg",description:"Premium VITAFOAM mattress. Confirm size and final price before payment.",sizes:["6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 10\\"","6 × 7 × 12\\""]},
+{id:"galaxy-orthopedic",name:"Vita Galaxy Orthopedic",category:"Mattresses",price:206776.10,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/GALAXY-ORTHOPAEDIC-1-100x100.jpg",description:"Orthopedic mattress range. Confirm size and final price before payment.",sizes:["6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 10\\"","6 × 7 × 12\\""]},
+{id:"spring-flex",name:"Vita Spring Flex",category:"Mattresses",price:165637.11,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/spring-flex%402x-scaled-100x100.jpg",description:"Spring-flex mattress range. Confirm size and final price before payment.",sizes:["6 × 6 × 10\\"","6 × 6 × 12\\"","6 × 7 × 10\\"","6 × 7 × 12\\""]},
+{id:"cool-plus",name:"Cool Plus Pillow",category:"Pillows",price:54080.85,image:"https://www.vitafoamng.com/wp-content/uploads/2026/07/Cool-Plus-Memory-Pillow-3-350x307.jpeg",description:"Memory pillow range. Confirm availability before payment.",sizes:["Standard"]},
+{id:"vitacool",name:"Vitacool Memory Pillow",category:"Pillows",price:24735.41,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vitafoam-Vitacool-memory-pillow-100x100.jpg",description:"Memory pillow with therapeutic support and a soft feel.",sizes:["Standard"]},
+{id:"vita-quilted",name:"Vita Quilted",category:"Pillows",price:10490.64,image:"",description:"Quilted fibre pillow designed for durability and comfort.",sizes:["Standard"]},
+{id:"flamingo",name:"Flamingo",category:"Pillows",price:11249.04,image:"",description:"VITAFOAM fibre pillow. Product image will be updated when a stable official image is available.",sizes:["Standard"]}
+];
+const FALLBACK_PAYMENT_URL="https://paystack.shop/pay/jamanbusinesscompany";
+let cart=JSON.parse(localStorage.getItem("jaman_cart")||"[]"),activeCategory="All";
+const money=n=>"₦"+Number(n).toLocaleString("en-NG",{minimumFractionDigits:2,maximumFractionDigits:2});
 function saveCart(){localStorage.setItem("jaman_cart",JSON.stringify(cart));renderCartCount()}
 function renderCartCount(){document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0)}
-function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
 function openModal(id){document.getElementById(id).classList.add("show")}
 function closeModal(id){document.getElementById(id).classList.remove("show")}
-function imgHTML(p){return p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer">` : `<div class="placeholder">VITAFOAM<br><span style="font-size:12px;font-weight:600">Product image coming soon</span></div>`}
-
-function categories(){
- const cats=["All","Mattresses","Pillows","Bedding","Furniture","Mother & Child","Lifestyle"];
- document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===activeCategory?'active':''}" onclick="setCategory('${c}')">${c}</button>`).join("");
-}
+function imgHTML(p){return p.image?'<img src="'+p.image+'" alt="'+p.name+'" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML=\\'<div class=placeholder>VITAFOAM<br><span style=&quot;font-size:12px;font-weight:600&quot;>Image unavailable</span></div>\\'">':'<div class="placeholder">VITAFOAM<br><span style="font-size:12px;font-weight:600">Product image coming soon</span></div>'}
+function categories(){const cats=["All","Mattresses","Pillows","Bedding","Furniture","Mother & Child","Lifestyle"];document.getElementById("chips").innerHTML=cats.map(c=>'<button class="chip '+(c===activeCategory?"active":"")+'" onclick="setCategory(\''+c+'\')">'+c+"</button>").join("")}
 function setCategory(c){activeCategory=c;categories();renderProducts()}
-function renderProducts(){
- const q=document.getElementById("search").value.trim().toLowerCase();
- const list=PRODUCTS.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(!q||(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)));
- document.getElementById("resultCount").textContent=list.length+" products";
- document.getElementById("grid").innerHTML=list.map(p=>`
-  <article class="card">
-   <div class="pic">${imgHTML(p)}</div>
-   <div class="body"><div class="cat">${p.category}</div><div class="name">${p.name}</div><div class="desc">${p.description}</div>
-   <div class="price">From ${money(p.price)}</div>
-   <div class="card-actions"><button class="outline" onclick="viewProduct('${p.id}')">View</button><button class="add" onclick="quickAdd('${p.id}')">Add to cart</button></div></div>
-  </article>`).join("") || `<div class="notice" style="grid-column:1/-1">No products found. Try another search.</div>`;
-}
-function viewProduct(id){
- const p=PRODUCTS.find(x=>x.id===id);
- document.getElementById("productContent").innerHTML=`
-  <div class="product-view"><div class="pic">${imgHTML(p)}</div><div>
-   <div class="cat">${p.category}</div><h2>${p.name}</h2><div class="price">From ${money(p.price)}</div><p class="small">${p.description}</p>
-   <div class="field"><label>Choose size</label><select id="size">${p.sizes.map((s,i)=>`<option>${s}</option>`).join("")}</select></div>
-   <div class="field"><label>Quantity</label><div class="qty"><button onclick="changeQty(-1)">−</button><strong id="pqty">1</strong><button onclick="changeQty(1)">+</button></div></div>
-   <button class="primary" style="width:100%;margin-top:10px" onclick="addFromModal('${p.id}')">Add to cart</button>
-  </div></div>`;
- openModal("productModal");
-}
-function changeQty(n){let e=document.getElementById("pqty");e.textContent=Math.max(1,Number(e.textContent)+n)}
-function quickAdd(id){const p=PRODUCTS.find(x=>x.id===id);cart.push({id:p.id,name:p.name,size:p.sizes[0],price:p.price,qty:1});saveCart();toast(p.name+" added to cart")}
-function addFromModal(id){const p=PRODUCTS.find(x=>x.id===id);const size=document.getElementById("size").value;const qty=Number(document.getElementById("pqty").textContent);cart.push({id:p.id,name:p.name,size,price:p.price,qty});saveCart();closeModal("productModal");toast("Added to cart")}
-function renderCart(){
- if(!cart.length){document.getElementById("cartContent").innerHTML='<div class="notice">Your cart is empty.</div>';return}
- const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
- document.getElementById("cartContent").innerHTML=cart.map((x,i)=>`<div class="cartline"><div><strong>${x.name}</strong><div class="small">${x.size}</div></div><div>${x.qty} × ${money(x.price)}</div><button class="outline" onclick="removeCart(${i})">Remove</button></div>`).join("")+
- `<div style="display:flex;justify-content:space-between;margin:18px 0;font-size:20px"><strong>Product total</strong><strong>${money(total)}</strong></div><button class="primary" style="width:100%" onclick="openCheckout()">Continue to checkout</button>`;
-}
+function renderProducts(){const q=document.getElementById("search").value.trim().toLowerCase();const list=PRODUCTS.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(!q||(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)));document.getElementById("resultCount").textContent=list.length+" products";document.getElementById("grid").innerHTML=list.map(p=>'<article class="card"><div class="pic">'+imgHTML(p)+'</div><div class="body"><div class="cat">'+p.category+'</div><div class="name">'+p.name+'</div><div class="desc">'+p.description+'</div><div class="price"><span class="from">From </span>'+money(p.price)+'</div><div class="card-actions"><button class="outline" onclick="viewProduct(\''+p.id+'\')">View</button><button class="add" onclick="quickAdd(\''+p.id+'\')">Add to cart</button></div></div></article>').join("")||'<div class="notice" style="grid-column:1/-1">No products found. Try another search.</div>'}
+function viewProduct(id){const p=PRODUCTS.find(x=>x.id===id);document.getElementById("productContent").innerHTML='<div class="product-view"><div class="pic">'+imgHTML(p)+'</div><div><div class="cat">'+p.category+'</div><h2>'+p.name+'</h2><div class="price">From '+money(p.price)+'</div><p class="small">'+p.description+'</p><div class="field"><label>Choose size</label><select id="size">'+p.sizes.map(s=>"<option>"+s+"</option>").join("")+'</select></div><div class="field"><label>Quantity</label><div class="qty"><button onclick="changeQty(-1)">−</button><strong id="pqty">1</strong><button onclick="changeQty(1)">+</button></div></div><button class="primary" style="width:100%;margin-top:10px" onclick="addFromModal(\''+p.id+'\')">Add to cart</button></div></div>';openModal("productModal")}
+function changeQty(n){const e=document.getElementById("pqty");e.textContent=Math.max(1,Number(e.textContent)+n)}
+function quickAdd(id){const p=PRODUCTS.find(x=>x.id===id);addItem(p,p.sizes[0],1);toast(p.name+" added to cart")}
+function addItem(p,size,qty){const existing=cart.find(x=>x.id===p.id&&x.size===size);if(existing)existing.qty+=qty;else cart.push({id:p.id,name:p.name,size,price:p.price,qty});saveCart()}
+function addFromModal(id){const p=PRODUCTS.find(x=>x.id===id);addItem(p,document.getElementById("size").value,Number(document.getElementById("pqty").textContent));closeModal("productModal");toast("Added to cart")}
+function renderCart(){if(!cart.length){document.getElementById("cartContent").innerHTML='<div class="notice">Your cart is empty.</div>';return}const total=cart.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById("cartContent").innerHTML=cart.map((x,i)=>'<div class="cartline"><div><strong>'+x.name+'</strong><div class="small">'+x.size+'</div></div><div class="cartqty"><button onclick="changeCartQty('+i+',-1)">−</button><b>'+x.qty+'</b><button onclick="changeCartQty('+i+',1)">+</button></div><button class="outline" onclick="removeCart('+i+')">Remove</button><div style="grid-column:1/-1;text-align:right;font-weight:800">'+money(x.price*x.qty)+'</div></div>').join("")+'<div class="totalbox"><strong>Product total</strong><strong>'+money(total)+'</strong></div><button class="primary" style="width:100%" onclick="openCheckout()">Continue to checkout</button><p class="paynote">The server calculates the payable amount from the product catalogue before creating the Paystack transaction.</p>'}
+function changeCartQty(i,n){cart[i].qty=Math.max(1,cart[i].qty+n);saveCart();renderCart()}
 function removeCart(i){cart.splice(i,1);saveCart();renderCart()}
-function openCheckout(){
- closeModal("cartModal");
- if(!cart.length){toast("Your cart is empty");return}
- const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
- document.getElementById("checkoutContent").innerHTML=`
-  <div class="notice"><strong>Order total: ${money(total)}</strong><br>Final mattress price may change after confirming the selected size/variant.</div>
-  <div class="field"><label>Full name</label><input id="custName" placeholder="Your full name"></div>
-  <div class="field"><label>Email address</label><input id="custEmail" type="email" placeholder="you@example.com"></div>
-  <div class="field"><label>Phone number</label><input id="custPhone" placeholder="080..."></div>
-  <div class="field"><label>State</label><input id="custState" placeholder="e.g. Kano"></div>
-  <div class="field"><label>City</label><input id="custCity" placeholder="e.g. Kano Municipal"></div>
-  <div class="field"><label>Delivery address</label><textarea id="custAddress" rows="3" placeholder="Full delivery address"></textarea></div>
-  <button class="primary" style="width:100%" onclick="submitOrder()">Pay with Paystack</button>
-  <p class="small" style="margin-top:12px">You will be redirected to Paystack's secure checkout. Your order is only marked paid after server-side verification.</p>`;
- openModal("checkoutModal");
-}
-async function submitOrder(){
- const name=document.getElementById("custName").value.trim();
- const email=document.getElementById("custEmail").value.trim();
- const phone=document.getElementById("custPhone").value.trim();
- const state=document.getElementById("custState").value.trim();
- const city=document.getElementById("custCity").value.trim();
- const address=document.getElementById("custAddress").value.trim();
- if(!name||!email||!phone||!state||!city||!address){toast("Please complete your details");return}
- const btn=document.querySelector('#checkoutContent .primary');
- if(btn){btn.disabled=true;btn.textContent='Connecting to Paystack…'}
- try{
-   const response=await fetch('/api/paystack/initialize',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-     customer:{name,email,phone,state,city,address},
-     items:cart.map(x=>({id:x.id,size:x.size,qty:x.qty}))
-   })});
-   const data=await response.json();
-   if(!response.ok||!data.authorization_url){throw new Error(data.message||'Unable to initialize payment')}
-   window.location.href=data.authorization_url;
- }catch(err){
-   toast(err.message||'Payment could not be started');
-   if(btn){btn.disabled=false;btn.textContent='Pay with Paystack'}
- }
-}
-document.getElementById("openCart").onclick=()=>{renderCart();openModal("cartModal")};
-document.getElementById("search").addEventListener("input",renderProducts);
-categories();renderProducts();renderCartCount();
+function openCheckout(){closeModal("cartModal");if(!cart.length){toast("Your cart is empty");return}const total=cart.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById("checkoutContent").innerHTML='<div class="notice"><strong>Order total: '+money(total)+'</strong><br>Final product availability and any size-specific adjustment will be confirmed before fulfilment.</div><div class="field"><label>Full name</label><input id="custName" autocomplete="name" placeholder="Your full name"></div><div class="field"><label>Email address</label><input id="custEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Phone number</label><input id="custPhone" autocomplete="tel" placeholder="080..."></div><div class="field"><label>State</label><input id="custState" autocomplete="address-level1" placeholder="e.g. Kano"></div><div class="field"><label>City</label><input id="custCity" autocomplete="address-level2" placeholder="e.g. Kano Municipal"></div><div class="field"><label>Delivery address</label><textarea id="custAddress" rows="3" autocomplete="street-address" placeholder="Full delivery address"></textarea></div><button class="primary" style="width:100%" onclick="submitOrder()">Pay securely with Paystack</button><p class="paynote">Paystack payment is initialized on the server and verified after checkout. Your secret key is never stored in this page.</p>';openModal("checkoutModal")}
+async function submitOrder(){const name=document.getElementById("custName").value.trim(),email=document.getElementById("custEmail").value.trim(),phone=document.getElementById("custPhone").value.trim(),state=document.getElementById("custState").value.trim(),city=document.getElementById("custCity").value.trim(),address=document.getElementById("custAddress").value.trim();if(!name||!email||!phone||!state||!city||!address){toast("Please complete your details");return}const btn=document.querySelector("#checkoutContent .primary");btn.disabled=true;btn.textContent="Connecting to Paystack…";try{const response=await fetch("/api/paystack/initialize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({customer:{name,email,phone,state,city,address},items:cart.map(x=>({id:x.id,size:x.size,qty:x.qty}))})});const data=await response.json();if(!response.ok||!data.authorization_url)throw new Error(data.message||"Unable to initialize payment");sessionStorage.setItem("jaman_pending_reference",data.reference||"");window.location.href=data.authorization_url}catch(err){toast("Online checkout is not configured yet. Opening the Jaman payment page…");setTimeout(()=>{window.location.href=FALLBACK_PAYMENT_URL},900)}}
+document.getElementById("openCart").onclick=()=>{renderCart();openModal("cartModal")};document.getElementById("search").addEventListener("input",renderProducts);categories();renderProducts();renderCartCount();
 </script>
 </body></html>
