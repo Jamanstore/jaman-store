@@ -27,7 +27,7 @@ let total=0;const normalized=[];
 for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
 if(!p||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
-const size=String(item.size||"");
+const size=String(item.size||"").replace(/″/g,'"');
 if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
 total+=p.price*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:p.price});
 }
