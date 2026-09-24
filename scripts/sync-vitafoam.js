@@ -14,11 +14,11 @@ const headers = {
 };
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const clean = v => String(v || "").replace(/\\s+/g, " ").trim();
+const clean = v => String(v || "").replace(/\s+/g, " ").trim();
 const slugify = v => clean(v).toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 
 function parsePrice(text) {
-  const m = clean(text).replace(/,/g,"").match(/(?:₦|NGN)\\s*([0-9]+(?:\\.[0-9]+)?)/i);
+  const m = clean(text).replace(/,/g,"").match(/(?:₦|NGN)\s*([0-9]+(?:\.[0-9]+)?)/i);
   return m ? Number(m[1]) : 0;
 }
 
@@ -35,12 +35,14 @@ function categoryName(text) {
 async function getJson(path) {
   const r = await fetch(SUPABASE_URL + path, {headers});
   if (!r.ok) throw new Error(`Supabase GET ${path} failed: ${r.status} ${await r.text()}`);
-  return r.json();
+  const text = await r.text();
+  return text ? JSON.parse(text) : [];
 }
 
-async function patch(path, body, method="PATCH") {
+async function patch(path, body, method="PATCH", preferRepresentation=false) {
+  const requestHeaders = preferRepresentation ? {...headers, Prefer:"return=representation"} : headers;
   const r = await fetch(SUPABASE_URL + path, {
-    method, headers,
+    method, headers:requestHeaders,
     body: JSON.stringify(body)
   });
   if (!r.ok) throw new Error(`Supabase ${method} ${path} failed: ${r.status} ${await r.text()}`);
@@ -48,7 +50,7 @@ async function patch(path, body, method="PATCH") {
 }
 
 async function main() {
-  const run = await patch("/rest/v1/catalog_sync_runs", {source:"vitafoam", status:"running"}, "POST");
+  const run = await patch("/rest/v1/catalog_sync_runs", {source:"vitafoam", status:"running"}, "POST", true);
   const runId = run[0]?.id;
 
   try {
@@ -56,6 +58,7 @@ async function main() {
     const categoryMap = new Map(categories.map(c => [c.name.toLowerCase(), c.id]));
     const existing = await getJson("/rest/v1/products?select=id,product_code,name,slug,price_naira,source_url,source_updated_at&limit=1000");
     const bySlug = new Map(existing.map(p => [p.slug, p]));
+    const bySourceUrl = new Map(existing.filter(p => p.source_url).map(p => [p.source_url.replace(/\/$/,""), p]));
 
     const products = new Map();
 
@@ -69,7 +72,7 @@ async function main() {
         const price = parsePrice(node.find(".price").first().text());
         if (!link || !name) return;
         const absolute = new URL(link, SOURCE).href.split("#")[0];
-        const key = absolute.replace(/\\/$/,"");
+        const key = absolute.replace(/\/$/,"");
         products.set(key, {name, price, url:absolute, cardCategory: clean(node.text())});
       });
     }
@@ -82,7 +85,8 @@ async function main() {
       const $ = cheerio.load(html);
 
       const name = clean($("h1.product_title, h1.entry-title").first().text()) || item.name;
-      const price = parsePrice($(".summary .price, p.price, .price").first().text()) || item.price;
+      const parsedPrice = parsePrice($(".summary .price, p.price, .price").first().text());
+      const price = parsedPrice > 0 ? parsedPrice : item.price;
       const description = clean($(".woocommerce-product-details__short-description, .short-description").first().text());
       const image = $("figure.woocommerce-product-gallery__wrapper img, .woocommerce-product-gallery img").first().attr("src") || "";
       const categoryText = clean($(".posted_in").text()) + " " + item.cardCategory;
@@ -91,27 +95,32 @@ async function main() {
       if (!categoryId) continue;
 
       const slug = slugify(name);
+      if (!(price > 0)) {
+        console.warn(`Skipping ${name}: no valid price was found.`);
+        continue;
+      }
+
       const body = {
         product_code: slug,
         name,
         slug,
         category_id: categoryId,
         description: description || null,
-        price_naira: price || 0,
+        price_naira: price,
         image_url: image || null,
         source_url: item.url,
         source_updated_at: new Date().toISOString(),
         active: true
       };
 
-      const current = bySlug.get(slug);
+      const current = bySourceUrl.get(item.url.replace(/\/$/,"")) || bySlug.get(slug);
       if (current) {
         await patch("/rest/v1/products?id=eq."+encodeURIComponent(current.id), body);
         updated++;
       } else {
-        const inserted = await patch("/rest/v1/products", body, "POST");
+        const inserted = await patch("/rest/v1/products", body, "POST", true);
         const row = inserted[0];
-        if (row) bySlug.set(slug, row);
+        if (row) { bySlug.set(slug, row); bySourceUrl.set(item.url.replace(/\/$/,""), row); }
         created++;
       }
     }
