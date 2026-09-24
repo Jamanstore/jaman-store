@@ -26,10 +26,16 @@ if(!validEmail(customer.email))return send(res,400,{status:false,message:"A vali
 if(!customer.name||!customer.phone||!customer.state||!customer.city||!customer.address)return send(res,400,{status:false,message:"Complete customer and delivery details are required."});
 if(!items.length)return send(res,400,{status:false,message:"Your cart is empty."});
 const CATALOG=await loadCatalog();
+    const variantResponse=await fetch(SUPABASE_URL+"/rest/v1/product_variants?select=product_id,label,price_naira&active=eq.true",{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}});
+    const variants=variantResponse.ok?await variantResponse.json():[];
+    const VARIANTS=new Map(variants.map(v=>[v.product_id+"|"+v.label,Number(v.price_naira||0)]));
 let total=0;const normalized=[];
 for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
 if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
+      const variantKey=Object.keys(CATALOG).find(k=>k===item.id);
+      const variantPrice=variantKey&&VARIANTS.get((item.id)+"|"+item.size);
+      const unitPrice=variantPrice>0?variantPrice:p.price;
 const size=String(item.size||"").replace(/″/g,'"');
 if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
 total+=p.price*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:p.price});
