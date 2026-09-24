@@ -65,9 +65,15 @@ footer{background:var(--navy)}
 .promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}.promo-card{min-height:190px;border:0;border-radius:10px;padding:25px;text-align:left;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 7px 24px #1018280d}.promo-card span{font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:8px}.promo-card strong{font-size:25px;letter-spacing:-.6px}.promo-card em{font-style:normal;font-size:13px;margin-top:8px;opacity:.82;line-height:1.45}.promo-blue{background:linear-gradient(135deg,#0b5cab,#0d76d8);color:#fff}.promo-dark{background:linear-gradient(135deg,#081827,#19344d);color:#fff}.promo-light{background:linear-gradient(135deg,#f1f5f8,#fff);color:#101828;border:1px solid #e1e7ee}.service-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dfe5ec;border:1px solid #dfe5ec;border-radius:8px;overflow:hidden;margin:24px 0 32px}.service-row>div{background:#fff;padding:18px}.service-row b{display:block;font-size:14px;margin-bottom:5px}.service-row span{font-size:12px;color:#667085;line-height:1.45}.collection-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 32px}.collection-grid button{border:1px solid #e1e7ee;background:#fff;border-radius:8px;padding:20px;text-align:left;cursor:pointer;min-height:150px;display:flex;flex-direction:column}.collection-grid b{font-size:19px}.collection-grid span{font-size:13px;color:#667085;line-height:1.5;margin:8px 0 15px}.collection-grid strong{margin-top:auto;color:#0b5cab;font-size:13px}.collection-grid button:hover{border-color:#b9cadb;box-shadow:0 7px 20px #1018280b}
 @media(max-width:900px){.promo-grid{grid-template-columns:1fr 1fr}.promo-card:last-child{grid-column:1/-1}.service-row{grid-template-columns:1fr 1fr}.collection-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.promo-grid{grid-template-columns:1fr}.promo-card:last-child{grid-column:auto}.promo-card{min-height:155px;padding:20px}.service-row{grid-template-columns:1fr}.collection-grid{grid-template-columns:1fr}}
+
+/* Final production polish */
+.skip-link{position:absolute;left:-9999px}.skip-link:focus{left:10px;top:10px;z-index:100;background:#fff;padding:10px;border-radius:6px}
+.header-tools{display:flex;align-items:center;gap:8px}.mobile-menu{display:none;border:1px solid #d8dee7;background:#fff;border-radius:6px;padding:10px;font-weight:800}
+.sticky-cart{display:none}
+@media(max-width:620px){.mobile-menu{display:block}.header-tools .cartbtn{padding:10px 12px}.sticky-cart{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:40;background:#081827;color:#fff;border-radius:10px;padding:10px;box-shadow:0 10px 30px #0003;align-items:center;justify-content:space-between}.sticky-cart button{background:#f2a900;color:#081827;border:0;border-radius:7px;padding:10px 14px;font-weight:900}.sticky-cart span{font-size:13px}}
 </style>
 </head>
-<body>
+<body><a class="skip-link" href="#shop">Skip to products</a>
 <div class="top">Jaman Store • VITAFOAM mattresses & pillows • Secure online checkout</div>
 <header><div class="nav">
 <a href="#" class="brand">JAMAN STORE<span class="tag">Operated by Jaman Business Company</span></a>
@@ -138,7 +144,7 @@ footer{background:var(--navy)}
 <div class="modal" id="productModal"><div class="sheet"><button class="close" onclick="closeModal('productModal')">×</button><div id="productContent"></div></div></div>
 <div class="modal" id="cartModal"><div class="sheet"><button class="close" onclick="closeModal('cartModal')">×</button><h2>Your cart</h2><div id="cartContent"></div></div></div>
 <div class="modal" id="checkoutModal"><div class="sheet"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Checkout</h2><div id="checkoutContent"></div></div></div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast"></div><div class="sticky-cart"><span><b id="stickyCartCount">0</b> item(s) in your cart</span><button onclick="document.getElementById('openCart').click()">View cart</button></div>
 <script>
 let PRODUCTS=[];
 let VARIANT_PRICES=new Map();
@@ -188,7 +194,7 @@ let cart=JSON.parse(localStorage.getItem("jaman_cart")||"[]"),activeCategory="Al
 const money=n=>"₦"+Number(n).toLocaleString("en-NG",{minimumFractionDigits:2,maximumFractionDigits:2});
 function getUnitPrice(p,size){const v=VARIANT_PRICES.get(p.dbId+"|"+size);return v>0?v:p.price}
 function saveCart(){localStorage.setItem("jaman_cart",JSON.stringify(cart));renderCartCount()}
-function renderCartCount(){document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0)}
+function renderCartCount(){const n=cart.reduce((s,x)=>s+x.qty,0);document.getElementById("cartCount").textContent=n;const sc=document.getElementById("stickyCartCount");if(sc)sc.textContent=n}
 function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
 function openModal(id){document.getElementById(id).classList.add("show")}
 function closeModal(id){document.getElementById(id).classList.remove("show")}
