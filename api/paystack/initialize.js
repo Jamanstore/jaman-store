@@ -33,9 +33,9 @@ let total=0;const normalized=[];
 for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
 if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
-      const variantKey=Object.keys(CATALOG).find(k=>k===item.id);
-      const variantPrice=variantKey&&VARIANTS.get((item.id)+"|"+item.size);
-      const unitPrice=variantPrice>0?variantPrice:p.price;
+      const catalogItem=CATALOG[item.id];
+const variantPrice=catalogItem&&VARIANTS.get(catalogItem.dbId+"|"+item.size);
+const unitPrice=variantPrice>0?variantPrice:p.price;
 const size=String(item.size||"").replace(/″/g,'"');
 if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
 total+=unitPrice*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:unitPrice});
