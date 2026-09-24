@@ -34,10 +34,11 @@ for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
 if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
       const catalogItem=CATALOG[item.id];
-const variantPrice=catalogItem&&VARIANTS.get(catalogItem.dbId+"|"+item.size);
+const size=String(item.size||"").replace(/[″”]/g,'"').trim();
+const normalizedSizes=p.sizes.map(s=>String(s).replace(/[″”]/g,'"').trim());
+if(!normalizedSizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
+const variantPrice=catalogItem&&VARIANTS.get(catalogItem.dbId+"|"+size);
 const unitPrice=variantPrice>0?variantPrice:p.price;
-const size=String(item.size||"").replace(/″/g,'"');
-if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
 total+=unitPrice*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:unitPrice});
 }
 const amount=Math.round(total*100),reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase(),callback=siteUrl(req)+"/payment-success.html";
