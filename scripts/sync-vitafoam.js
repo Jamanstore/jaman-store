@@ -8,8 +8,8 @@ const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!SUPABASE_URL || !SERVICE_KEY) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required.");
 
 const headers = {
+  // Supabase current secret keys (sb_secret_...) are sent via the apikey header.
   apikey: SERVICE_KEY,
-  Authorization: `Bearer ${SERVICE_KEY}`,
   "Content-Type": "application/json"
 };
 
