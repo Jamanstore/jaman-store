@@ -55,16 +55,20 @@ const FALLBACK_PAYMENT_URL="https://paystack.shop/pay/jamanbusinesscompany";
 async function loadProducts(){
   const headers={apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY};
   try{
-    const [productsRes,imagesRes]=await Promise.all([
+    const [productsRes,imagesRes,variantsRes]=await Promise.all([
       fetch(SUPABASE_URL+"/rest/v1/products?select=id,product_code,name,price_naira,image_url,description,sizes,features,max_user_weight_kg,categories(name)&active=eq.true&order=name.asc",{headers}),
-      fetch(SUPABASE_URL+"/rest/v1/product_images?select=product_id,image_url,sort_order&order=sort_order.asc",{headers})
+      fetch(SUPABASE_URL+"/rest/v1/product_images?select=product_id,image_url,sort_order&order=sort_order.asc",{headers}),
+      fetch(SUPABASE_URL+"/rest/v1/product_variants?select=product_id,label,price_naira&active=eq.true",{headers})
     ]);
     if(!productsRes.ok) throw new Error("Unable to load the Jaman Store catalogue.");
     const rows=await productsRes.json();
     const images=imagesRes.ok?await imagesRes.json():[];
+    const variants=variantsRes.ok?await variantsRes.json():[];
+    VARIANT_PRICES=new Map(variants.map(v=>[v.product_id+"|"+v.label,Number(v.price_naira||0)]));
     const firstImage=new Map();
     for(const img of images) if(!firstImage.has(img.product_id)) firstImage.set(img.product_id,img.image_url);
     PRODUCTS=rows.map(p=>({
+      dbId:p.id,
       id:p.product_code,
       name:p.name,
       category:(p.categories&&p.categories.name)||"Other",
