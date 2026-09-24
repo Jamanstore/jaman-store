@@ -20,13 +20,29 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 @media(max-width:620px){.nav{flex-wrap:wrap}.brand{width:100%}.search{order:3;width:100%}.grid{grid-template-columns:1fr 1fr;gap:10px}.pic{height:175px}.body{padding:12px}.name{font-size:16px}.desc{font-size:12px}.price{font-size:17px}.card-actions{flex-direction:column}.hero{padding:35px 16px}.hero-card{display:none}.product-view{grid-template-columns:1fr}.product-view .pic{height:250px}.cartline{grid-template-columns:1fr auto}.cartline>.outline{grid-column:2}.sheet{padding:18px}.hero h1{letter-spacing:-1.8px}}
 @media(max-width:620px){.hero h1{font-size:42px}.category-cards{grid-template-columns:repeat(2,1fr)}.filterbar{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pic{height:185px}}
 .category-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0}.category-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;min-height:112px;text-align:left}.category-card b{display:block;font-size:16px;margin-bottom:6px}.category-card span{font-size:12px;color:var(--muted)}.category-card:hover{border-color:var(--blue);transform:translateY(-2px)}.filterbar{display:grid;grid-template-columns:1fr 180px;gap:10px;margin:18px 0}.filterbar select{border:1px solid #ccd3dd;border-radius:10px;padding:11px;background:#fff;font:inherit}.badge{display:inline-flex;align-items:center;background:#eef5ff;color:var(--blue);padding:5px 8px;border-radius:999px;font-size:11px;font-weight:850;margin-top:7px}.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.hero-categories{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.hero-categories button{border:1px solid #d9e5f7;background:#fff;color:var(--blue);border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer}.trust{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.trust b{display:block;margin-bottom:4px}.trust span{font-size:12px;color:var(--muted)}
+
+/* Storefront refinement: category-led navigation, richer merchandising blocks and responsive product browsing */
+.desktop-nav{display:flex;gap:6px;align-items:center}.desktop-nav a{padding:9px 10px;border-radius:9px;font-size:13px;font-weight:800;color:#344054}.desktop-nav a:hover{background:#f2f6fb;color:var(--blue)}
+.category-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0 28px}.category-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;min-height:112px;text-align:left;transition:.18s}.category-card b{display:block;font-size:16px;margin-bottom:6px}.category-card span{font-size:12px;color:var(--muted)}.category-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 24px #10182810}
+.filterbar{display:grid;grid-template-columns:1fr 190px;gap:10px;margin:18px 0}.filterbar select{border:1px solid #ccd3dd;border-radius:10px;padding:11px;background:#fff;font:inherit}
+.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.trust{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.trust b{display:block;margin-bottom:4px}.trust span{font-size:12px;color:var(--muted);line-height:1.45}
+.pic{background:#f7f9fc}.pic img{object-fit:contain;padding:10px}.card:hover{transform:translateY(-2px);box-shadow:0 10px 28px #10182812}.card{transition:.18s}
+@media(max-width:1000px){.desktop-nav{display:none}.category-cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.category-cards{grid-template-columns:repeat(2,1fr);gap:9px}.category-card{padding:14px;min-height:96px}.trust-strip{grid-template-columns:1fr 1fr}.filterbar{grid-template-columns:1fr}.search input{font-size:14px}.pic img{padding:6px}}
 </style>
 </head>
 <body>
 <div class="top">Jaman Store • VITAFOAM mattresses & pillows • Secure online checkout</div>
 <header><div class="nav">
 <a href="#" class="brand">JAMAN STORE<span class="tag">Operated by Jaman Business Company</span></a>
-<div class="search"><input id="search" aria-label="Search products" placeholder="Search mattresses, pillows..."></div>
+<nav class="desktop-nav" aria-label="Store categories">
+<a href="#shop" onclick="setCategory('All')">Shop All</a>
+<a href="#shop" onclick="setCategory('Mattresses')">Mattresses</a>
+<a href="#shop" onclick="setCategory('Pillows')">Pillows</a>
+<a href="#shop" onclick="setCategory('Furniture')">Furniture</a>
+<a href="#shop" onclick="setCategory('Bedding')">Bedding</a>
+</nav>
+<div class="search"><input id="search" aria-label="Search products" placeholder="Search mattresses, pillows, furniture..."></div>
 <button class="cartbtn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
 </div></header>
 <section class="hero"><div class="hero-inner"><div>
@@ -34,13 +50,31 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 <h1>Comfort starts with the right choice.</h1>
 <p>Shop selected VITAFOAM mattresses and pillows through Jaman Store. Choose your size, add to cart and continue to secure online payment.</p>
 <div class="hero-categories"><button onclick="setCategory('Mattresses');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Mattresses</button><button onclick="setCategory('Pillows');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Pillows</button><button onclick="setCategory('Furniture');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Furniture</button><button onclick="setCategory('Bedding');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Bedding</button></div><div class="hero-actions"><button class="primary" onclick="document.getElementById('shop').scrollIntoView()">Shop products</button><a class="outline" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 16px" href="mailto:Jamanbusinesscompany@gmail.com?subject=Jaman%20Store%20product%20enquiry">Contact support</a></div>
-</div><div class="hero-card"><strong>Shop with confidence</strong><ul><li>VITAFOAM product catalogue</li><li>Mattress size selection</li><li>Cart and order summary</li><li>Secure Paystack checkout</li><li>Payment verification</li></ul></div></div></section>
+</div><div class="hero-card"><strong>Shop with confidence</strong><ul><li>Full VITAFOAM catalogue</li><li>Mattresses, pillows, furniture & more</li><li>Mattress size selection</li><li>Cart and order summary</li><li>Secure Paystack checkout</li></ul></div></div></section>
 <main id="shop">
 <div class="chips" id="chips"></div>
+<div class="section-head"><h2>Shop by category</h2><span>Browse the full VITAFOAM range</span></div>
+<div class="category-cards" id="categoryCards"></div>
+<div class="trust-strip">
+<div class="trust"><b>Genuine VITAFOAM range</b><span>Catalogue data is synced from the official VITAFOAM shop.</span></div>
+<div class="trust"><b>Secure Paystack checkout</b><span>Payment is initialized and verified securely on the server.</span></div>
+<div class="trust"><b>Size-aware shopping</b><span>Choose mattress sizes and request exact variant pricing where needed.</span></div>
+<div class="trust"><b>Delivery confirmation</b><span>Availability, delivery timing and charges are confirmed before fulfilment.</span></div>
+</div>
 <div class="section-head"><h2 id="catalogTitle">Featured products</h2><span id="resultCount"></span></div>
+<div class="filterbar">
+<input id="searchMirror" class="field" aria-label="Filter products" placeholder="Filter this catalogue..." style="margin:0;width:100%;padding:11px;border:1px solid #ccd3dd;border-radius:10px;font:inherit">
+<select id="sort" aria-label="Sort products">
+<option value="featured">Featured / catalogue order</option>
+<option value="price-low">Price: low to high</option>
+<option value="price-high">Price: high to low</option>
+<option value="name">Name: A–Z</option>
+</select>
+</div>
 <section class="grid" id="grid"></section>
 <div class="quick-links"><div class="quick"><b>Need help choosing?</b><span>Send the product name and preferred mattress size to Jaman Store for assistance.</span></div><div class="quick"><b>Online payment</b><span>Checkout is initialized securely on the server. Your Paystack secret key is never exposed in the browser.</span></div><div class="quick"><b>Delivery</b><span>Delivery timing and charges are confirmed with you before fulfilment, based on destination and product.</span></div></div>
 <div class="notice"><strong>Payment & price note:</strong> Prices marked “From” are starting prices. Where Jaman Store has a verified variant price, selecting that size updates the price. Otherwise, the exact size price should be confirmed before payment. The server re-checks catalogue pricing at checkout.</div>
+<div class="notice"><strong>VITAFOAM catalogue updates</strong><p class="small">Jaman Store is designed to keep product names, published starting prices and official product links aligned with the VITAFOAM catalogue. Variant prices are only shown when verified.</p></div>
 <div class="notice"><strong>Bank transfer option</strong><p class="small">Bank transfer can be supported for orders. Please contact Jaman Store for the current transfer instructions and send your payment evidence with your order details.</p></div>
 </main>
 <footer><div class="foot"><div><h3>Jaman Store</h3><p>Operated by Jaman Business Company. Starting with selected VITAFOAM products and designed to expand to other trusted brands.</p></div><div><h3>Customer support</h3><p><a href="mailto:Jamanbusinesscompany@gmail.com">Jamanbusinesscompany@gmail.com</a></p><p>Contact us by email for product, delivery and payment assistance.</p></div><div><h3>Payment</h3><p>Secure online payment is started from your cart using the current Jaman Store Paystack checkout. Bank transfer is available for supported orders.</p><p><strong>Add your products to the cart and use “Continue to checkout” to pay securely.</strong></p></div></div><div class="copyright">© 2026 Jaman Store. All rights reserved.</div></footer>
