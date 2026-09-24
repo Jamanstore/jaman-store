@@ -29,6 +29,37 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 .pic{background:#f7f9fc}.pic img{object-fit:contain;padding:10px}.gallery-wrap{display:flex;flex-direction:column;gap:10px}.gallery-main{height:330px!important;border-radius:16px}.gallery-thumbs{display:flex;gap:8px;overflow:auto}.gallery-thumbs button{width:62px;height:62px;padding:3px;border:1px solid var(--line);border-radius:9px;background:#fff;cursor:pointer;flex:0 0 auto}.gallery-thumbs img{width:100%;height:100%;object-fit:contain}.card:hover{transform:translateY(-2px);box-shadow:0 10px 28px #10182812}.card{transition:.18s}
 @media(max-width:1000px){.desktop-nav{display:none}.category-cards{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.category-cards{grid-template-columns:repeat(2,1fr);gap:9px}.category-card{padding:14px;min-height:96px}.trust-strip{grid-template-columns:1fr 1fr}.filterbar{grid-template-columns:1fr}.search input{font-size:14px}.pic img{padding:6px}}
+
+/* Premium Jaman retail layer — inspired by modern Nigerian multi-category storefront patterns */
+:root{--blue:#0b5cab;--navy:#081827;--accent:#f2a900;--soft:#f5f7fa;--line:#e2e7ee}
+body{background:#f7f8fa;color:#101828}
+.top{background:var(--navy);font-size:12px;letter-spacing:.1px}
+header{padding:0 16px;height:76px;display:flex;align-items:center}
+.nav{width:100%;gap:18px}.brand{font-size:23px;min-width:190px}.tag{font-weight:500}
+.desktop-nav{gap:2px}.desktop-nav a{padding:10px 12px;color:#344054}
+.search input{border-radius:6px;background:#f6f8fa;border-color:#d8dee7}
+.cartbtn{border-radius:6px;background:var(--navy);padding:12px 18px}
+.hero{padding:0;background:#eef4f9;border-bottom:1px solid var(--line)}
+.hero-inner{min-height:450px;grid-template-columns:1.05fr .95fr;gap:0}
+.hero-inner>div:first-child{padding:58px 20px 58px 0}
+.eyebrow{background:#fff;border:0;color:var(--blue);border-radius:4px;text-transform:uppercase;letter-spacing:.6px}
+.hero h1{font-size:clamp(42px,5.2vw,68px);letter-spacing:-3px;margin:18px 0 16px}
+.hero p{font-size:17px;max-width:590px}.hero-card{border:0;border-radius:0 0 0 28px;min-height:390px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#fff,#edf3f8);box-shadow:none}
+.hero-card:after{content:"JAMAN";font-size:120px;font-weight:950;letter-spacing:-8px;color:#0b5cab0b;position:absolute;right:25px;bottom:8px;pointer-events:none}
+.hero-actions .primary{border-radius:6px;padding:14px 22px}.hero-categories button{border-radius:5px}
+main{padding-top:18px}.chips{padding:8px 0 14px}.chip{border-radius:5px;padding:9px 14px}
+.section-head{margin:28px 0 15px}.section-head h2{font-size:26px;letter-spacing:-.5px}
+.category-cards{gap:10px}.category-card{border-radius:8px;min-height:106px;padding:16px;background:#fff}.category-card:hover{border-color:#c7d5e4;transform:translateY(-1px)}
+.trust-strip{gap:10px}.trust{border-radius:8px}
+.filterbar{grid-template-columns:1fr 210px}.filterbar input,.filterbar select{border-radius:6px!important}
+.grid{gap:14px}.card{border-radius:8px;box-shadow:0 2px 10px #1018280b}.card:hover{box-shadow:0 8px 24px #10182814}
+.pic{height:235px;background:#fff}.pic img{padding:14px}.body{padding:15px}.cat{font-size:11px;letter-spacing:.4px}.name{font-size:17px}.price{font-size:19px}.add{border-radius:6px}.outline{border-radius:6px}
+.badge{background:#edf5ff;border-radius:4px}
+.quick-links,.notice{border-radius:8px}
+footer{background:var(--navy)}
+.mobile-callout{display:none}
+@media(max-width:900px){header{height:auto;padding:12px 16px}.hero-inner{min-height:auto}.hero-inner>div:first-child{padding:44px 0}.hero-card{display:flex;min-height:300px}.desktop-nav{display:none}}
+@media(max-width:620px){.brand{width:auto;min-width:0}.nav{gap:8px}.hero-inner{grid-template-columns:1fr}.hero-card{display:none}.hero-inner>div:first-child{padding:38px 0}.hero h1{font-size:43px}.pic{height:180px}.body{padding:11px}.name{font-size:15px}.card-actions{flex-direction:column}.mobile-callout{display:block;margin:18px 0;padding:16px;background:#101828;color:#fff;border-radius:8px}.mobile-callout b{display:block;margin-bottom:4px}.mobile-callout span{font-size:12px;color:#d0d5dd}}
 </style>
 </head>
 <body>
@@ -52,6 +83,8 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 <div class="hero-categories"><button onclick="setCategory('Mattresses');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Mattresses</button><button onclick="setCategory('Pillows');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Pillows</button><button onclick="setCategory('Furniture');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Furniture</button><button onclick="setCategory('Bedding');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Bedding</button></div><div class="hero-actions"><button class="primary" onclick="document.getElementById('shop').scrollIntoView()">Shop products</button><a class="outline" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 16px" href="mailto:Jamanbusinesscompany@gmail.com?subject=Jaman%20Store%20product%20enquiry">Contact support</a></div>
 </div><div class="hero-card"><strong>Shop with confidence</strong><ul><li>Full VITAFOAM catalogue</li><li>Mattresses, pillows, furniture & more</li><li>Mattress size selection</li><li>Cart and order summary</li><li>Secure Paystack checkout</li></ul></div></div></section>
 <main id="shop">
+<div class="mobile-callout"><b>Shop VITAFOAM with Jaman Store</b><span>Mattresses, pillows, furniture, bedding and everyday comfort products — all in one place.</span></div>
+
 <div class="chips" id="chips"></div>
 <div class="section-head"><h2>Shop by category</h2><span>Browse the full VITAFOAM range</span></div>
 <div class="category-cards" id="categoryCards"></div>
