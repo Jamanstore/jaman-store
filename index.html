@@ -47,21 +47,42 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 <div class="modal" id="checkoutModal"><div class="sheet"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Checkout</h2><div id="checkoutContent"></div></div></div>
 <div class="toast" id="toast"></div>
 <script>
-const PRODUCTS=[
-{id:"corona",name:"Vita Corona",category:"Mattresses",price:33468.08,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Corona-100x100.jpg",description:"Medium-density mattress with tape-edged textile covering. Suitable for users up to 70kg.",sizes:["6 × 4 × 8\″","6 × 5 × 8\″","6 × 6 × 8\″","6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 10\″","6 × 7 × 12\″"]},
-{id:"grand",name:"Vita Grand",category:"Mattresses",price:86106.70,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/THES9041-350x233.jpg",description:"Medium-density mattress with quilted damask fabric and tape edging.",sizes:["6 × 4.5 × 10\″","6 × 5 × 10\″","6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 10\″","6 × 7 × 12\″"]},
-{id:"haven",name:"Vita Haven Mattress",category:"Mattresses",price:105068.12,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vita-Haven-100x100.jpg",description:"Soft, contouring mattress with high-quality fabric. Suitable for users up to 100kg.",sizes:["6 × 4 × 8\″","6 × 4.5 × 10\″","6 × 5 × 10\″","6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 12\″"]},
-{id:"shine",name:"Vita Shine Mattress",category:"Mattresses",price:29535.36,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/Vita-Shine3%402x-scaled-350x350.jpg",description:"Low-density, hypoallergenic mattress for students, hostels and lightweight sleepers.",sizes:["6 × 3 × 6\″","6 × 3 × 8\″","6 × 4 × 8\″","6 × 5 × 8\″","6 × 6 × 8\″"]},
-{id:"supreme",name:"Vita Supreme",category:"Mattresses",price:133842.29,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/vita-supreme%402x-scaled-350x350.jpg",description:"High-density mattress designed for balanced comfort and support.",sizes:["6 × 4.5 × 10\″","6 × 5 × 10\″","6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 12\″"]},
-{id:"galaxy-classic",name:"Vita Galaxy Classic",category:"Mattresses",price:168109.16,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/VITAGALAXY-CLASSIC-100x100.jpg",description:"Premium VITAFOAM mattress. Confirm size and final price before payment.",sizes:["6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 10\″","6 × 7 × 12\″"]},
-{id:"galaxy-orthopedic",name:"Vita Galaxy Orthopedic",category:"Mattresses",price:206776.10,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/GALAXY-ORTHOPAEDIC-1-100x100.jpg",description:"Orthopedic mattress range. Confirm size and final price before payment.",sizes:["6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 10\″","6 × 7 × 12\″"]},
-{id:"spring-flex",name:"Vita Spring Flex",category:"Mattresses",price:165637.11,image:"https://www.vitafoamng.com/wp-content/uploads/2021/11/spring-flex%402x-scaled-100x100.jpg",description:"Spring-flex mattress range. Confirm size and final price before payment.",sizes:["6 × 6 × 10\″","6 × 6 × 12\″","6 × 7 × 10\″","6 × 7 × 12\″"]},
-{id:"cool-plus",name:"Cool Plus Pillow",category:"Pillows",price:54080.85,image:"https://www.vitafoamng.com/wp-content/uploads/2026/07/Cool-Plus-Memory-Pillow-3-350x307.jpeg",description:"Memory pillow range. Confirm availability before payment.",sizes:["Standard"]},
-{id:"vitacool",name:"Vitacool Memory Pillow",category:"Pillows",price:24735.41,image:"https://www.vitafoamng.com/wp-content/uploads/2021/12/Vitafoam-Vitacool-memory-pillow-100x100.jpg",description:"Memory pillow with therapeutic support and a soft feel.",sizes:["Standard"]},
-{id:"vita-quilted",name:"Vita Quilted",category:"Pillows",price:10490.64,image:"",description:"Quilted fibre pillow designed for durability and comfort.",sizes:["Standard"]},
-{id:"flamingo",name:"Flamingo",category:"Pillows",price:11249.04,image:"",description:"VITAFOAM fibre pillow. Product image will be updated when a stable official image is available.",sizes:["Standard"]}
-];
+let PRODUCTS=[];
+const SUPABASE_URL="https://ilzeavaseohrbmprditr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_3RYoXu_OVN6YtmLg1dolvA_mSugdq-O";
 const FALLBACK_PAYMENT_URL="https://paystack.shop/pay/jamanbusinesscompany";
+
+async function loadProducts(){
+  const headers={apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY};
+  try{
+    const [productsRes,imagesRes]=await Promise.all([
+      fetch(SUPABASE_URL+"/rest/v1/products?select=id,product_code,name,price_naira,image_url,description,sizes,features,max_user_weight_kg,categories(name)&active=eq.true&order=name.asc",{headers}),
+      fetch(SUPABASE_URL+"/rest/v1/product_images?select=product_id,image_url,sort_order&order=sort_order.asc",{headers})
+    ]);
+    if(!productsRes.ok) throw new Error("Unable to load the Jaman Store catalogue.");
+    const rows=await productsRes.json();
+    const images=imagesRes.ok?await imagesRes.json():[];
+    const firstImage=new Map();
+    for(const img of images) if(!firstImage.has(img.product_id)) firstImage.set(img.product_id,img.image_url);
+    PRODUCTS=rows.map(p=>({
+      id:p.product_code,
+      name:p.name,
+      category:(p.categories&&p.categories.name)||"Other",
+      price:Number(p.price_naira||0),
+      image:p.image_url||firstImage.get(p.id)||"",
+      description:p.description||"VITAFOAM product. Product specifications are shown where published.",
+      sizes:Array.isArray(p.sizes)&&p.sizes.length?p.sizes:["Standard"],
+      features:Array.isArray(p.features)?p.features:[],
+      maxUserWeightKg:p.max_user_weight_kg
+    }));
+    categories();
+    renderProducts();
+  }catch(err){
+    console.error("Catalogue load error",err);
+    document.getElementById("resultCount").textContent="Catalogue could not be loaded";
+    document.getElementById("grid").innerHTML='<div class="notice" style="grid-column:1/-1"><strong>We could not load the live catalogue.</strong><br>Please refresh the page. If the problem continues, contact Jaman Store.</div>';
+  }
+}
 let cart=JSON.parse(localStorage.getItem("jaman_cart")||"[]"),activeCategory="All";
 const money=n=>"₦"+Number(n).toLocaleString("en-NG",{minimumFractionDigits:2,maximumFractionDigits:2});
 function saveCart(){localStorage.setItem("jaman_cart",JSON.stringify(cart));renderCartCount()}
@@ -83,6 +104,6 @@ function changeCartQty(i,n){cart[i].qty=Math.max(1,cart[i].qty+n);saveCart();ren
 function removeCart(i){cart.splice(i,1);saveCart();renderCart()}
 function openCheckout(){closeModal("cartModal");if(!cart.length){toast("Your cart is empty");return}const total=cart.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById("checkoutContent").innerHTML='<div class="notice"><strong>Order total: '+money(total)+'</strong><br>Final product availability and any size-specific adjustment will be confirmed before fulfilment.</div><div class="field"><label>Full name</label><input id="custName" autocomplete="name" placeholder="Your full name"></div><div class="field"><label>Email address</label><input id="custEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Phone number</label><input id="custPhone" autocomplete="tel" placeholder="080..."></div><div class="field"><label>State</label><input id="custState" autocomplete="address-level1" placeholder="e.g. Kano"></div><div class="field"><label>City</label><input id="custCity" autocomplete="address-level2" placeholder="e.g. Kano Municipal"></div><div class="field"><label>Delivery address</label><textarea id="custAddress" rows="3" autocomplete="street-address" placeholder="Full delivery address"></textarea></div><button class="primary" style="width:100%" onclick="submitOrder()">Pay securely with Paystack</button><p class="paynote">Paystack payment is initialized on the server and verified after checkout. Your secret key is never stored in this page.</p>';openModal("checkoutModal")}
 async function submitOrder(){const name=document.getElementById("custName").value.trim(),email=document.getElementById("custEmail").value.trim(),phone=document.getElementById("custPhone").value.trim(),state=document.getElementById("custState").value.trim(),city=document.getElementById("custCity").value.trim(),address=document.getElementById("custAddress").value.trim();if(!name||!email||!phone||!state||!city||!address){toast("Please complete your details");return}const btn=document.querySelector("#checkoutContent .primary");btn.disabled=true;btn.textContent="Connecting to Paystack…";try{const response=await fetch("/api/paystack/initialize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({customer:{name,email,phone,state,city,address},items:cart.map(x=>({id:x.id,size:x.size,qty:x.qty}))})});const data=await response.json();if(!response.ok||!data.authorization_url)throw new Error(data.message||"Unable to initialize payment");sessionStorage.setItem("jaman_pending_reference",data.reference||"");window.location.href=data.authorization_url}catch(err){console.error("Paystack checkout error",err);btn.disabled=false;btn.textContent="Pay securely with Paystack";toast(err&&err.message?err.message:"Paystack checkout could not be started. Please try again.");}}
-document.getElementById("openCart").onclick=()=>{renderCart();openModal("cartModal")};document.getElementById("search").addEventListener("input",renderProducts);window.addEventListener("pageshow",()=>{const btn=document.querySelector("#checkoutContent .primary");if(btn){btn.disabled=false;btn.textContent="Pay securely with Paystack"}});categories();renderProducts();renderCartCount();
+document.getElementById("openCart").onclick=()=>{renderCart();openModal("cartModal")};document.getElementById("search").addEventListener("input",renderProducts);window.addEventListener("pageshow",()=>{const btn=document.querySelector("#checkoutContent .primary");if(btn){btn.disabled=false;btn.textContent="Pay securely with Paystack"}});renderCartCount();loadProducts();
 </script>
 </body></html>
