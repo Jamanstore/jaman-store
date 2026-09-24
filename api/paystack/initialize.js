@@ -3,14 +3,14 @@ const SUPABASE_PUBLISHABLE_KEY="sb_publishable_3RYoXu_OVN6YtmLg1dolvA_mSugdq-O";
 
 async function loadCatalog(){
   const response=await fetch(
-    SUPABASE_URL+"/rest/v1/products?select=product_code,name,price_naira,sizes&active=eq.true",
+    SUPABASE_URL+"/rest/v1/products?select=id,product_code,name,price_naira,sizes&active=eq.true",
     {headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}}
   );
   if(!response.ok) throw new Error("Unable to load the current Jaman Store catalogue.");
   const rows=await response.json();
   return Object.fromEntries(rows.map(p=>[
     p.product_code,
-    {name:p.name,price:Number(p.price_naira||0),sizes:Array.isArray(p.sizes)?p.sizes:[]}
+    {dbId:p.id,name:p.name,price:Number(p.price_naira||0),sizes:Array.isArray(p.sizes)?p.sizes:[]}
   ]));
 }
 
@@ -38,7 +38,7 @@ if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{st
       const unitPrice=variantPrice>0?variantPrice:p.price;
 const size=String(item.size||"").replace(/″/g,'"');
 if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
-total+=p.price*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:p.price});
+total+=unitPrice*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:unitPrice});
 }
 const amount=Math.round(total*100),reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase(),callback=siteUrl(req)+"/payment-success.html";
 const metadata={order_reference:reference,order_total_kobo:amount,customer:{name:String(customer.name).trim(),phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:String(customer.city).trim(),address:String(customer.address).trim()},items:normalized};
