@@ -41,7 +41,7 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 <div class="notice"><strong>Payment & price note:</strong> Prices marked “From” are starting prices. Where Jaman Store has a verified variant price, selecting that size updates the price. Otherwise, the exact size price should be confirmed before payment. The server re-checks catalogue pricing at checkout.</div>
 <div class="notice"><strong>Bank transfer option</strong><p class="small">Bank transfer can be supported for orders. Please contact Jaman Store for the current transfer instructions and send your payment evidence with your order details.</p></div>
 </main>
-<footer><div class="foot"><div><h3>Jaman Store</h3><p>Operated by Jaman Business Company. Starting with selected VITAFOAM products and designed to expand to other trusted brands.</p></div><div><h3>Customer support</h3><p><a href="mailto:Jamanbusinesscompany@gmail.com">Jamanbusinesscompany@gmail.com</a></p><p>Contact us by email for product, delivery and payment assistance.</p></div><div><h3>Payment</h3><p>Secure online payment through Paystack, with bank transfer available for supported orders.</p><p><a href="https://paystack.shop/pay/jamanbusinesscompany" target="_blank" rel="noopener">Open online payment page</a></p></div></div><div class="copyright">© 2026 Jaman Store. All rights reserved.</div></footer>
+<footer><div class="foot"><div><h3>Jaman Store</h3><p>Operated by Jaman Business Company. Starting with selected VITAFOAM products and designed to expand to other trusted brands.</p></div><div><h3>Customer support</h3><p><a href="mailto:Jamanbusinesscompany@gmail.com">Jamanbusinesscompany@gmail.com</a></p><p>Contact us by email for product, delivery and payment assistance.</p></div><div><h3>Payment</h3><p>Secure online payment is started from your cart using the current Jaman Store Paystack checkout. Bank transfer is available for supported orders.</p><p><strong>Add your products to the cart and use “Continue to checkout” to pay securely.</strong></p></div></div><div class="copyright">© 2026 Jaman Store. All rights reserved.</div></footer>
 <div class="modal" id="productModal"><div class="sheet"><button class="close" onclick="closeModal('productModal')">×</button><div id="productContent"></div></div></div>
 <div class="modal" id="cartModal"><div class="sheet"><button class="close" onclick="closeModal('cartModal')">×</button><h2>Your cart</h2><div id="cartContent"></div></div></div>
 <div class="modal" id="checkoutModal"><div class="sheet"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Checkout</h2><div id="checkoutContent"></div></div></div>
@@ -50,7 +50,7 @@ footer{background:#0d1b2a;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 let PRODUCTS=[];\nlet VARIANT_PRICES=new Map();
 const SUPABASE_URL="https://ilzeavaseohrbmprditr.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_3RYoXu_OVN6YtmLg1dolvA_mSugdq-O";
-const FALLBACK_PAYMENT_URL="https://paystack.shop/pay/jamanbusinesscompany";
+
 
 async function loadProducts(){
   const headers={apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY};
