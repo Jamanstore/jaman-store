@@ -89,7 +89,14 @@ async function main() {
       const parsedPrice = parsePrice($(".summary .price, p.price, .price").first().text());
       const price = parsedPrice > 0 ? parsedPrice : item.price;
       const description = clean($(".woocommerce-product-details__short-description, .short-description").first().text());
-      const image = $("figure.woocommerce-product-gallery__wrapper img, .woocommerce-product-gallery img").first().attr("src") || "";
+      const galleryImages = [];
+$("figure.woocommerce-product-gallery__wrapper img, .woocommerce-product-gallery img").each((_, img) => {
+  const node = $(img);
+  const src = node.attr("data-large_image") || node.attr("data-src") || node.attr("src") || "";
+  if (src) galleryImages.push(new URL(src, item.url).href);
+});
+const uniqueImages = [...new Set(galleryImages)].slice(0, 8);
+const image = uniqueImages[0] || "";
       const categoryText = clean($(".posted_in").text()) + " " + item.cardCategory;
       const category = categoryName(categoryText);
       const categoryId = categoryMap.get(category.toLowerCase());
@@ -115,14 +122,24 @@ async function main() {
       };
 
       const current = bySourceUrl.get(item.url.replace(/\/$/,"")) || bySlug.get(slug);
+      let row = current;
       if (current) {
         await patch("/rest/v1/products?id=eq."+encodeURIComponent(current.id), body);
         updated++;
       } else {
         const inserted = await patch("/rest/v1/products", body, "POST", true);
-        const row = inserted[0];
+        row = inserted[0];
         if (row) { bySlug.set(slug, row); bySourceUrl.set(item.url.replace(/\/$/,""), row); }
         created++;
+      }
+      if (row && uniqueImages.length) {
+        await patch("/rest/v1/product_images?product_id=eq."+encodeURIComponent(row.id), {}, "DELETE");
+        await patch("/rest/v1/product_images", uniqueImages.map((url, index) => ({
+          product_id: row.id,
+          image_url: url,
+          alt_text: name,
+          sort_order: index
+        })), "POST");
       }
     }
 
