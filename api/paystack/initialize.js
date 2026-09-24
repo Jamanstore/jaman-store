@@ -1,17 +1,19 @@
-const CATALOG = {
-corona:{name:"Vita Corona",price:33468.08,sizes:["6 × 4 × 8\"","6 × 5 × 8\"","6 × 6 × 8\"","6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 10\"","6 × 7 × 12\""]},
-grand:{name:"Vita Grand",price:86106.70,sizes:["6 × 4.5 × 10\"","6 × 5 × 10\"","6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 10\"","6 × 7 × 12\""]},
-haven:{name:"Vita Haven Mattress",price:105068.12,sizes:["6 × 4 × 8\"","6 × 4.5 × 10\"","6 × 5 × 10\"","6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 12\""]},
-shine:{name:"Vita Shine Mattress",price:29535.36,sizes:["6 × 3 × 6\"","6 × 3 × 8\"","6 × 4 × 8\"","6 × 5 × 8\"","6 × 6 × 8\""]},
-supreme:{name:"Vita Supreme",price:133842.29,sizes:["6 × 4.5 × 10\"","6 × 5 × 10\"","6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 12\""]},
-"galaxy-classic":{name:"Vita Galaxy Classic",price:168109.16,sizes:["6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 10\"","6 × 7 × 12\""]},
-"galaxy-orthopedic":{name:"Vita Galaxy Orthopedic",price:206776.10,sizes:["6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 10\"","6 × 7 × 12\""]},
-"spring-flex":{name:"Vita Spring Flex",price:165637.11,sizes:["6 × 6 × 10\"","6 × 6 × 12\"","6 × 7 × 10\"","6 × 7 × 12\""]},
-"cool-plus":{name:"Cool Plus Pillow",price:54080.85,sizes:["Standard"]},
-vitacool:{name:"Vitacool Memory Pillow",price:24735.41,sizes:["Standard"]},
-"vita-quilted":{name:"Vita Quilted",price:10490.64,sizes:["Standard"]},
-flamingo:{name:"Flamingo",price:11249.04,sizes:["Standard"]}
-};
+const SUPABASE_URL="https://ilzeavaseohrbmprditr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_3RYoXu_OVN6YtmLg1dolvA_mSugdq-O";
+
+async function loadCatalog(){
+  const response=await fetch(
+    SUPABASE_URL+"/rest/v1/products?select=product_code,name,price_naira,sizes&active=eq.true",
+    {headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}}
+  );
+  if(!response.ok) throw new Error("Unable to load the current Jaman Store catalogue.");
+  const rows=await response.json();
+  return Object.fromEntries(rows.map(p=>[
+    p.product_code,
+    {name:p.name,price:Number(p.price_naira||0),sizes:Array.isArray(p.sizes)?p.sizes:[]}
+  ]));
+}
+
 function send(res,status,payload){res.status(status).setHeader("Content-Type","application/json");res.end(JSON.stringify(payload));}
 function validEmail(v){return typeof v==="string"&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());}
 function siteUrl(req){return (process.env.SITE_URL||((req.headers["x-forwarded-proto"]||"https")+"://"+req.headers.host)).replace(/\/$/,"");}
@@ -23,10 +25,11 @@ const body=typeof req.body==="string"?JSON.parse(req.body):(req.body||{}),custom
 if(!validEmail(customer.email))return send(res,400,{status:false,message:"A valid customer email is required."});
 if(!customer.name||!customer.phone||!customer.state||!customer.city||!customer.address)return send(res,400,{status:false,message:"Complete customer and delivery details are required."});
 if(!items.length)return send(res,400,{status:false,message:"Your cart is empty."});
+const CATALOG=await loadCatalog();
 let total=0;const normalized=[];
 for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
-if(!p||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
+if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
 const size=String(item.size||"").replace(/″/g,'"');
 if(!p.sizes.includes(size))return send(res,400,{status:false,message:"Invalid size for "+p.name+"."});
 total+=p.price*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:p.price});
