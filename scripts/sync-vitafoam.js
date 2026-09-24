@@ -46,7 +46,8 @@ async function patch(path, body, method="PATCH", preferRepresentation=false) {
     body: JSON.stringify(body)
   });
   if (!r.ok) throw new Error(`Supabase ${method} ${path} failed: ${r.status} ${await r.text()}`);
-  return r.json();
+  const text = await r.text();
+  return text ? JSON.parse(text) : [];
 }
 
 async function main() {
