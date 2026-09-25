@@ -6,79 +6,220 @@
 <title>Jaman Store Admin</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--blue:#0b63ce;--ink:#152033;--muted:#667085;--bg:#f5f7fa;--card:#fff;--line:#e4e8ee}
+:root{--blue:#0b63ce;--blue2:#084da2;--ink:#152033;--muted:#667085;--bg:#f5f7fa;--card:#fff;--line:#e4e8ee;--good:#087443;--warn:#b54708;--bad:#b42318}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-button,input,select{font:inherit}.wrap{max-width:1180px;margin:auto;padding:18px}.login{min-height:100vh;display:grid;place-items:center;padding:20px}.login-card{width:min(430px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 18px 50px #10182812}.logo{font-size:25px;font-weight:950}.muted{color:var(--muted)}label{display:block;font-size:13px;font-weight:800;margin:16px 0 7px}input{width:100%;padding:13px;border:1px solid #ccd3dd;border-radius:10px}.btn{border:0;border-radius:10px;background:var(--blue);color:#fff;padding:12px 16px;font-weight:850;cursor:pointer}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.full{width:100%;margin-top:18px}.error{color:#b42318;background:#fff1f0;border:1px solid #ffd4cf;padding:11px;border-radius:10px;margin-top:14px;display:none}
-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.head{display:flex;align-items:center;justify-content:space-between;gap:12px}.head h1{font-size:22px;margin:0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.stat small{color:var(--muted);font-weight:750}.stat strong{display:block;font-size:25px;margin-top:7px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.panel h2{margin:0;font-size:18px}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-size:12px}.pill{display:inline-block;padding:5px 8px;border-radius:999px;background:#eef5ff;color:#1554a0;font-weight:800;font-size:11px}.actions{display:flex;gap:7px;align-items:center}.select{padding:7px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px}.empty{padding:25px;text-align:center;color:var(--muted)}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}table{display:block;overflow:auto;white-space:nowrap}.wrap{padding:14px}.head h1{font-size:19px}}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1250px;margin:auto;padding:18px}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px}.login-card{width:min(430px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 18px 50px #10182812}.logo{font-size:25px;font-weight:950}.muted{color:var(--muted)}
+label{display:block;font-size:13px;font-weight:800;margin:13px 0 7px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #ccd3dd;border-radius:10px;background:#fff;color:var(--ink)}textarea{min-height:90px;resize:vertical}
+.btn{border:0;border-radius:10px;background:var(--blue);color:#fff;padding:11px 15px;font-weight:850}.btn:hover{background:var(--blue2)}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn.danger{background:#b42318}.full{width:100%;margin-top:18px}.error{color:var(--bad);background:#fff1f0;border:1px solid #ffd4cf;padding:11px;border-radius:10px;margin-top:14px;display:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.head{display:flex;align-items:center;justify-content:space-between;gap:12px}.head h1{font-size:22px;margin:0}.role{font-size:12px;font-weight:800;color:var(--blue)}
+.nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:73px;z-index:19;overflow:auto}.nav-inner{display:flex;gap:6px;max-width:1250px;margin:auto;padding:8px 18px}.tab{border:0;background:transparent;color:var(--muted);padding:10px 13px;border-radius:9px;font-weight:800;white-space:nowrap}.tab.active{background:#eaf3ff;color:#0b63ce}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.stat small{color:var(--muted);font-weight:750}.stat strong{display:block;font-size:25px;margin-top:7px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.panel h2{margin:0;font-size:18px}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}th{color:var(--muted);font-size:12px}.pill{display:inline-block;padding:5px 8px;border-radius:999px;background:#eef5ff;color:#1554a0;font-weight:800;font-size:11px}.pill.good{background:#ecfdf3;color:var(--good)}.pill.warn{background:#fff7ed;color:var(--warn)}.pill.bad{background:#fff1f0;color:var(--bad)}
+.actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.empty{padding:30px;text-align:center;color:var(--muted)}.hidden{display:none!important}.toolbar{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.search{max-width:500px}
+.product-form{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 14px}.product-form .wide{grid-column:1/-1}.check{display:flex;align-items:center;gap:8px;margin-top:10px}.check input{width:auto}.modal{position:fixed;inset:0;background:#10182888;display:grid;place-items:center;padding:18px;z-index:50}.modal-card{background:#fff;border-radius:18px;width:min(760px,100%);max-height:92vh;overflow:auto;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h2{margin:0}
+.section{display:none}.section.active{display:block}.notice{padding:11px 13px;background:#eef5ff;border:1px solid #cfe2ff;border-radius:10px;margin-top:12px;font-size:13px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.product-form{grid-template-columns:1fr}.product-form .wide{grid-column:auto}.toolbar{grid-template-columns:1fr}.wrap{padding:14px}.nav-inner{padding:8px 14px}.head h1{font-size:19px}table{display:block;overflow:auto;white-space:nowrap}.grid .stat strong{font-size:22px}}
 </style>
 </head>
 <body>
 <section id="login" class="login">
 <div class="login-card">
-<div class="logo">Jaman Store</div>
-<h1>Management Dashboard</h1>
+<div class="logo">Jaman Store</div><h1>Management Dashboard</h1>
 <p class="muted">Secure access for authorized Jaman Store management.</p>
 <form id="loginForm">
 <label>Email</label><input id="email" type="email" autocomplete="username" required>
 <label>Password</label><input id="password" type="password" autocomplete="current-password" required>
-<button class="btn full" type="submit">Sign in</button>
-<div id="loginError" class="error"></div>
-</form>
-</div>
-</section>
+<button class="btn full" id="loginBtn" type="submit">Sign in</button><div id="loginError" class="error"></div>
+</form></div></section>
+
 <section id="app" hidden>
-<header><div class="wrap head"><div><h1>Jaman Store Admin</h1><span id="who" class="muted"></span></div><button id="logout" class="btn secondary">Sign out</button></div></header>
+<header><div class="wrap head"><div><h1>Jaman Store Admin</h1><span id="who" class="muted"></span> <span id="role" class="role"></span></div><button id="logout" class="btn secondary">Sign out</button></div></header>
+<nav class="nav"><div class="nav-inner">
+<button class="tab active" data-tab="dashboard">Dashboard</button>
+<button class="tab" data-tab="products">Products</button><button class="tab" data-tab="inventory">Inventory</button>
+<button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="customers">Customers</button>
+<button class="tab" data-tab="payments">Payments</button><button class="tab" data-tab="catalog">Vitafoam Catalog</button>
+</div></nav>
+
 <main class="wrap">
+<section id="section-dashboard" class="section active">
 <div class="grid">
-<div class="stat"><small>Today's sales</small><strong id="todaySales">₦0</strong></div>
+<div class="stat"><small>Today's sales</small><strong id="todaySales">₦0.00</strong></div>
 <div class="stat"><small>Orders today</small><strong id="ordersToday">0</strong></div>
 <div class="stat"><small>Pending orders</small><strong id="pendingOrders">0</strong></div>
 <div class="stat"><small>Paid orders</small><strong id="paidOrders">0</strong></div>
+<div class="stat"><small>Low stock</small><strong id="lowStock">0</strong></div>
 </div>
-<div class="panel">
-<div class="panel-head"><h2>Recent orders</h2><button id="refresh" class="btn secondary">Refresh</button></div>
-<div id="tableWrap" class="empty">Loading orders…</div>
-</div>
-</main>
+<div class="panel"><div class="panel-head"><h2>Recent orders</h2><button id="refresh" class="btn secondary">Refresh</button></div><div id="dashboardOrders" class="empty">Loading…</div></div>
 </section>
+
+<section id="section-products" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Products</h2><span class="muted">Manage the Jaman Store catalogue.</span></div><button id="addProduct" class="btn">Add product</button></div>
+<div class="toolbar" style="margin-top:14px"><input id="productSearch" class="search" placeholder="Search product name or code"></div>
+<div id="productsTable" class="empty">Loading…</div></div>
+</section>
+
+<section id="section-inventory" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Inventory</h2><span class="muted">Stock levels and low-stock thresholds.</span></div><button id="refreshInventory" class="btn secondary">Refresh</button></div>
+<div id="inventoryTable" class="empty">Loading…</div></div>
+</section>
+
+<section id="section-orders" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Orders</h2><span class="muted">Review orders and update fulfilment status.</span></div><button id="refreshOrders" class="btn secondary">Refresh</button></div>
+<div id="ordersTable" class="empty">Loading…</div></div>
+</section>
+
+<section id="section-customers" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Customers</h2><span class="muted">Customer records and purchase totals.</span></div><button id="refreshCustomers" class="btn secondary">Refresh</button></div>
+<div id="customersTable" class="empty">Loading…</div></div>
+</section>
+
+<section id="section-payments" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Payments</h2><span class="muted">Paystack transaction records.</span></div><button id="refreshPayments" class="btn secondary">Refresh</button></div>
+<div id="paymentsTable" class="empty">Loading…</div></div>
+</section>
+
+<section id="section-catalog" class="section">
+<div class="panel"><div class="panel-head"><div><h2>Vitafoam Catalog</h2><span class="muted">Catalogue synchronization history and product coverage.</span></div><button id="refreshCatalog" class="btn secondary">Refresh</button></div>
+<div class="notice">The current database already contains 70 products and 93 product images. This panel records synchronization runs; it does not scrape the Vitafoam website from the browser.</div>
+<div id="catalogTable" class="empty">Loading…</div></div>
+</section>
+</main></section>
+
+<div id="productModal" class="modal hidden"><div class="modal-card">
+<div class="modal-head"><h2 id="modalTitle">Add product</h2><button id="closeModal" class="btn secondary">Close</button></div>
+<form id="productForm" class="product-form">
+<input type="hidden" id="pId">
+<div><label>Product code</label><input id="pCode" required></div><div><label>Product name</label><input id="pName" required></div>
+<div><label>Category</label><select id="pCategory"><option value="">No category</option></select></div><div><label>Price (₦)</label><input id="pPrice" type="number" min="0" step="0.01" required></div>
+<div class="wide"><label>Description</label><textarea id="pDescription"></textarea></div>
+<div><label>Sizes (JSON)</label><input id="pSizes" placeholder='["6x6","6x7"]'></div><div><label>Features (JSON)</label><input id="pFeatures" placeholder='["Orthopedic","Firm"]'></div>
+<div><label>Max user weight (kg)</label><input id="pWeight" type="number" min="0" step="0.1"></div><div><label>Stock quantity</label><input id="pStock" type="number" min="0" step="1" value="0"></div>
+<div><label>Low-stock level</label><input id="pLowStock" type="number" min="0" step="1" value="5"></div><div><label>Slug (optional)</label><input id="pSlug"></div>
+<div class="wide"><label>Gallery image URLs (one per line)</label><textarea id="pImages" placeholder="https://…"></textarea></div>
+<div class="wide check"><input id="pActive" type="checkbox" checked><label for="pActive" style="margin:0">Active / visible on store</label></div>
+<div class="wide actions" style="justify-content:flex-end;margin-top:10px"><button type="button" id="cancelProduct" class="btn secondary">Cancel</button><button type="submit" class="btn" id="saveProduct">Save product</button></div>
+<div id="productError" class="error"></div>
+</form></div></div>
+
 <script>
 const SUPABASE_URL="https://ilzeavaseohrbmprditr.supabase.co";
 const SUPABASE_KEY="sb_publishable_3RYoXu_OVN6YtmLg1dolvA_mSugdq-O";
 const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat("en-NG",{style:"currency",currency:"NGN",maximumFractionDigits:2}).format(Number(n||0));
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+let products=[], categories=[], currentRole="";
+
 function showLoginError(msg){$("loginError").textContent=msg;$("loginError").style.display="block";}
-async function loadDashboard(){
-  const {data,error}=await sb.rpc("admin_get_dashboard");
-  if(error){throw error;}
-  $("todaySales").textContent=money(data.today_sales);
-  $("ordersToday").textContent=data.orders_today||0;
-  $("pendingOrders").textContent=data.pending_orders||0;
-  $("paidOrders").textContent=data.paid_orders||0;
-  const rows=data.recent_orders||[];
-  if(!rows.length){$("tableWrap").innerHTML='<div class="empty">No orders have been recorded yet.</div>';return;}
-  $("tableWrap").innerHTML='<table><thead><tr><th>Order</th><th>Customer</th><th>Amount</th><th>Payment</th><th>Order status</th><th>Created</th></tr></thead><tbody>'+
-    rows.map(o=>'<tr><td><strong>'+esc(o.order_reference)+'</strong></td><td>'+esc(o.customer_name||"")+'<br><span class="muted">'+esc(o.customer_phone||"")+'</span></td><td>'+money(o.total_naira)+'</td><td><span class="pill">'+esc(o.payment_status)+'</span></td><td><div class="actions"><select class="select status" data-id="'+esc(o.id)+'">'+["pending","confirmed","processing","shipped","delivered","cancelled"].map(s=>'<option '+(s===o.status?"selected":"")+'>'+s+'</option>').join("")+'</select></div></td><td>'+new Date(o.created_at).toLocaleString("en-NG")+'</td></tr>').join("")+
-    '</tbody></table>';
-  document.querySelectorAll(".status").forEach(el=>el.addEventListener("change",async e=>{
-    const {error}=await sb.rpc("admin_update_order_status",{p_order_id:e.target.dataset.id,p_status:e.target.value});
-    if(error){alert(error.message);await loadDashboard();}
-  }));
+function notify(msg){alert(msg);}
+function setSection(name){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  $("section-"+name).classList.add("active");
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===name));
+  if(name==="dashboard") loadDashboard();
+  if(name==="products") loadProducts();
+  if(name==="inventory") loadInventory();
+  if(name==="orders") loadOrders();
+  if(name==="customers") loadCustomers();
+  if(name==="payments") loadPayments();
+  if(name==="catalog") loadCatalog();
 }
-function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>setSection(t.dataset.tab)));
+
+async function rpc(name,args){
+  const {data,error}=await sb.rpc(name,args||{});
+  if(error) throw error;
+  return data;
+}
+async function loadDashboard(){
+  try{
+    const d=await rpc("admin_get_dashboard");
+    $("todaySales").textContent=money(d.today_sales);$("ordersToday").textContent=d.orders_today||0;
+    $("pendingOrders").textContent=d.pending_orders||0;$("paidOrders").textContent=d.paid_orders||0;
+    if(!products.length) products=await rpc("admin_get_products");
+    $("lowStock").textContent=products.filter(p=>Number(p.stock_quantity)<=Number(p.low_stock_level)).length;
+    renderOrders(d.recent_orders||[],$("dashboardOrders"),true);
+  }catch(e){$("dashboardOrders").textContent=e.message||"Unable to load dashboard.";}
+}
+function renderOrders(rows,target,compact){
+  if(!rows.length){target.innerHTML='<div class="empty">No orders have been recorded yet.</div>';return;}
+  target.innerHTML='<table><thead><tr><th>Order</th><th>Customer</th><th>Amount</th><th>Payment</th><th>Status</th><th>Created</th></tr></thead><tbody>'+
+  rows.map(o=>'<tr><td><strong>'+esc(o.order_reference)+'</strong></td><td>'+esc(o.customer_name||"")+'<br><span class="muted">'+esc(o.customer_phone||"")+'</span></td><td>'+money(o.total_naira)+'</td><td><span class="pill '+(o.payment_status==="paid"?"good":o.payment_status==="failed"?"bad":"warn")+'">'+esc(o.payment_status)+'</span></td><td>'+statusSelect(o)+'</td><td>'+new Date(o.created_at).toLocaleString("en-NG")+'</td></tr>').join("")+'</tbody></table>';
+  target.querySelectorAll(".status").forEach(el=>el.addEventListener("change",updateStatus));
+}
+function statusSelect(o){return '<select class="select status" data-id="'+esc(o.id)+'">'+["pending","confirmed","processing","shipped","delivered","cancelled"].map(s=>'<option value="'+s+'" '+(s===o.status?"selected":"")+'>'+s+'</option>').join("")+'</select>';}
+async function updateStatus(e){try{await rpc("admin_update_order_status",{p_order_id:e.target.dataset.id,p_status:e.target.value});await loadDashboard();if($("section-orders").classList.contains("active"))await loadOrders();}catch(err){notify(err.message);}}
+async function loadProducts(){
+  $("productsTable").textContent="Loading…";
+  try{products=await rpc("admin_get_products");categories=(await sb.from("categories").select("id,name").order("name")).data||[];renderProducts();renderCategoryOptions();}catch(e){$("productsTable").textContent=e.message||"Unable to load products.";}
+}
+function renderProducts(){
+  const q=$("productSearch").value.toLowerCase().trim();
+  const rows=products.filter(p=>(p.name+" "+p.product_code).toLowerCase().includes(q));
+  if(!rows.length){$("productsTable").innerHTML='<div class="empty">No matching products.</div>';return;}
+  $("productsTable").innerHTML='<table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Images</th><th>Active</th><th>Action</th></tr></thead><tbody>'+
+  rows.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+esc(p.category_name||"—")+'</td><td>'+money(p.price_naira)+'</td><td><span class="pill '+(Number(p.stock_quantity)<=Number(p.low_stock_level)?"warn":"good")+'">'+p.stock_quantity+'</span></td><td>'+p.image_count+'</td><td>'+(p.active?'<span class="pill good">Active</span>':'<span class="pill bad">Hidden</span>')+'</td><td><button class="btn secondary edit-product" data-id="'+p.id+'">Edit</button></td></tr>').join("")+'</tbody></table>';
+  document.querySelectorAll(".edit-product").forEach(b=>b.addEventListener("click",()=>openProduct(b.dataset.id)));
+}
+$("productSearch").addEventListener("input",renderProducts);
+function renderCategoryOptions(){
+  $("pCategory").innerHTML='<option value="">No category</option>'+categories.map(c=>'<option value="'+c.id+'">'+esc(c.name)+'</option>').join("");
+}
+function openProduct(id){
+  const p=products.find(x=>x.id===id);
+  $("modalTitle").textContent=p?"Edit product":"Add product";$("productError").style.display="none";
+  $("pId").value=p?.id||"";$("pCode").value=p?.product_code||"";$("pName").value=p?.name||"";$("pCategory").value=p?.category_id||"";
+  $("pPrice").value=p?.price_naira??0;$("pDescription").value=p?.description||"";$("pSlug").value=p?.slug||"";
+  $("pSizes").value=JSON.stringify(p?.sizes||[]);$("pFeatures").value=JSON.stringify(p?.features||[]);
+  $("pWeight").value=p?.max_user_weight_kg??"";$("pStock").value=p?.stock_quantity??0;$("pLowStock").value=p?.low_stock_level??5;
+  $("pImages").value=p?.image_url||"";$("pActive").checked=p?.active!==false;$("productModal").classList.remove("hidden");
+}
+function closeModal(){$("productModal").classList.add("hidden");}
+$("addProduct").addEventListener("click",()=>openProduct(null));$("closeModal").addEventListener("click",closeModal);$("cancelProduct").addEventListener("click",closeModal);
+$("productForm").addEventListener("submit",async e=>{
+ e.preventDefault();$("productError").style.display="none";$("saveProduct").disabled=true;
+ try{
+  let sizes,features;try{sizes=JSON.parse($("pSizes").value||"[]");features=JSON.parse($("pFeatures").value||"[]");}catch(x){throw new Error("Sizes and features must be valid JSON.");}
+  const images=$("pImages").value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);
+  await rpc("admin_save_product",{p_id:$("pId").value||null,p_product_code:$("pCode").value,p_name:$("pName").value,p_slug:$("pSlug").value||null,p_category_id:$("pCategory").value||null,p_description:$("pDescription").value||null,p_price_naira:Number($("pPrice").value||0),p_sizes:sizes,p_features:features,p_max_user_weight_kg:$("pWeight").value?Number($("pWeight").value):null,p_image_urls:images,p_active:$("pActive").checked,p_stock_quantity:Number($("pStock").value||0),p_low_stock_level:Number($("pLowStock").value||5)});
+  closeModal();await loadProducts();await loadDashboard();
+ }catch(err){$("productError").textContent=err.message||"Unable to save product.";$("productError").style.display="block";}finally{$("saveProduct").disabled=false;}
+});
+async function loadInventory(){
+ $("inventoryTable").textContent="Loading…";try{if(!products.length)products=await rpc("admin_get_products");renderInventory();}catch(e){$("inventoryTable").textContent=e.message||"Unable to load inventory.";}
+}
+function renderInventory(){
+ if(!products.length){$("inventoryTable").innerHTML='<div class="empty">No products found.</div>';return;}
+ $("inventoryTable").innerHTML='<table><thead><tr><th>Product</th><th>Current stock</th><th>Low-stock level</th><th>Update</th></tr></thead><tbody>'+
+ products.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+p.stock_quantity+'</td><td>'+p.low_stock_level+'</td><td><div class="actions"><input class="inv-stock" data-id="'+p.id+'" type="number" min="0" value="'+p.stock_quantity+'" style="max-width:100px"><input class="inv-low" data-id="'+p.id+'" type="number" min="0" value="'+p.low_stock_level+'" style="max-width:100px"><button class="btn save-inv" data-id="'+p.id+'">Save</button></div></td></tr>').join("")+'</tbody></table>';
+ document.querySelectorAll(".save-inv").forEach(b=>b.addEventListener("click",async()=>{const id=b.dataset.id;const stock=document.querySelector('.inv-stock[data-id="'+id+'"]').value;const low=document.querySelector('.inv-low[data-id="'+id+'"]').value;try{await rpc("admin_set_inventory",{p_product_id:id,p_stock_quantity:Number(stock),p_low_stock_level:Number(low)});await loadProducts();await loadInventory();}catch(e){notify(e.message);}}));
+}
+async function loadOrders(){ $("ordersTable").textContent="Loading…";try{renderOrders(await rpc("admin_get_orders"),$("ordersTable"),false);}catch(e){$("ordersTable").textContent=e.message||"Unable to load orders.";} }
+async function loadCustomers(){ $("customersTable").textContent="Loading…";try{const rows=await rpc("admin_get_customers");if(!rows.length){$("customersTable").innerHTML='<div class="empty">No customers have been recorded yet.</div>';return;} $("customersTable").innerHTML='<table><thead><tr><th>Customer</th><th>Contact</th><th>Location</th><th>Orders</th><th>Paid total</th><th>Created</th></tr></thead><tbody>'+rows.map(c=>'<tr><td><strong>'+esc(c.full_name)+'</strong></td><td>'+esc(c.email)+'<br>'+esc(c.phone)+'</td><td>'+esc(c.city||"")+', '+esc(c.state||"")+'<br>'+esc(c.delivery_address||"")+'</td><td>'+c.order_count+'</td><td>'+money(c.paid_total)+'</td><td>'+new Date(c.created_at).toLocaleDateString("en-NG")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("customersTable").textContent=e.message||"Unable to load customers.";} }
+async function loadPayments(){ $("paymentsTable").textContent="Loading…";try{const rows=await rpc("admin_get_payments");if(!rows.length){$("paymentsTable").innerHTML='<div class="empty">No payments have been recorded yet.</div>';return;} $("paymentsTable").innerHTML='<table><thead><tr><th>Reference</th><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th><th>Paid at</th></tr></thead><tbody>'+rows.map(p=>'<tr><td><strong>'+esc(p.reference)+'</strong></td><td>'+esc(p.order_reference||"—")+'</td><td>'+esc(p.customer_name||"")+'<br><span class="muted">'+esc(p.customer_email||"")+'</span></td><td>'+money(p.amount_naira)+'</td><td><span class="pill '+(p.status==="success"?"good":p.status==="failed"?"bad":"warn")+'">'+esc(p.status)+'</span></td><td>'+ (p.paid_at?new Date(p.paid_at).toLocaleString("en-NG"):"—")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("paymentsTable").textContent=e.message||"Unable to load payments.";} }
+async function loadCatalog(){ $("catalogTable").textContent="Loading…";try{const rows=await rpc("admin_get_catalog_sync");if(!rows.length){$("catalogTable").innerHTML='<div class="empty">No catalog sync runs recorded.</div>';return;} $("catalogTable").innerHTML='<table><thead><tr><th>Source</th><th>Status</th><th>Started</th><th>Finished</th><th>Seen</th><th>Created</th><th>Updated</th><th>Error</th></tr></thead><tbody>'+rows.map(r=>'<tr><td>'+esc(r.source)+'</td><td><span class="pill '+(r.status==="success"?"good":r.status==="failed"?"bad":"warn")+'">'+esc(r.status)+'</span></td><td>'+new Date(r.started_at).toLocaleString("en-NG")+'</td><td>'+(r.finished_at?new Date(r.finished_at).toLocaleString("en-NG"):"—")+'</td><td>'+r.products_seen+'</td><td>'+r.products_created+'</td><td>'+r.products_updated+'</td><td>'+esc(r.error_message||"")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("catalogTable").textContent=e.message||"Unable to load catalog history.";} }
+
 async function enter(user){
-  $("login").hidden=true;$("app").hidden=false;$("who").textContent=user.email;
-  try{await loadDashboard();}catch(e){$("tableWrap").textContent=e.message||"Unable to load dashboard.";}
+ $("login").hidden=true;$("app").hidden=false;
+ try{
+  const ctx=await rpc("admin_get_context");currentRole=ctx.role;$("who").textContent=ctx.email;$("role").textContent="• "+ctx.role.toUpperCase();
+  const allowed={admin:["dashboard","products","inventory","orders","customers","payments","catalog"],sales:["dashboard","orders","customers"],inventory:["dashboard","products","inventory","catalog"],accounts:["dashboard","orders","customers","payments"]};
+  const ok=allowed[currentRole]||[];document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("hidden",!ok.includes(t.dataset.tab)));
+  await loadDashboard();
+ }catch(e){$("dashboardOrders").textContent=e.message||"Unable to load dashboard.";}
 }
 $("loginForm").addEventListener("submit",async e=>{
- e.preventDefault();$("loginError").style.display="none";
+ e.preventDefault();$("loginError").style.display="none";$("loginBtn").disabled=true;$("loginBtn").textContent="Signing in…";
  const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
- if(error){showLoginError("Sign-in failed. Check your credentials or contact the administrator.");return;}
- await enter(data.user);
+ if(error){showLoginError("Sign-in failed. Check your credentials or contact the administrator.");$("loginBtn").disabled=false;$("loginBtn").textContent="Sign in";return;}
+ await enter(data.user);$("loginBtn").disabled=false;$("loginBtn").textContent="Sign in";
 });
-$("logout").addEventListener("click",async()=>{await sb.auth.signOut();$("app").hidden=true;$("login").hidden=false;});
-$("refresh").addEventListener("click",()=>loadDashboard().catch(e=>alert(e.message)));
+$("logout").addEventListener("click",async()=>{await sb.auth.signOut();location.reload();});
+$("refresh").addEventListener("click",loadDashboard);$("refreshInventory").addEventListener("click",async()=>{products=[];await loadProducts();await loadInventory();});
+$("refreshOrders").addEventListener("click",loadOrders);$("refreshCustomers").addEventListener("click",loadCustomers);$("refreshPayments").addEventListener("click",loadPayments);$("refreshCatalog").addEventListener("click",loadCatalog);
+sb.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_OUT")location.reload();});
 sb.auth.getSession().then(({data})=>{if(data.session)enter(data.session.user);});
 </script>
 </body>
