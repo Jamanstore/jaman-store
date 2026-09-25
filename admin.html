@@ -139,7 +139,7 @@ async function loadDashboard(){
     $("todaySales").textContent=money(d.today_sales);$("ordersToday").textContent=d.orders_today||0;
     $("pendingOrders").textContent=d.pending_orders||0;$("paidOrders").textContent=d.paid_orders||0;
     if(!products.length) products=await rpc("admin_get_products");
-    $("lowStock").textContent=products.filter(p=>Number(p.stock_quantity)<=Number(p.low_stock_level)).length;
+    $("lowStock").textContent=products.filter(p=>p.stock_quantity!==null&&Number(p.stock_quantity)<=Number(p.low_stock_level)).length;
     renderOrders(d.recent_orders||[],$("dashboardOrders"),true);
   }catch(e){$("dashboardOrders").textContent=e.message||"Unable to load dashboard.";}
 }
@@ -160,7 +160,7 @@ function renderProducts(){
   const rows=products.filter(p=>(p.name+" "+p.product_code).toLowerCase().includes(q));
   if(!rows.length){$("productsTable").innerHTML='<div class="empty">No matching products.</div>';return;}
   $("productsTable").innerHTML='<table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Images</th><th>Active</th><th>Action</th></tr></thead><tbody>'+
-  rows.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+esc(p.category_name||"—")+'</td><td>'+money(p.price_naira)+'</td><td><span class="pill '+(Number(p.stock_quantity)<=Number(p.low_stock_level)?"warn":"good")+'">'+p.stock_quantity+'</span></td><td>'+p.image_count+'</td><td>'+(p.active?'<span class="pill good">Active</span>':'<span class="pill bad">Hidden</span>')+'</td><td><button class="btn secondary edit-product" data-id="'+p.id+'">Edit</button></td></tr>').join("")+'</tbody></table>';
+  rows.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+esc(p.category_name||"—")+'</td><td>'+money(p.price_naira)+'</td><td><span class="pill '+(p.stock_quantity!==null&&Number(p.stock_quantity)<=Number(p.low_stock_level)?"warn":"good")+'">'+(p.stock_quantity===null?"Not set":p.stock_quantity)+'</span></td><td>'+p.image_count+'</td><td>'+(p.active?'<span class="pill good">Active</span>':'<span class="pill bad">Hidden</span>')+'</td><td><button class="btn secondary edit-product" data-id="'+p.id+'">Edit</button></td></tr>').join("")+'</tbody></table>';
   document.querySelectorAll(".edit-product").forEach(b=>b.addEventListener("click",()=>openProduct(b.dataset.id)));
 }
 $("productSearch").addEventListener("input",renderProducts);
@@ -174,7 +174,7 @@ function openProduct(id){
   $("pPrice").value=p?.price_naira??0;$("pDescription").value=p?.description||"";$("pSlug").value=p?.slug||"";
   $("pSizes").value=JSON.stringify(p?.sizes||[]);$("pFeatures").value=JSON.stringify(p?.features||[]);
   $("pWeight").value=p?.max_user_weight_kg??"";$("pStock").value=p?.stock_quantity??0;$("pLowStock").value=p?.low_stock_level??5;
-  $("pImages").value=p?.image_url||"";$("pActive").checked=p?.active!==false;$("productModal").classList.remove("hidden");
+  $("pImages").value=(Array.isArray(p?.gallery)&&p.gallery.length?p.gallery:[p?.image_url].filter(Boolean)).join("\n");$("pActive").checked=p?.active!==false;$("productModal").classList.remove("hidden");
 }
 function closeModal(){$("productModal").classList.add("hidden");}
 $("addProduct").addEventListener("click",()=>openProduct(null));$("closeModal").addEventListener("click",closeModal);$("cancelProduct").addEventListener("click",closeModal);
@@ -193,7 +193,7 @@ async function loadInventory(){
 function renderInventory(){
  if(!products.length){$("inventoryTable").innerHTML='<div class="empty">No products found.</div>';return;}
  $("inventoryTable").innerHTML='<table><thead><tr><th>Product</th><th>Current stock</th><th>Low-stock level</th><th>Update</th></tr></thead><tbody>'+
- products.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+p.stock_quantity+'</td><td>'+p.low_stock_level+'</td><td><div class="actions"><input class="inv-stock" data-id="'+p.id+'" type="number" min="0" value="'+p.stock_quantity+'" style="max-width:100px"><input class="inv-low" data-id="'+p.id+'" type="number" min="0" value="'+p.low_stock_level+'" style="max-width:100px"><button class="btn save-inv" data-id="'+p.id+'">Save</button></div></td></tr>').join("")+'</tbody></table>';
+ products.map(p=>'<tr><td><strong>'+esc(p.name)+'</strong><br><span class="muted">'+esc(p.product_code)+'</span></td><td>'+(p.stock_quantity===null?"Not set":p.stock_quantity)+'</td><td>'+(p.low_stock_level===null?"—":p.low_stock_level)+'</td><td><div class="actions"><input class="inv-stock" data-id="'+p.id+'" type="number" min="0" value="'+(p.stock_quantity??0)+'" style="max-width:100px"><input class="inv-low" data-id="'+p.id+'" type="number" min="0" value="'+(p.low_stock_level??5)+'" style="max-width:100px"><button class="btn save-inv" data-id="'+p.id+'">Save</button></div></td></tr>').join("")+'</tbody></table>';
  document.querySelectorAll(".save-inv").forEach(b=>b.addEventListener("click",async()=>{const id=b.dataset.id;const stock=document.querySelector('.inv-stock[data-id="'+id+'"]').value;const low=document.querySelector('.inv-low[data-id="'+id+'"]').value;try{await rpc("admin_set_inventory",{p_product_id:id,p_stock_quantity:Number(stock),p_low_stock_level:Number(low)});await loadProducts();await loadInventory();}catch(e){notify(e.message);}}));
 }
 async function loadOrders(){ $("ordersTable").textContent="Loading…";try{renderOrders(await rpc("admin_get_orders"),$("ordersTable"),false);}catch(e){$("ordersTable").textContent=e.message||"Unable to load orders.";} }
