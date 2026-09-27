@@ -135,8 +135,9 @@ async function loadDashboard(){
     const d=await rpc("admin_get_dashboard");
     $("todaySales").textContent=money(d.today_sales);$("ordersToday").textContent=d.orders_today||0;
     $("pendingOrders").textContent=d.pending_orders||0;$("paidOrders").textContent=d.paid_orders||0;
-    if(!products.length) products=await rpc("admin_get_products");
-    $("lowStock").textContent=products.filter(p=>p.stock_quantity!==null&&Number(p.stock_quantity)<=Number(p.low_stock_level)).length;
+    const allOrders=await rpc("admin_get_orders");
+    const deliveryFollowUp=allOrders.filter(o=>o.payment_status==="paid"&&!["delivered","cancelled"].includes(o.status)).length;
+    $("lowStock").textContent=deliveryFollowUp;
     renderOrders(d.recent_orders||[],$("dashboardOrders"),true);
   }catch(e){$("dashboardOrders").textContent=e.message||"Unable to load dashboard.";}
 }
