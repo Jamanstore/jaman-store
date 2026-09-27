@@ -37,31 +37,28 @@ table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;
 <header><div class="wrap head"><div><h1>Jaman Store Admin</h1><span id="who" class="muted"></span> <span id="role" class="role"></span></div><button id="logout" class="btn secondary">Sign out</button></div></header>
 <nav class="nav"><div class="nav-inner">
 <button class="tab active" data-tab="dashboard">Dashboard</button>
-<button class="tab" data-tab="products">Products</button><button class="tab" data-tab="inventory">Inventory</button>
-<button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="customers">Customers</button>
-<button class="tab" data-tab="payments">Payments</button><button class="tab" data-tab="catalog">Vitafoam Catalog</button>
-</div></nav>
+<button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="payments">Payments</button></div></nav>
 
 <main class="wrap">
 <section id="section-dashboard" class="section active">
 <div class="grid">
 <div class="stat"><small>Today's sales</small><strong id="todaySales">₦0.00</strong></div>
-<div class="stat"><small>Orders today</small><strong id="ordersToday">0</strong></div>
-<div class="stat"><small>Pending orders</small><strong id="pendingOrders">0</strong></div>
+<div class="stat"><small>Paid orders today</small><strong id="ordersToday">0</strong></div>
+<div class="stat"><small>Awaiting fulfilment</small><strong id="pendingOrders">0</strong></div>
 <div class="stat"><small>Paid orders</small><strong id="paidOrders">0</strong></div>
-<div class="stat"><small>Low stock</small><strong id="lowStock">0</strong></div>
+<div class="stat"><small>Delivery follow-up</small><strong id="lowStock">0</strong></div>
 </div>
-<div class="panel"><div class="panel-head"><h2>Recent orders</h2><button id="refresh" class="btn secondary">Refresh</button></div><div id="dashboardOrders" class="empty">Loading…</div></div>
+<div class="panel"><div class="panel-head"><h2>Recent paid orders</h2><button id="refresh" class="btn secondary">Refresh</button></div><div id="dashboardOrders" class="empty">Loading…</div></div>
 </section>
 
 <section id="section-products" class="section">
-<div class="panel"><div class="panel-head"><div><h2>Products</h2><span class="muted">Manage the Jaman Store catalogue.</span></div><button id="addProduct" class="btn">Add product</button></div>
+<div class="panel"><div class="panel-head"><div><h2>Products</h2><span class="muted">Catalogue is maintained separately; this dashboard is focused on completed transactions.</span></div><button id="addProduct" class="btn">Add product</button></div>
 <div class="toolbar" style="margin-top:14px"><input id="productSearch" class="search" placeholder="Search product name or code"></div>
 <div id="productsTable" class="empty">Loading…</div></div>
 </section>
 
 <section id="section-inventory" class="section">
-<div class="panel"><div class="panel-head"><div><h2>Inventory</h2><span class="muted">Stock levels and low-stock thresholds.</span></div><button id="refreshInventory" class="btn secondary">Refresh</button></div>
+<div class="panel"><div class="panel-head"><div><h2>Inventory</h2><span class="muted">Fulfilment is coordinated through the appropriate VITAFOAM location.</span></div><button id="refreshInventory" class="btn secondary">Refresh</button></div>
 <div id="inventoryTable" class="empty">Loading…</div></div>
 </section>
 
@@ -145,11 +142,12 @@ async function loadDashboard(){
 }
 function renderOrders(rows,target,compact){
   if(!rows.length){target.innerHTML='<div class="empty">No orders have been recorded yet.</div>';return;}
-  target.innerHTML='<table><thead><tr><th>Order</th><th>Customer</th><th>Amount</th><th>Payment</th><th>Status</th><th>Created</th></tr></thead><tbody>'+
+  target.innerHTML='<table><thead><tr><th>Order</th><th>Customer</th><th>Amount</th><th>Payment</th><th>Status</th><th>Notify</th><th>Created</th></tr></thead><tbody>'+
   rows.map(o=>'<tr><td><strong>'+esc(o.order_reference)+'</strong></td><td>'+esc(o.customer_name||"")+'<br><span class="muted">'+esc(o.customer_phone||"")+'</span></td><td>'+money(o.total_naira)+'</td><td><span class="pill '+(o.payment_status==="paid"?"good":o.payment_status==="failed"?"bad":"warn")+'">'+esc(o.payment_status)+'</span></td><td>'+statusSelect(o)+'</td><td>'+new Date(o.created_at).toLocaleString("en-NG")+'</td></tr>').join("")+'</tbody></table>';
   target.querySelectorAll(".status").forEach(el=>el.addEventListener("change",updateStatus));
 }
 function statusSelect(o){return '<select class="select status" data-id="'+esc(o.id)+'">'+["pending","confirmed","processing","shipped","delivered","cancelled"].map(s=>'<option value="'+s+'" '+(s===o.status?"selected":"")+'>'+s+'</option>').join("")+'</select>';}
+function notifyLinks(o){const msg=encodeURIComponent("Jaman Store paid order "+(o.order_reference||"")+" | Customer: "+(o.customer_name||"")+" | Phone: "+(o.customer_phone||"")+" | Amount: "+money(o.total_naira)+" | Delivery: "+([o.city,o.state].filter(Boolean).join(", ")||"")+" | Address: "+(o.delivery_address||"")+" | Payment: SUCCESSFUL");return '<div class="actions"><a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text='+msg+'">WhatsApp</a><a class="btn secondary" href="mailto:?subject=Jaman%20Store%20Paid%20Order&body='+msg+'">Email</a></div>';}
 async function updateStatus(e){try{await rpc("admin_update_order_status",{p_order_id:e.target.dataset.id,p_status:e.target.value});await loadDashboard();if($("section-orders").classList.contains("active"))await loadOrders();}catch(err){notify(err.message);}}
 async function loadProducts(){
   $("productsTable").textContent="Loading…";
