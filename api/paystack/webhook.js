@@ -21,7 +21,7 @@ module.exports=async(req,res)=>{
     const raw=await rawBody(req);
     const signature=req.headers["x-paystack-signature"];
     const expected=crypto.createHmac("sha512",process.env.PAYSTACK_SECRET_KEY).update(raw).digest("hex");
-    if(!signature||signature!==expected)return res.status(401).json({status:false,message:"Invalid signature"});
+    const validSignature=signature.length===expected.length&&crypto.timingSafeEqual(Buffer.from(signature),Buffer.from(expected)); if(!validSignature)return res.status(401).json({status:false,message:"Invalid signature"});
     const event=JSON.parse(raw);
     if(event.event==="charge.success"){
       const result=await recordPayment(event);
@@ -30,6 +30,6 @@ module.exports=async(req,res)=>{
     return res.status(200).json({status:true});
   }catch(err){
     console.error("Paystack webhook error",err);
-    return res.status(400).json({status:false,message:"Webhook processing failed"});
+    return res.status(500).json({status:false,message:"Webhook processing failed; Paystack can retry the event."});
   }
 };
