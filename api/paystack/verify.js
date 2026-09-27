@@ -18,7 +18,7 @@ async function recordOrder(tx){
     paid_at:tx.paid_at||tx.transaction_date||null,
     customer:{
       name:String(customer.name||"").trim(),
-      email:String(tx.customer?.email||"").trim(),
+      email:String(tx.customer?.email||customer.email||"").trim(),
       phone:String(customer.phone||"").trim(),
       state:String(customer.state||"").trim(),
       city:String(customer.city||"").trim(),
