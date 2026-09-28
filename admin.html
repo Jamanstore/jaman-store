@@ -238,7 +238,7 @@ function renderDeliveryLocations(){
 }
 async function saveDeliveryLocation(id){
  const row=deliveryLocations.find(x=>x.id===id);if(!row)return;
- const payload={city:$("[data-delivery-city='"+id+"']").value.trim(),location_name:$("[data-delivery-name='"+id+"']").value.trim(),address:$("[data-delivery-address='"+id+"']").value.trim()||null,doorstep_fee_naira:$("[data-delivery-fee='"+id+"']").value===""?null:Number($("[data-delivery-fee='"+id+"']").value),pickup_available:$("[data-delivery-pickup='"+id+"']").checked,active:$("[data-delivery-active='"+id+"']").checked,updated_at:new Date().toISOString()};
+ const qs=s=>document.querySelector(s);const payload={city:qs("[data-delivery-city='"+id+"']").value.trim(),location_name:qs("[data-delivery-name='"+id+"']").value.trim(),address:qs("[data-delivery-address='"+id+"']").value.trim()||null,doorstep_fee_naira:qs("[data-delivery-fee='"+id+"']").value===""?null:Number(qs("[data-delivery-fee='"+id+"']").value),pickup_available:qs("[data-delivery-pickup='"+id+"']").checked,active:qs("[data-delivery-active='"+id+"']").checked,updated_at:new Date().toISOString()};
  const {error}=await sb.from("delivery_locations").update(payload).eq("id",id);if(error){notify(error.message);return}await loadDeliveryLocations();notify("Delivery location saved.");
 }
 function parseCsv(text){
@@ -257,7 +257,7 @@ async function uploadDeliveryCsv(){
  $("deliveryMessage").textContent=values.length+" delivery location(s) uploaded/updated.";$("deliveryMessage").style.display="block";await loadDeliveryLocations();
 }
 function downloadDeliveryTemplate(){
- const csv="state,city,location_name,address,doorstep_fee_naira,pickup_available,active\nKano,Kano Municipal,Jaman Store Pickup Point,BUK Duplex Along Gwarzo Road Kano,0,true,true\nLagos,Lagos Island,Approved Pickup Point,,5000,true,false\n";
+ const csv="state,city,location_name,address,doorstep_fee_naira,pickup_available,active\nKano,Kano Municipal,ENTER PICKUP LOCATION,ENTER ADDRESS,,true,false\n";
  const blob=new Blob([csv],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="jaman-delivery-locations-template.csv";a.click();URL.revokeObjectURL(a.href);
 }
 async function loadPayments(){ $("paymentsTable").textContent="Loading…";try{const rows=await rpc("admin_get_payments");if(!rows.length){$("paymentsTable").innerHTML='<div class="empty">No payments have been recorded yet.</div>';return;} $("paymentsTable").innerHTML='<table><thead><tr><th>Reference</th><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th><th>Paid at</th></tr></thead><tbody>'+rows.map(p=>'<tr><td><strong>'+esc(p.reference)+'</strong></td><td>'+esc(p.order_reference||"—")+'</td><td>'+esc(p.customer_name||"")+'<br><span class="muted">'+esc(p.customer_email||"")+'</span></td><td>'+money(p.amount_naira)+'</td><td><span class="pill '+(p.status==="success"?"good":p.status==="failed"?"bad":"warn")+'">'+esc(p.status)+'</span></td><td>'+ (p.paid_at?new Date(p.paid_at).toLocaleString("en-NG"):"—")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("paymentsTable").textContent=e.message||"Unable to load payments.";} }
