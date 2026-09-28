@@ -23,7 +23,7 @@ footer{background:#075E5B;color:#dbe5f2;margin-top:35px;padding:40px 18px}.foot{
 .category-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0}.category-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;min-height:112px;text-align:left}.category-card b{display:block;font-size:16px;margin-bottom:6px}.category-card span{font-size:12px;color:var(--muted)}.category-card:hover{border-color:var(--blue);transform:translateY(-2px)}.filterbar{display:grid;grid-template-columns:1fr 180px;gap:10px;margin:18px 0}.filterbar select{border:1px solid #ccd3dd;border-radius:10px;padding:11px;background:#fff;font:inherit}.badge{display:inline-flex;align-items:center;background:#eef5ff;color:var(--blue);padding:5px 8px;border-radius:999px;font-size:11px;font-weight:850;margin-top:7px}.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.hero-categories{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.hero-categories button{border:1px solid #d9e5f7;background:#fff;color:var(--blue);border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer}.trust{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.trust b{display:block;margin-bottom:4px}.trust span{font-size:12px;color:var(--muted)}
 
 /* Storefront refinement: category-led navigation, richer merchandising blocks and responsive product browsing */
-.desktop-nav{display:flex;gap:6px;align-items:center}.desktop-nav a{padding:9px 10px;border-radius:9px;font-size:13px;font-weight:800;color:#344054}.desktop-nav a:hover{background:#f2f6fb;color:var(--blue)}
+.desktop-nav{display:flex;gap:6px;align-items:center}.desktop-nav a{padding:9px 10px;border-radius:9px;font-size:13px;font-weight:800;color:#344054}.desktop-nav a.nav-track,.desktop-nav a.nav-returns{border:1px solid #d8dee7;background:#fff}.desktop-nav a.nav-returns{color:var(--blue)}.desktop-nav a:hover{background:#f2f6fb;color:var(--blue)}
 .category-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0 28px}.category-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;min-height:112px;text-align:left;transition:.18s}.category-card b{display:block;font-size:16px;margin-bottom:6px}.category-card span{font-size:12px;color:var(--muted)}.category-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 24px #10182810}
 .filterbar{display:grid;grid-template-columns:1fr 190px;gap:10px;margin:18px 0}.filterbar select{border:1px solid #ccd3dd;border-radius:10px;padding:11px;background:#fff;font:inherit}
 .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.trust{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.trust b{display:block;margin-bottom:4px}.trust span{font-size:12px;color:var(--muted);line-height:1.45}
@@ -88,8 +88,8 @@ footer{background:var(--navy)}
 <a href="#" class="brand">JAMAN STORE<span class="tag">Operated by Jaman Business Company</span></a>
 <nav class="desktop-nav" aria-label="Store categories">
 <a href="#shop" onclick="setCategory('All')">Shop All</a>
-<a href="/track-order.html">Track Order</a>
-<a href="/return-policy.html">Returns & Exchange</a>
+<a class="nav-track" href="/track-order.html">Track Order</a>
+<a class="nav-returns" href="/return-policy.html">Returns & Exchange</a>
 </nav>
 <div class="search"><input id="search" aria-label="Search products" autocomplete="off" placeholder="Search products: Corona, Grand, M6, SG, MCCP..."><div id="searchResults" class="search-results" role="listbox" aria-label="Product search results"></div></div>
 <button class="cartbtn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
