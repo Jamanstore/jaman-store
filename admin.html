@@ -37,7 +37,7 @@ table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;
 <header><div class="wrap head"><div><h1>Jaman Store Admin</h1><span id="who" class="muted"></span> <span id="role" class="role"></span></div><button id="logout" class="btn secondary">Sign out</button></div></header>
 <nav class="nav"><div class="nav-inner">
 <button class="tab active" data-tab="dashboard">Dashboard</button>
-<button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="returns">Returns & Exchanges</button><button class="tab" data-tab="payments">Payments</button></div></nav>
+<button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="returns">Returns & Exchanges</button><button class="tab" data-tab="payments">Payments</button><button class="tab" data-tab="delivery">Delivery & Pickup</button></div></nav>
 
 <main class="wrap">
 <section id="section-dashboard" class="section active">
@@ -116,6 +116,7 @@ const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat("en-NG",{style:"currency",currency:"NGN",maximumFractionDigits:2}).format(Number(n||0));
 const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 let products=[], categories=[], currentRole="";
+let deliveryLocations=[];
 
 function showLoginError(msg){$("loginError").textContent=msg;$("loginError").style.display="block";}
 function notify(msg){alert(msg);}
@@ -130,6 +131,7 @@ function setSection(name){
   if(name==="returns") loadReturns();
   if(name==="customers") loadCustomers();
   if(name==="payments") loadPayments();
+  if(name==="delivery") loadDeliveryLocations();
   if(name==="catalog") loadCatalog();
 }
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>setSection(t.dataset.tab)));
@@ -223,6 +225,41 @@ function renderReturns(rows,target){
 async function updateReturn(id,status,note){try{await rpc("admin_update_return_request",{p_request_id:id,p_status:status,p_admin_note:note});await loadReturns();}catch(e){notify(e.message);}}
 async function loadOrders(){ $("ordersTable").textContent="Loading…";try{renderOrders(await rpc("admin_get_orders"),$("ordersTable"),false);}catch(e){$("ordersTable").textContent=e.message||"Unable to load orders.";} }
 async function loadCustomers(){ $("customersTable").textContent="Loading…";try{const rows=await rpc("admin_get_customers");if(!rows.length){$("customersTable").innerHTML='<div class="empty">No customers have been recorded yet.</div>';return;} $("customersTable").innerHTML='<table><thead><tr><th>Customer</th><th>Contact</th><th>Location</th><th>Orders</th><th>Paid total</th><th>Created</th></tr></thead><tbody>'+rows.map(c=>'<tr><td><strong>'+esc(c.full_name)+'</strong></td><td>'+esc(c.email)+'<br>'+esc(c.phone)+'</td><td>'+esc(c.city||"")+', '+esc(c.state||"")+'<br>'+esc(c.delivery_address||"")+'</td><td>'+c.order_count+'</td><td>'+money(c.paid_total)+'</td><td>'+new Date(c.created_at).toLocaleDateString("en-NG")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("customersTable").textContent=e.message||"Unable to load customers.";} }
+async function loadDeliveryLocations(){
+  $("deliveryTable").textContent="Loading…";
+  const {data,error}=await sb.from("delivery_locations").select("id,state,city,location_name,address,doorstep_fee_naira,pickup_available,active").order("state").order("city").order("location_name");
+  if(error){$("deliveryTable").textContent=error.message;return}
+  deliveryLocations=data||[];renderDeliveryLocations();
+}
+function renderDeliveryLocations(){
+ if(!deliveryLocations.length){$("deliveryTable").innerHTML='<div class="empty">No delivery locations configured.</div>';return}
+ $("deliveryTable").innerHTML='<table><thead><tr><th>State</th><th>City / Area</th><th>Pickup location</th><th>Address</th><th>Doorstep fee</th><th>Pickup</th><th>Active</th><th>Save</th></tr></thead><tbody>'+deliveryLocations.map(x=>'<tr><td>'+esc(x.state)+'</td><td><input data-delivery-city="'+x.id+'" value="'+esc(x.city||"")+'"></td><td><input data-delivery-name="'+x.id+'" value="'+esc(x.location_name||"")+'"></td><td><input data-delivery-address="'+x.id+'" value="'+esc(x.address||"")+'"></td><td><input data-delivery-fee="'+x.id+'" type="number" min="0" step="0.01" value="'+(x.doorstep_fee_naira??"")+'"></td><td><input data-delivery-pickup="'+x.id+'" type="checkbox" '+(x.pickup_available?"checked":"")+'></td><td><input data-delivery-active="'+x.id+'" type="checkbox" '+(x.active?"checked":"")+'></td><td><button class="btn save-delivery" data-id="'+x.id+'">Save</button></td></tr>').join("")+'</tbody></table>';
+ document.querySelectorAll(".save-delivery").forEach(b=>b.onclick=()=>saveDeliveryLocation(b.dataset.id));
+}
+async function saveDeliveryLocation(id){
+ const row=deliveryLocations.find(x=>x.id===id);if(!row)return;
+ const payload={city:$("[data-delivery-city='"+id+"']").value.trim(),location_name:$("[data-delivery-name='"+id+"']").value.trim(),address:$("[data-delivery-address='"+id+"']").value.trim()||null,doorstep_fee_naira:$("[data-delivery-fee='"+id+"']").value===""?null:Number($("[data-delivery-fee='"+id+"']").value),pickup_available:$("[data-delivery-pickup='"+id+"']").checked,active:$("[data-delivery-active='"+id+"']").checked,updated_at:new Date().toISOString()};
+ const {error}=await sb.from("delivery_locations").update(payload).eq("id",id);if(error){notify(error.message);return}await loadDeliveryLocations();notify("Delivery location saved.");
+}
+function parseCsv(text){
+ const rows=[];let row=[],cell="",quote=false;
+ for(let i=0;i<text.length;i++){const ch=text[i],next=text[i+1];if(ch==='"'){if(quote&&next==='"'){cell+='"';i++;}else quote=!quote;}else if(ch===','&&!quote){row.push(cell.trim());cell="";}else if((ch==='\n'||ch==='\r')&&!quote){if(ch==='\r'&&next==='\n')i++;row.push(cell.trim());cell="";if(row.some(Boolean))rows.push(row);row=[];}else cell+=ch;}if(cell||row.length){row.push(cell.trim());if(row.some(Boolean))rows.push(row)}return rows;
+}
+async function uploadDeliveryCsv(){
+ const file=$("deliveryCsv").files[0];if(!file){notify("Choose a CSV file first.");return}
+ const rows=parseCsv(await file.text());if(rows.length<2){notify("CSV is empty.");return}
+ const headers=rows[0].map(x=>x.toLowerCase().trim()),required=["state","city","location_name","address","doorstep_fee_naira","pickup_available","active"];
+ if(!required.every(h=>headers.includes(h))){notify("CSV headers must be: "+required.join(", "));return}
+ const idx=h=>headers.indexOf(h);
+ const values=rows.slice(1).map(r=>({state:r[idx("state")]||"",city:r[idx("city")]||"",location_name:r[idx("location_name")]||"",address:r[idx("address")]||null,doorstep_fee_naira:r[idx("doorstep_fee_naira")]===""?null:Number(r[idx("doorstep_fee_naira")]),pickup_available:/^(true|1|yes)$/i.test(r[idx("pickup_available")]||""),active:/^(true|1|yes)$/i.test(r[idx("active")]||"")})).filter(x=>x.state&&x.location_name);
+ if(values.some(x=>x.doorstep_fee_naira!==null&&(!Number.isFinite(x.doorstep_fee_naira)||x.doorstep_fee_naira<0))){notify("One or more delivery fees are invalid.");return}
+ const {error}=await sb.from("delivery_locations").upsert(values,{onConflict:"state,city,location_name"});if(error){notify(error.message);return}
+ $("deliveryMessage").textContent=values.length+" delivery location(s) uploaded/updated.";$("deliveryMessage").style.display="block";await loadDeliveryLocations();
+}
+function downloadDeliveryTemplate(){
+ const csv="state,city,location_name,address,doorstep_fee_naira,pickup_available,active\nKano,Kano Municipal,Jaman Store Pickup Point,BUK Duplex Along Gwarzo Road Kano,0,true,true\nLagos,Lagos Island,Approved Pickup Point,,5000,true,false\n";
+ const blob=new Blob([csv],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="jaman-delivery-locations-template.csv";a.click();URL.revokeObjectURL(a.href);
+}
 async function loadPayments(){ $("paymentsTable").textContent="Loading…";try{const rows=await rpc("admin_get_payments");if(!rows.length){$("paymentsTable").innerHTML='<div class="empty">No payments have been recorded yet.</div>';return;} $("paymentsTable").innerHTML='<table><thead><tr><th>Reference</th><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th><th>Paid at</th></tr></thead><tbody>'+rows.map(p=>'<tr><td><strong>'+esc(p.reference)+'</strong></td><td>'+esc(p.order_reference||"—")+'</td><td>'+esc(p.customer_name||"")+'<br><span class="muted">'+esc(p.customer_email||"")+'</span></td><td>'+money(p.amount_naira)+'</td><td><span class="pill '+(p.status==="success"?"good":p.status==="failed"?"bad":"warn")+'">'+esc(p.status)+'</span></td><td>'+ (p.paid_at?new Date(p.paid_at).toLocaleString("en-NG"):"—")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("paymentsTable").textContent=e.message||"Unable to load payments.";} }
 async function loadCatalog(){ $("catalogTable").textContent="Loading…";try{const rows=await rpc("admin_get_catalog_sync");if(!rows.length){$("catalogTable").innerHTML='<div class="empty">No catalog sync runs recorded.</div>';return;} $("catalogTable").innerHTML='<table><thead><tr><th>Source</th><th>Status</th><th>Started</th><th>Finished</th><th>Seen</th><th>Created</th><th>Updated</th><th>Error</th></tr></thead><tbody>'+rows.map(r=>'<tr><td>'+esc(r.source)+'</td><td><span class="pill '+(r.status==="success"?"good":r.status==="failed"?"bad":"warn")+'">'+esc(r.status)+'</span></td><td>'+new Date(r.started_at).toLocaleString("en-NG")+'</td><td>'+(r.finished_at?new Date(r.finished_at).toLocaleString("en-NG"):"—")+'</td><td>'+r.products_seen+'</td><td>'+r.products_created+'</td><td>'+r.products_updated+'</td><td>'+esc(r.error_message||"")+'</td></tr>').join("")+'</tbody></table>';}catch(e){$("catalogTable").textContent=e.message||"Unable to load catalog history.";} }
 
@@ -230,7 +267,7 @@ async function enter(user){
  $("login").hidden=true;$("app").hidden=false;
  try{
   const ctx=await rpc("admin_get_context");currentRole=ctx.role;$("who").textContent=ctx.email;$("role").textContent="• "+ctx.role.toUpperCase();
-  const allowed={admin:["dashboard","products","inventory","orders","returns","customers","payments","catalog"],sales:["dashboard","orders","returns","customers"],inventory:["dashboard","products","inventory","catalog"],accounts:["dashboard","orders","returns","customers","payments"]};
+  const allowed={admin:["dashboard","products","inventory","orders","returns","customers","payments","catalog","delivery"],sales:["dashboard","orders","returns","customers"],inventory:["dashboard","products","inventory","catalog","delivery"],accounts:["dashboard","orders","returns","customers","payments"]};
   const ok=allowed[currentRole]||[];document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("hidden",!ok.includes(t.dataset.tab)));
   await loadDashboard();
  }catch(e){$("dashboardOrders").textContent=e.message||"Unable to load dashboard.";}
@@ -243,7 +280,10 @@ $("loginForm").addEventListener("submit",async e=>{
 });
 $("logout").addEventListener("click",async()=>{await sb.auth.signOut();location.reload();});
 $("refresh").addEventListener("click",loadDashboard);$("refreshInventory").addEventListener("click",async()=>{products=[];await loadProducts();await loadInventory();});
-$("refreshOrders").addEventListener("click",loadOrders);$("refreshReturns").addEventListener("click",loadReturns);$("refreshCustomers").addEventListener("click",loadCustomers);$("refreshPayments").addEventListener("click",loadPayments);$("refreshCatalog").addEventListener("click",loadCatalog);
+$("refreshOrders").addEventListener("click",loadOrders);$("refreshReturns").addEventListener("click",loadReturns);$("refreshCustomers").addEventListener("click",loadCustomers);$("refreshPayments").addEventListener("click",loadPayments);
+$("refreshDelivery").addEventListener("click",loadDeliveryLocations);
+$("uploadDelivery").addEventListener("click",uploadDeliveryCsv);
+$("downloadDeliveryTemplate").addEventListener("click",downloadDeliveryTemplate);$("refreshCatalog").addEventListener("click",loadCatalog);
 sb.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_OUT")location.reload();});
 sb.auth.getSession().then(({data})=>{if(data.session)enter(data.session.user);});
 </script>
