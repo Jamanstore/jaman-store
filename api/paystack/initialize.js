@@ -20,6 +20,8 @@ function siteUrl(req){return (process.env.SITE_URL||((req.headers["x-forwarded-p
 const rateWindow=new Map();
 function clientIp(req){const v=req.headers["x-forwarded-for"]||req.headers["x-real-ip"]||"unknown";return String(v).split(",")[0].trim().slice(0,80)||"unknown";}
 function rateLimited(req){const now=Date.now(),key=clientIp(req),entry=rateWindow.get(key);if(!entry||now-entry.start>600000){rateWindow.set(key,{start:now,count:1});return false;}entry.count++;return entry.count>20;}
+function isKanoMetropolitan(state,city){const s=String(state||"").trim().toLowerCase(),v=String(city||"").trim().toLowerCase();if(s!=="kano"&&s!=="kano state")return false;const names=["kano","kano municipal","fagge","dala","gwale","kumbotso","nassarawa","tarauni","ungogo"];return names.some(n=>v===n||v.includes(n));}
+function calculateDelivery(customer){const method=String(customer.delivery_method||"doorstep").toLowerCase()==="pickup"?"pickup":"doorstep";if(method==="pickup")return {method,fee:0,kanoMetro:false};if(isKanoMetropolitan(customer.state,customer.city))return {method,fee:0,kanoMetro:true};const configured=Number(process.env.DEFAULT_DELIVERY_FEE_OUTSIDE_KANO_NAIRA||0);if(!Number.isFinite(configured)||configured<0)throw new Error("Invalid outside-Kano delivery fee configuration.");if(configured===0)throw new Error("Delivery fee for this destination has not yet been configured. Please contact Jaman Store.");return {method,fee:Math.round(configured*100)/100,kanoMetro:false};}
 module.exports=async(req,res)=>{
 if(req.method!=="POST")return send(res,405,{status:false,message:"Method not allowed"});
 if(rateLimited(req))return send(res,429,{status:false,message:"Too many checkout attempts. Please wait a few minutes and try again."});
@@ -34,7 +36,7 @@ const CATALOG=await loadCatalog();
     const variantResponse=await fetch(SUPABASE_URL+"/rest/v1/product_variants?select=product_id,label,price_naira&active=eq.true",{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}});
     const variants=variantResponse.ok?await variantResponse.json():[];
     const VARIANTS=new Map(variants.map(v=>[v.product_id+"|"+v.label,Number(v.price_naira||0)]));
-let total=0;const normalized=[];
+const delivery=calculateDelivery(customer);let total=0;const normalized=[];
 for(const item of items){
 const p=CATALOG[item.id],qty=Math.floor(Number(item.qty));
 if(!p||p.price<=0||!Number.isInteger(qty)||qty<1||qty>50)return send(res,400,{status:false,message:"Invalid cart item."});
@@ -46,20 +48,20 @@ const variantPrice=catalogItem&&VARIANTS.get(catalogItem.dbId+"|"+size);
 const unitPrice=variantPrice>0?variantPrice:p.price;
 total+=unitPrice*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:unitPrice});
 }
-const amount=Math.round(total*100),reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase(),callback=siteUrl(req)+"/payment-success.html";
+const subtotal=total;const deliveryFee=delivery.fee;const grandTotal=subtotal+deliveryFee;const amount=Math.round(grandTotal*100),reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase(),callback=siteUrl(req)+"/payment-success.html";
 const customerMeta={name:String(customer.name).trim(),email:customer.email.trim(),phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:String(customer.city).trim(),address:String(customer.address).trim()};
 const itemSummary=normalized.map(i=>`${i.name} | ${i.size} | Qty ${i.qty}`).join("; ");
-const metadata={order_reference:reference,order_total_kobo:amount,cancel_action:siteUrl(req)+"/",customer:customerMeta,items:normalized.map(i=>({...i,product_code:i.id})),custom_fields:[
+const metadata={order_reference:reference,order_total_kobo:amount,subtotal_naira:subtotal,delivery_fee_naira:deliveryFee,delivery_method:delivery.method,kano_metropolitan:delivery.kanoMetro,cancel_action:siteUrl(req)+"/",customer:customerMeta,items:normalized.map(i=>({...i,product_code:i.id})),custom_fields:[
   {display_name:"Store",variable_name:"store",value:"Jaman Store"},
   {display_name:"Business",variable_name:"business",value:"Jaman Business Company"},
   {display_name:"Brand",variable_name:"brand",value:"VITAFOAM"},
   {display_name:"Order Reference",variable_name:"order_reference",value:reference},
   {display_name:"Customer",variable_name:"customer",value:customerMeta.name},
-  {display_name:"Products",variable_name:"products",value:itemSummary}
+  {display_name:"Products",variable_name:"products",value:itemSummary},{display_name:"Delivery",variable_name:"delivery",value:deliveryFee===0?"FREE":"₦"+deliveryFee.toLocaleString("en-NG")},{display_name:"Delivery Method",variable_name:"delivery_method",value:delivery.method}
 ]};
 const response=await fetch("https://api.paystack.co/transaction/initialize",{method:"POST",headers:{"Authorization":"Bearer "+process.env.PAYSTACK_SECRET_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:customer.email.trim(),amount,currency:"NGN",reference,callback_url:callback,metadata})});
 const data=await response.json();
 if(!response.ok||!data.status)return send(res,502,{status:false,message:data.message||"Paystack could not initialize the transaction."});
 return send(res,200,{status:true,authorization_url:data.data.authorization_url,access_code:data.data.access_code,reference:data.data.reference});
-}catch(err){console.error("Paystack initialize error",err);return send(res,500,{status:false,message:"Unable to start payment. Please try again."});}
+}catch(err){console.error("Paystack initialize error",err);return send(res,400,{status:false,message:err&&err.message?err.message:"Unable to start payment. Please try again."});}
 };
