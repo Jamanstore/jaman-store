@@ -48,7 +48,7 @@ if(!process.env.PAYSTACK_SECRET_KEY)return send(res,503,{status:false,message:"P
 try{
 const body=typeof req.body==="string"?JSON.parse(req.body):(req.body||{}),customer=body.customer||{},items=Array.isArray(body.items)?body.items:[];
 if(!validEmail(customer.email))return send(res,400,{status:false,message:"A valid customer email is required."});
-if(!customer.name||!customer.phone||!customer.state||!customer.city||!customer.address)return send(res,400,{status:false,message:"Complete customer and delivery details are required."});
+if(!customer.name||!customer.phone||!customer.state||!customer.city)return send(res,400,{status:false,message:"Complete customer and pickup details are required."});
 if(!items.length)return send(res,400,{status:false,message:"Your cart is empty."});
 if(items.length>50)return send(res,400,{status:false,message:"Too many items in one checkout."});
 const CATALOG=await loadCatalog();
@@ -68,7 +68,7 @@ const unitPrice=variantPrice>0?variantPrice:p.price;
 total+=unitPrice*qty;normalized.push({id:item.id,name:p.name,size,qty,unit_price_naira:unitPrice});
 }
 const subtotal=total;const deliveryFee=delivery.fee;const grandTotal=subtotal+deliveryFee;const amount=Math.round(grandTotal*100),reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase(),callback=siteUrl(req)+"/payment-success.html";
-const customerMeta={name:String(customer.name).trim(),email:customer.email.trim(),phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:String(customer.city).trim(),address:String(customer.address).trim(),delivery_location_id:delivery.location.id,delivery_location_name:delivery.location.location_name,delivery_location_address:String(delivery.location.address||"").trim()};
+const customerMeta={name:String(customer.name).trim(),email:customer.email.trim(),phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:String(customer.city).trim(),address:String(customer.address||"").trim(),delivery_location_id:delivery.location.id,delivery_location_name:delivery.location.location_name,delivery_location_address:String(delivery.location.address||"").trim()};
 const itemSummary=normalized.map(i=>`${i.name} | ${i.size} | Qty ${i.qty}`).join("; ");
 const metadata={order_reference:reference,order_total_kobo:amount,subtotal_naira:subtotal,delivery_fee_naira:deliveryFee,delivery_method:delivery.method,delivery_location_id:delivery.location.id,delivery_location_name:delivery.location.location_name,delivery_location_address:delivery.location.address||null,cancel_action:siteUrl(req)+"/",customer:customerMeta,items:normalized.map(i=>({...i,product_code:i.id})),custom_fields:[
   {display_name:"Store",variable_name:"store",value:"Jaman Store"},
