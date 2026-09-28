@@ -24,7 +24,7 @@ async function recordOrder(tx){
       city:String(customer.city||"").trim(),
       address:String(customer.address||"").trim()
     },
-    items:items.map(i=>({
+    subtotal_naira:Number(metadata.subtotal_naira||amountNaira),delivery_fee_naira:Number(metadata.delivery_fee_naira||0),delivery_method:String(metadata.delivery_method||"doorstep"),items:items.map(i=>({
       id:String(i.id||""),
       product_code:String(i.product_code||i.id||""),
       name:String(i.name||""),
