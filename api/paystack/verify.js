@@ -24,7 +24,7 @@ async function recordOrder(tx){
       city:String(customer.city||"").trim(),
       address:String(customer.address||"").trim()
     },
-    subtotal_naira:Number(metadata.subtotal_naira||amountNaira),delivery_fee_naira:Number(metadata.delivery_fee_naira||0),delivery_method:String(metadata.delivery_method||"doorstep"),delivery_location_id:metadata.delivery_location_id||customer.delivery_location_id||null,delivery_location_name:String(metadata.delivery_location_name||customer.delivery_location_name||""),delivery_location_address:String(metadata.delivery_location_address||customer.delivery_location_address||""),items:items.map(i=>({
+    subtotal_naira:Number(metadata.subtotal_naira||amountNaira),delivery_fee_naira:Number(metadata.delivery_fee_naira||0),delivery_method:String(metadata.delivery_method||"doorstep"),delivery_location_id:metadata.delivery_location_id||customer.delivery_location_id||null,delivery_location_name:String(metadata.delivery_location_name||customer.delivery_location_name||""),delivery_location_address:String(metadata.delivery_location_address||customer.delivery_location_address||""),distribution_category:String(metadata.distribution_category||""),fulfillment_factory:String(metadata.fulfillment_factory||""),distribution_city:String(metadata.distribution_city||customer.city||""),distribution_min_days:Number(metadata.distribution_min_days||0)||null,distribution_max_days:Number(metadata.distribution_max_days||0)||null,items:items.map(i=>({
       id:String(i.id||""),
       product_code:String(i.product_code||i.id||""),
       name:String(i.name||""),
