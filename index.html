@@ -220,6 +220,7 @@ async function loadProducts(){
 }
 let cart=JSON.parse(localStorage.getItem("jaman_cart")||"[]"),activeCategory="All";
 const money=n=>"₦"+Number(n).toLocaleString("en-NG",{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=v=>String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 function getUnitPrice(p,size){const v=VARIANT_PRICES.get(p.dbId+"|"+size);return v>0?v:p.price}
 function saveCart(){localStorage.setItem("jaman_cart",JSON.stringify(cart));renderCartCount()}
 function renderCartCount(){const n=cart.reduce((s,x)=>s+x.qty,0);document.getElementById("cartCount").textContent=n;const sc=document.getElementById("stickyCartCount");if(sc)sc.textContent=n}
