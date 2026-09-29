@@ -1,0 +1,3 @@
+Contact: mailto:Jamanbusinesscompany@gmail.com
+Preferred-Languages: en
+Canonical: https://www.jamanstore.com.ng/.well-known/security.txt
