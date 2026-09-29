@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://www.jamanstore.com.ng/return-policy.html">
+<meta name="robots" content="index,follow">
 <title>Jaman Store | Return & Exchange</title>
 <meta name="description" content="Jaman Store return and exchange policy for wrong products or wrong sizes supplied by Jaman Store.">
 <style>
@@ -52,4 +54,5 @@ document.getElementById("trackForm").addEventListener("submit",async e=>{
  try{const u="/api/returns/track?reference="+encodeURIComponent(track_reference.value.trim())+"&order_reference="+encodeURIComponent(track_order_reference.value.trim())+"&phone="+encodeURIComponent(track_phone.value.trim());const r=await fetch(u);const d=await r.json();if(!r.ok||!d.status)throw new Error(d.message||"Request not found.");const x=d.request;result.className="result show good";result.innerHTML="<strong>"+esc(x.request_reference)+"</strong><br>Reason: "+esc(reasonLabel[x.reason]||x.reason)+"<br>Status: <span class='status'>"+esc(statusLabel[x.status]||x.status)+"</span>"+(x.preferred_return_station?"<br>Preferred station: "+esc(x.preferred_return_station):"")+(x.admin_note?"<div class='timeline'><div><strong>Jaman Store note:</strong> "+esc(x.admin_note)+"</div></div>":"");}catch(err){result.className="result show bad";result.textContent=err.message||"Unable to track request.";}
 });
 </script>
+<footer style="padding:24px 16px;text-align:center;color:#667085"><a href="/privacy-policy.html">Privacy Policy</a> • <a href="/terms.html">Terms of Service</a> • <a href="/">Shop Jaman Store</a></footer>
 </body></html>
