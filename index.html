@@ -282,17 +282,27 @@ function getDistributionProductClass(p){
   if(/topper|leisuremat|duvet|blanket|comforter/.test(name))return"medium";
   return"small";
 }
+const CUSTOM_QUOTE_ENABLED=false;
+const MAX_DISTRIBUTION_FEE=30000;
 function getDistributionQuote(){
   const city=document.getElementById("custCity")?.value||"";
   const rate=DISTRIBUTION_RATES.find(x=>x.city===city);if(!rate)return null;
   const counts={mattress:0,small:0,medium:0,bulky:0};
-  cart.forEach(x=>{const p=PRODUCTS.find(p=>p.id===x.id);counts[getDistributionProductClass(p)]+=x.qty;});
-  if(counts.mattress>=5||counts.small>=21||counts.bulky>0)return{status:"quote_required",city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
+  cart.forEach(x=>{const p=PRODUCTS.find(p=>p.id===x.id);const cls=getDistributionProductClass(p);counts[cls]+=Math.max(0,Math.floor(Number(x.qty||1)));});
+  if(CUSTOM_QUOTE_ENABLED&&(counts.mattress>=5||counts.small>=21||counts.bulky>0))return{status:"quote_required",city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
   let fee=0,category="small";
-  if(counts.mattress>0){category="mattress";fee=rate.mattress*(counts.mattress===1?1:counts.mattress===2?1.5:2);if(counts.small>4&&counts.small<=10)fee+=2000;if(counts.small>10&&counts.small<=20)fee+=4000;if(counts.small>20)return{status:"quote_required",city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};}
-  else if(counts.medium>0){category="medium";fee=rate.medium*(counts.medium<=4?1:counts.medium<=10?1.5:2);}
-  else{category="small";fee=rate.small*(counts.small<=4?1:counts.small<=10?1.5:2);}
-  return{status:"fixed",fee:Math.round(fee/500)*500,category,city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
+  if(counts.mattress>0){
+    category="mattress";fee=rate.mattress*(counts.mattress===1?1:counts.mattress===2?1.5:2);
+    if(counts.small>4&&counts.small<=10)fee+=2000;
+    if(counts.small>10&&counts.small<=20)fee+=4000;
+  }else if(counts.medium>0){
+    category="medium";fee=rate.medium*(counts.medium<=4?1:counts.medium<=10?1.5:2);
+  }else if(counts.bulky>0){
+    category="bulky";fee=rate.bulky*(counts.bulky<=1?1:counts.bulky<=2?1.5:2);
+  }else{
+    category="small";fee=rate.small*(counts.small<=4?1:counts.small<=10?1.5:2);
+  }
+  return{status:"fixed",fee:Math.min(Math.round(fee/500)*500,MAX_DISTRIBUTION_FEE),category,city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
 }
 function renderCart(){if(!cart.length){document.getElementById("cartContent").innerHTML='<div class="notice">Your cart is empty.</div>';return}const total=cart.reduce((s,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);return s+(p?getUnitPrice(p,x.size):x.price)*x.qty},0);document.getElementById("cartContent").innerHTML=cart.map((x,i)=>'<div class="cartline"><div><strong>'+x.name+'</strong><div class="small">'+x.size+'</div></div><div class="cartqty"><button onclick="changeCartQty('+i+',-1)">−</button><b>'+x.qty+'</b><button onclick="changeCartQty('+i+',1)">+</button></div><button class="outline" onclick="removeCart('+i+')">Remove</button><div style="grid-column:1/-1;text-align:right;font-weight:800">'+money(x.price*x.qty)+'</div></div>').join("")+'<div class="totalbox"><strong>Product total</strong><strong>'+money(total)+'</strong></div><button type="button" class="primary continue-checkout" style="width:100%" onclick="event.preventDefault();event.stopPropagation();openCheckout();return false;">Continue to checkout</button><p class="paynote">Collection & distribution fee is calculated from your selected city and the products in your basket.</p><p class="paynote">Exact collection point will be assigned and communicated by WhatsApp after order confirmation.</p>'}
 function changeCartQty(i,n){cart[i].qty=Math.max(1,cart[i].qty+n);saveCart();renderCart()}
