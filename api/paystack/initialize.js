@@ -9,7 +9,7 @@ async function loadCatalog(){
   return Object.fromEntries(rows.map(p=>[p.product_code,{dbId:p.id,name:p.name,price:Number(p.price_naira||0),sizes:Array.isArray(p.sizes)?p.sizes:[],category_name:(p.categories&&p.categories.name)||""}]));
 }
 function send(res,status,payload){res.status(status).setHeader("Content-Type","application/json");res.end(JSON.stringify(payload));}
-function validEmail(v){return typeof v==="string"&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());}
+function validEmail(v){return typeof v==="string"&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());}\nfunction generatedPaystackEmail(reference){return reference.toLowerCase().replace(/[^a-z0-9-]/g,"")+"@customers.jamanstore.com.ng";}
 function siteUrl(req){return(process.env.SITE_URL||((req.headers["x-forwarded-proto"]||"https")+"://"+req.headers.host)).replace(/\/$/,"");}
 const rateWindow=new Map();
 function clientIp(req){const v=req.headers["x-forwarded-for"]||req.headers["x-real-ip"]||"unknown";return String(v).split(",")[0].trim().slice(0,80)||"unknown";}
@@ -51,9 +51,9 @@ module.exports=async(req,res)=>{
   const grandTotal=subtotal+deliveryFee;
   const amount=Math.round(grandTotal*100);
   const reference="JAMAN-"+Date.now()+"-"+Math.random().toString(36).slice(2,10).toUpperCase();
-  const callback=siteUrl(req)+"/payment-success.html";
+  const callback=siteUrl(req)+"/payment-success.html";\n  const customerEmail=validEmail(customer.email)?customer.email.trim():generatedPaystackEmail(reference);
 
-  const customerMeta={name:String(customer.name).trim(),email:customer.email.trim(),phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:distribution.city,address:String(customer.address||"").trim(),delivery_location_id:null,delivery_location_name:"Jaman Store "+distribution.city+" Collection Network",delivery_location_address:"Exact collection point will be assigned and communicated after order confirmation."};
+  const customerMeta={name:String(customer.name).trim(),email:customerEmail,phone:String(customer.phone).trim(),state:String(customer.state).trim(),city:distribution.city,address:String(customer.address||"").trim(),delivery_location_id:null,delivery_location_name:"Jaman Store "+distribution.city+" Collection Network",delivery_location_address:"Exact collection point will be assigned and communicated after order confirmation."};
   const itemSummary=normalized.map(i=>`${i.name} | ${i.size} | Qty ${i.qty}`).join("; ");
   const metadata={
    order_reference:reference,order_total_kobo:amount,subtotal_naira:subtotal,delivery_fee_naira:deliveryFee,
@@ -76,7 +76,7 @@ module.exports=async(req,res)=>{
    ]
   };
 
-  const response=await fetch("https://api.paystack.co/transaction/initialize",{method:"POST",headers:{"Authorization":"Bearer "+process.env.PAYSTACK_SECRET_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:customer.email.trim(),amount,currency:"NGN",reference,callback_url:callback,metadata})});
+  const response=await fetch("https://api.paystack.co/transaction/initialize",{method:"POST",headers:{"Authorization":"Bearer "+process.env.PAYSTACK_SECRET_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:customerEmail,amount,currency:"NGN",reference,callback_url:callback,metadata})});
   const data=await response.json();
   if(!response.ok||!data.status)return send(res,502,{status:false,message:data.message||"Paystack could not initialize the transaction."});
   return send(res,200,{status:true,authorization_url:data.data.authorization_url,access_code:data.data.access_code,reference:data.data.reference,distribution:{fee:deliveryFee,city:distribution.city,factory:distribution.factory,category:distribution.category,minDays:distribution.minDays,maxDays:distribution.maxDays}});
