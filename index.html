@@ -284,27 +284,39 @@ function getDistributionProductClass(p){
 }
 const CUSTOM_QUOTE_ENABLED=false;
 const MAX_DISTRIBUTION_FEE=30000;
+const MIN_VALUE_FACTOR=0.5;
+const VALUE_REFERENCE_BY_CLASS={small:200000,medium:300000,mattress:500000,bulky:500000};
+function getDistributionOrderValue(){
+  return cart.reduce((sum,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);const unit=p?getUnitPrice(p,x.size):Number(x.price||0);return sum+Math.max(0,Number(unit||0))*Math.max(0,Math.floor(Number(x.qty||1)));},0);
+}
+function getDistributionValueFactor(category,value){
+  const reference=Number(VALUE_REFERENCE_BY_CLASS[category]||VALUE_REFERENCE_BY_CLASS.small);
+  const raw=reference>0?Number(value||0)/reference:1;
+  return Math.min(1,Math.max(MIN_VALUE_FACTOR,raw));
+}
 function getDistributionQuote(){
   const city=document.getElementById("custCity")?.value||"";
   const rate=DISTRIBUTION_RATES.find(x=>x.city===city);if(!rate)return null;
   const counts={mattress:0,small:0,medium:0,bulky:0};
   cart.forEach(x=>{const p=PRODUCTS.find(p=>p.id===x.id);const cls=getDistributionProductClass(p);counts[cls]+=Math.max(0,Math.floor(Number(x.qty||1)));});
-  if(CUSTOM_QUOTE_ENABLED&&(counts.mattress>=5||counts.small>=21||counts.bulky>0))return{status:"quote_required",city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
-  let fee=0,category="small";
+  let baseFee=0,category="small";
   if(counts.mattress>0){
-    category="mattress";fee=rate.mattress*(counts.mattress===1?1:counts.mattress===2?1.5:2);
-    if(counts.small>4&&counts.small<=10)fee+=2000;
-    if(counts.small>10&&counts.small<=20)fee+=4000;
+    category="mattress";baseFee=rate.mattress*(counts.mattress===1?1:counts.mattress===2?1.5:2);
+    if(counts.small>4&&counts.small<=10)baseFee+=2000;
+    if(counts.small>10&&counts.small<=20)baseFee+=4000;
   }else if(counts.medium>0){
-    category="medium";fee=rate.medium*(counts.medium<=4?1:counts.medium<=10?1.5:2);
+    category="medium";baseFee=rate.medium*(counts.medium<=4?1:counts.medium<=10?1.5:2);
   }else if(counts.bulky>0){
-    category="bulky";fee=rate.bulky*(counts.bulky<=1?1:counts.bulky<=2?1.5:2);
+    category="bulky";baseFee=rate.bulky*(counts.bulky<=1?1:counts.bulky<=2?1.5:2);
   }else{
-    category="small";fee=rate.small*(counts.small<=4?1:counts.small<=10?1.5:2);
+    category="small";baseFee=rate.small*(counts.small<=4?1:counts.small<=10?1.5:2);
   }
-  return{status:"fixed",fee:Math.min(Math.round(fee/500)*500,MAX_DISTRIBUTION_FEE),category,city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
+  const orderValue=getDistributionOrderValue();
+  const valueFactor=getDistributionValueFactor(category,orderValue);
+  const fee=Math.min(Math.round((baseFee*valueFactor)/500)*500,MAX_DISTRIBUTION_FEE);
+  return{status:"fixed",fee,baseFee:Math.round(baseFee/500)*500,orderValue,valueFactor,category,city:rate.city,state:rate.state,factory:rate.factory,minDays:rate.minDays,maxDays:rate.maxDays,counts};
 }
-function renderCart(){if(!cart.length){document.getElementById("cartContent").innerHTML='<div class="notice">Your cart is empty.</div>';return}const total=cart.reduce((s,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);return s+(p?getUnitPrice(p,x.size):x.price)*x.qty},0);document.getElementById("cartContent").innerHTML=cart.map((x,i)=>'<div class="cartline"><div><strong>'+x.name+'</strong><div class="small">'+x.size+'</div></div><div class="cartqty"><button onclick="changeCartQty('+i+',-1)">−</button><b>'+x.qty+'</b><button onclick="changeCartQty('+i+',1)">+</button></div><button class="outline" onclick="removeCart('+i+')">Remove</button><div style="grid-column:1/-1;text-align:right;font-weight:800">'+money(x.price*x.qty)+'</div></div>').join("")+'<div class="totalbox"><strong>Product total</strong><strong>'+money(total)+'</strong></div><button type="button" class="primary continue-checkout" style="width:100%" onclick="event.preventDefault();event.stopPropagation();openCheckout();return false;">Continue to checkout</button><p class="paynote">Collection & distribution fee is calculated from your selected city and the products in your basket.</p><p class="paynote">Exact collection point will be assigned and communicated by WhatsApp after order confirmation.</p>'}
+function renderCart(){if(!cart.length){document.getElementById("cartContent").innerHTML='<div class="notice">Your cart is empty.</div>';return}const total=cart.reduce((s,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);return s+(p?getUnitPrice(p,x.size):x.price)*x.qty},0);document.getElementById("cartContent").innerHTML=cart.map((x,i)=>'<div class="cartline"><div><strong>'+x.name+'</strong><div class="small">'+x.size+'</div></div><div class="cartqty"><button onclick="changeCartQty('+i+',-1)">−</button><b>'+x.qty+'</b><button onclick="changeCartQty('+i+',1)">+</button></div><button class="outline" onclick="removeCart('+i+')">Remove</button><div style="grid-column:1/-1;text-align:right;font-weight:800">'+money(x.price*x.qty)+'</div></div>').join("")+'<div class="totalbox"><strong>Product total</strong><strong>'+money(total)+'</strong></div><button type="button" class="primary continue-checkout" style="width:100%" onclick="event.preventDefault();event.stopPropagation();openCheckout();return false;">Continue to checkout</button><p class="paynote">Collection & distribution is calculated from your selected city, product type, quantity and order value. Maximum customer charge: ₦30,000.</p><p class="paynote">Exact collection point will be assigned and communicated by WhatsApp after order confirmation.</p>'}
 function changeCartQty(i,n){cart[i].qty=Math.max(1,cart[i].qty+n);saveCart();renderCart()}
 function removeCart(i){cart.splice(i,1);saveCart();renderCart()}
 function checkoutStateOptions(){return [...new Set(DISTRIBUTION_RATES.map(x=>x.state))].map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join("")}
@@ -329,7 +341,7 @@ async function openCheckout(){
     content.innerHTML='<div class="notice"><strong>Checkout is temporarily unavailable.</strong><br>Please refresh the page and try again.</div>';
     return;
   }
-  content.innerHTML='<div class="checkout-layout"><div><div class="checkout-fields"><div class="field"><label>Full name</label><input id="custName" autocomplete="name" placeholder="Your full name"></div><div class="field"><label>Email address</label><input id="custEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Phone number</label><input id="custPhone" autocomplete="tel" placeholder="080..."></div><div class="field"><label>State</label><select id="custState"><option value="">Select state</option>'+checkoutStateOptions()+'</select></div><div class="field"><label>Collection city</label><select id="custCity"><option value="">Select state first</option></select></div><div class="field wide"><div class="notice" style="margin:0;padding:10px"><strong>Pickup only.</strong> Your exact Jaman Store collection point will be assigned after the order is confirmed and communicated by WhatsApp.</div></div></div><p class="paynote" style="margin:9px 0 0">The collection & distribution fee is recalculated on the server before Paystack payment.</p></div><div class="checkout-summary" id="checkoutSummary"></div></div>';
+  content.innerHTML='<div class="checkout-layout"><div><div class="checkout-fields"><div class="field"><label>Full name</label><input id="custName" autocomplete="name" placeholder="Your full name"></div><div class="field"><label>Email address</label><input id="custEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Phone number</label><input id="custPhone" autocomplete="tel" placeholder="080..."></div><div class="field"><label>State</label><select id="custState"><option value="">Select state</option>'+checkoutStateOptions()+'</select></div><div class="field"><label>Collection city</label><select id="custCity"><option value="">Select state first</option></select></div><div class="field wide"><div class="notice" style="margin:0;padding:10px"><strong>Pickup only.</strong> Your exact Jaman Store collection point will be assigned after the order is confirmed and communicated by WhatsApp.</div></div></div><p class="paynote" style="margin:9px 0 0">Distribution is calculated from your city, product type, quantity and order value. The customer-facing distribution fee is capped at ₦30,000.</p></div><div class="checkout-summary" id="checkoutSummary"></div></div>';
   document.getElementById("custState").onchange=updateCheckoutCities;
   document.getElementById("custCity").onchange=updateCheckoutSummary;
   updateCheckoutSummary();
@@ -339,7 +351,7 @@ async function openCheckout(){
   if(content)content.innerHTML='<div class="notice"><strong>Checkout could not be opened.</strong><br>Please refresh the page and try again.</div>';
   openModal("checkoutModal");
  }
-}async function submitOrder(){const name=document.getElementById("custName").value.trim(),email=document.getElementById("custEmail").value.trim(),phone=document.getElementById("custPhone").value.trim(),state=document.getElementById("custState").value.trim(),city=document.getElementById("custCity").value.trim();const quote=getDistributionQuote();if(!name||!email||!phone||!state||!city){toast("Please complete your details and select a collection city");return}if(!quote||quote.status!=="fixed"){toast("This order requires a distribution quotation. Please use WhatsApp.");return}const btn=document.getElementById("checkoutPay");btn.disabled=true;btn.textContent="Calculating distribution…";try{const response=await fetch("/api/paystack/initialize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({customer:{name,email,phone,state,city,delivery_method:"pickup"},items:cart.map(x=>({id:x.id,size:x.size,qty:x.qty}))})});const data=await response.json();if(!response.ok||!data.authorization_url)throw new Error(data.message||"Unable to initialize payment");sessionStorage.setItem("jaman_pending_reference",data.reference||"");window.location.assign(data.authorization_url)}catch(err){console.error("Paystack checkout error",err);btn.disabled=false;btn.textContent="Pay securely with Paystack";toast(err&&err.message?err.message:"Paystack checkout could not be started. Please try again.");}}
+}async function submitOrder(){const name=document.getElementById("custName").value.trim(),email=document.getElementById("custEmail").value.trim(),phone=document.getElementById("custPhone").value.trim(),state=document.getElementById("custState").value.trim(),city=document.getElementById("custCity").value.trim();const quote=getDistributionQuote();if(!name||!email||!phone||!state||!city){toast("Please complete your details and select a collection city");return}const btn=document.getElementById("checkoutPay");btn.disabled=true;btn.textContent="Calculating distribution…";try{const response=await fetch("/api/paystack/initialize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({customer:{name,email,phone,state,city,delivery_method:"pickup"},items:cart.map(x=>({id:x.id,size:x.size,qty:x.qty}))})});const data=await response.json();if(!response.ok||!data.authorization_url)throw new Error(data.message||"Unable to initialize payment");sessionStorage.setItem("jaman_pending_reference",data.reference||"");window.location.assign(data.authorization_url)}catch(err){console.error("Paystack checkout error",err);btn.disabled=false;btn.textContent="Pay securely with Paystack";toast(err&&err.message?err.message:"Paystack checkout could not be started. Please try again.");}}
 document.getElementById("openCart").onclick=(e)=>{e.preventDefault();e.stopPropagation();renderCart();openModal("cartModal");return false};document.addEventListener("click",(e)=>{const b=e.target.closest(".continue-checkout");if(b){e.preventDefault();e.stopPropagation();openCheckout();return false}},true);document.getElementById("search").addEventListener("input",()=>{activeCategory="All";renderCategoryCards(CATEGORY_LIST);renderProducts();renderSearchResults()});document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter"){const first=document.querySelector("#searchResults [data-search-product]");if(first)first.click();else{renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"});}}if(e.key==="Escape")document.getElementById("searchResults").classList.remove("show")});document.getElementById("sort")?.addEventListener("change",renderProducts);document.addEventListener("click",e=>{if(!e.target.closest(".search"))document.getElementById("searchResults")?.classList.remove("show")});window.addEventListener("pageshow",()=>{const btn=document.querySelector("#checkoutContent .primary");if(btn){btn.disabled=false;btn.textContent="Pay securely with Paystack"}});renderCartCount();loadDistributionConfig().then(loadProducts);
 </script>
 </body></html>
