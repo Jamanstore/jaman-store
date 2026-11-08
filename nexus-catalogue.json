@@ -1,0 +1,2747 @@
+[
+  {
+    "id": "NX-1290C",
+    "model": "NX-1290C",
+    "name": "1,200L Commercial Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "1,200L Commercial Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-1290C 1,200L Commercial Chest Freezer"
+  },
+  {
+    "id": "NX-970C",
+    "model": "NX-970C",
+    "name": "970L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1508000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "970L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-970C 970L Chest Freezer"
+  },
+  {
+    "id": "NX-695HC",
+    "model": "NX-695HC",
+    "name": "695L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 980000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "695L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-695HC 695L Chest Freezer"
+  },
+  {
+    "id": "NX-595G",
+    "model": "NX-595G",
+    "name": "595L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 815000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "595L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-595G 595L Chest Freezer"
+  },
+  {
+    "id": "NX-490H",
+    "model": "NX-490H",
+    "name": "490L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 590000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "490L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-490H 490L Chest Freezer"
+  },
+  {
+    "id": "NX-400G",
+    "model": "NX-400G",
+    "name": "400L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 497000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "400L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-400G 400L Chest Freezer"
+  },
+  {
+    "id": "NX-315HCE",
+    "model": "NX-315HCE",
+    "name": "315L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 397000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "315L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-315HCE 315L Chest Freezer"
+  },
+  {
+    "id": "NX-265HCE",
+    "model": "NX-265HCE",
+    "name": "265L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 358000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "265L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-265HCE 265L Chest Freezer"
+  },
+  {
+    "id": "NX-160HCE",
+    "model": "NX-160HCE",
+    "name": "160L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 302000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "160L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-160HCE 160L Chest Freezer"
+  },
+  {
+    "id": "NX-150HCE",
+    "model": "NX-150HCE",
+    "name": "150L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 250000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "150L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-150HCE 150L Chest Freezer"
+  },
+  {
+    "id": "NX-156Q-TF",
+    "model": "NX-156Q-TF",
+    "name": "156L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 509000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "156L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-156Q-TF 156L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-226Q-TF",
+    "model": "NX-226Q-TF",
+    "name": "226L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 565000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "226L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-226Q-TF 226L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-355Q-TF",
+    "model": "NX-355Q-TF",
+    "name": "355L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 647000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "355L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-355Q-TF 355L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-396Q-TF",
+    "model": "NX-396Q-TF",
+    "name": "396L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 709000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "396L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-396Q-TF 396L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-455Q-TF",
+    "model": "NX-455Q-TF",
+    "name": "455L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 765000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "455L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-455Q-TF 455L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-515Q-TF",
+    "model": "NX-515Q-TF",
+    "name": "515L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 822000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "515L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-515Q-TF 515L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-150HEI",
+    "model": "NX-150HEI",
+    "name": "150L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 290000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "150L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-150HEI 150L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-160HEI",
+    "model": "NX-160HEI",
+    "name": "160L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 378000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "160L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-160HEI 160L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-265HEI",
+    "model": "NX-265HEI",
+    "name": "265L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 453000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "265L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-265HEI 265L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-315HEI",
+    "model": "NX-315HEI",
+    "name": "315L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 590000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "315L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-315HEI 315L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-400HEI",
+    "model": "NX-400HEI",
+    "name": "400L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 615000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "400L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-400HEI 400L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-800GI",
+    "model": "NX-800GI",
+    "name": "800L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 753000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "800L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-800GI 800L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-595GI",
+    "model": "NX-595GI",
+    "name": "595L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 879000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "595L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-595GI 595L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-695HEI",
+    "model": "NX-695HEI",
+    "name": "695L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1042000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "695L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-695HEI 695L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-770HEI",
+    "model": "NX-770HEI",
+    "name": "770L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1119000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "770L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-770HEI 770L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-875HEI",
+    "model": "NX-875HEI",
+    "name": "875L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1307000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "875L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-875HEI 875L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-1290HEI",
+    "model": "NX-1290HEI",
+    "name": "1,290L Inverter Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 2332000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1,290L Inverter Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-1290HEI 1,290L Inverter Chest Freezer"
+  },
+  {
+    "id": "NX-65",
+    "model": "NX-65",
+    "name": "65L Single-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 128000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "65L Single-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-65 65L Single-Door Refrigerator"
+  },
+  {
+    "id": "NX-100",
+    "model": "NX-100",
+    "name": "100L Single-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 170000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "100L Single-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-100 100L Single-Door Refrigerator"
+  },
+  {
+    "id": "NX-125",
+    "model": "NX-125",
+    "name": "125L Single-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 182000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "125L Single-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-125 125L Single-Door Refrigerator"
+  },
+  {
+    "id": "NX-130",
+    "model": "NX-130",
+    "name": "130L Double-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 206000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "130L Double-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-130 130L Double-Door Refrigerator"
+  },
+  {
+    "id": "NX-175HC",
+    "model": "NX-175HC",
+    "name": "175L Double-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 284000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "175L Double-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-175HC 175L Double-Door Refrigerator"
+  },
+  {
+    "id": "NX-225",
+    "model": "NX-225",
+    "name": "225L Double-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 351000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "225L Double-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-225 225L Double-Door Refrigerator"
+  },
+  {
+    "id": "NX-250HC",
+    "model": "NX-250HC",
+    "name": "250L Double-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 411000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "250L Double-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-250HC 250L Double-Door Refrigerator"
+  },
+  {
+    "id": "NX-350HC",
+    "model": "NX-350HC",
+    "name": "350L Double-Door Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 543000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "350L Double-Door Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-350HC 350L Double-Door Refrigerator"
+  },
+  {
+    "id": "NX-260NFBI",
+    "model": "NX-260NFBI",
+    "name": "260L Frost-Free Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 453000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "260L Frost-Free Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-260NFBI 260L Frost-Free Refrigerator"
+  },
+  {
+    "id": "NX-320NFBI",
+    "model": "NX-320NFBI",
+    "name": "320L Frost-Free Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 495000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "320L Frost-Free Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-320NFBI 320L Frost-Free Refrigerator"
+  },
+  {
+    "id": "NX-290D",
+    "model": "NX-290D",
+    "name": "290L Bottom-Loading Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 465000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "290L Bottom-Loading Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-290D 290L Bottom-Loading Refrigerator"
+  },
+  {
+    "id": "NX-340D",
+    "model": "NX-340D",
+    "name": "340L Refrigerator with Water Dispenser",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 543000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "340L Refrigerator with Water Dispenser; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-340D 340L Refrigerator with Water Dispenser"
+  },
+  {
+    "id": "NX-550SBGI",
+    "model": "NX-550SBGI",
+    "name": "Side-by-Side Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 964000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Side-by-Side Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-550SBGI Side-by-Side Refrigerator"
+  },
+  {
+    "id": "NX-600SBGI",
+    "model": "NX-600SBGI",
+    "name": "Side-by-Side Refrigerator with Dispenser",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1084000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Side-by-Side Refrigerator with Dispenser; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-600SBGI Side-by-Side Refrigerator with Dispenser"
+  },
+  {
+    "id": "NX-700SBGI",
+    "model": "NX-700SBGI",
+    "name": "Side-by-Side Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1204000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Side-by-Side Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-700SBGI Side-by-Side Refrigerator"
+  },
+  {
+    "id": "NX-580MBGI",
+    "model": "NX-580MBGI",
+    "name": "Multi-Door Inverter Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1086000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Multi-Door Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-580MBGI Multi-Door Inverter Refrigerator"
+  },
+  {
+    "id": "NX-600MBGI",
+    "model": "NX-600MBGI",
+    "name": "Multi-Door Inverter Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1206000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Multi-Door Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-600MBGI Multi-Door Inverter Refrigerator"
+  },
+  {
+    "id": "NX-650MBGI",
+    "model": "NX-650MBGI",
+    "name": "Multi-Door Inverter Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1326000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Multi-Door Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-650MBGI Multi-Door Inverter Refrigerator"
+  },
+  {
+    "id": "NX-580FFWD",
+    "model": "NX-580FFWD",
+    "name": "580L Inverter Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "580L Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-580FFWD 580L Inverter Refrigerator",
+    "priceReviewNote": "Supplier price list code differs from catalogue model NX-580FFBG; price withheld pending exact model confirmation."
+  },
+  {
+    "id": "NX-625FFWD",
+    "model": "NX-625FFWD",
+    "name": "625L French-Door Inverter Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "625L French-Door Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-625FFWD 625L French-Door Inverter Refrigerator",
+    "priceReviewNote": "Supplier price list code differs from catalogue model NX-625FFWB; price withheld pending exact model confirmation."
+  },
+  {
+    "id": "NX-301",
+    "model": "NX-301",
+    "name": "301L Upright Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 399000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "301L Upright Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-301 301L Upright Showcase Refrigerator"
+  },
+  {
+    "id": "NX-401",
+    "model": "NX-401",
+    "name": "401L Upright Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 543000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "401L Upright Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-401 401L Upright Showcase Refrigerator"
+  },
+  {
+    "id": "NX-501",
+    "model": "NX-501",
+    "name": "501L Upright Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 700000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "501L Upright Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-501 501L Upright Showcase Refrigerator"
+  },
+  {
+    "id": "NX-551",
+    "model": "NX-551",
+    "name": "551L Upright Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 736000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "551L Upright Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-551 551L Upright Showcase Refrigerator"
+  },
+  {
+    "id": "NX-601",
+    "model": "NX-601",
+    "name": "601L Upright Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 802000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "601L Upright Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-601 601L Upright Showcase Refrigerator"
+  },
+  {
+    "id": "NX-661",
+    "model": "NX-661",
+    "name": "600L Double-Door Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1325000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "600L Double-Door Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-661 600L Double-Door Showcase Refrigerator"
+  },
+  {
+    "id": "NX-861",
+    "model": "NX-861",
+    "name": "800L Double-Door Showcase Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1745000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "800L Double-Door Showcase Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-861 800L Double-Door Showcase Refrigerator"
+  },
+  {
+    "id": "NX-TV32-H620B",
+    "model": "NX-TV32-H620B",
+    "name": "32-inch Full HD Non-Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 150000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "32-inch Full HD Non-Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV32-H620B 32-inch Full HD Non-Smart TV"
+  },
+  {
+    "id": "NX-TV32-H624B",
+    "model": "NX-TV32-H624B",
+    "name": "32-inch Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 174000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "32-inch Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV32-H624B 32-inch Smart TV"
+  },
+  {
+    "id": "NX-TV43-FHD624B",
+    "model": "NX-TV43-FHD624B",
+    "name": "43-inch Full HD Vidaa Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 320000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "43-inch Full HD Vidaa Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV43-FHD624B 43-inch Full HD Vidaa Smart TV"
+  },
+  {
+    "id": "NX-TV43-F645D",
+    "model": "NX-TV43-F645D",
+    "name": "43-inch Full HD Google Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 332000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "43-inch Full HD Google Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV43-F645D 43-inch Full HD Google Smart TV"
+  },
+  {
+    "id": "NX-TV50-U4K665D",
+    "model": "NX-TV50-U4K665D",
+    "name": "50-inch QLED Google TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "50-inch QLED Google TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV50-U4K665D 50-inch QLED Google TV",
+    "priceReviewNote": "Supplier price list says U4K665D, while catalogue page 24 shows U4K645D; price withheld pending exact model confirmation."
+  },
+  {
+    "id": "NX-TV55-U4K665D",
+    "model": "NX-TV55-U4K665D",
+    "name": "55-inch QLED Google TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "55-inch QLED Google TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV55-U4K665D 55-inch QLED Google TV",
+    "priceReviewNote": "Supplier price list says U4K665D, while catalogue page 25 shows U4K645D; price withheld pending exact model confirmation."
+  },
+  {
+    "id": "NX-TV65-U4K645D",
+    "model": "NX-TV65-U4K645D",
+    "name": "65-inch UHD 4K QLED Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 747000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "65-inch UHD 4K QLED Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV65-U4K645D 65-inch UHD 4K QLED Smart TV"
+  },
+  {
+    "id": "NX-TV75-U4K645D",
+    "model": "NX-TV75-U4K645D",
+    "name": "75-inch UHD 4K Google Smart TV",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 951000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "75-inch UHD 4K Google Smart TV; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV75-U4K645D 75-inch UHD 4K Google Smart TV"
+  },
+  {
+    "id": "NX-MSSH9000SC",
+    "model": "NX-MSSH9000SC",
+    "name": "1HP Non-Inverter Split AC with Kit",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 296000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1HP Non-Inverter Split AC with Kit; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MSSH9000SC 1HP Non-Inverter Split AC with Kit"
+  },
+  {
+    "id": "NX-MSSH12000SC",
+    "model": "NX-MSSH12000SC",
+    "name": "1.5HP Non-Inverter Split AC with Kit",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 326000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Non-Inverter Split AC with Kit; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MSSH12000SC 1.5HP Non-Inverter Split AC with Kit"
+  },
+  {
+    "id": "NX-MSSH18000SC",
+    "model": "NX-MSSH18000SC",
+    "name": "2HP Non-Inverter Split AC with Kit",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 513000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2HP Non-Inverter Split AC with Kit; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MSSH18000SC 2HP Non-Inverter Split AC with Kit"
+  },
+  {
+    "id": "NX-MAUFA-09CR32",
+    "model": "NX-MAUFA-09CR32",
+    "name": "1HP Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 393000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1HP Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MAUFA-09CR32 1HP Inverter Split AC"
+  },
+  {
+    "id": "NX-MAUFA-12CR32",
+    "model": "NX-MAUFA-12CR32",
+    "name": "1.5HP Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 417000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MAUFA-12CR32 1.5HP Inverter Split AC"
+  },
+  {
+    "id": "NX-MSHFB-18CR410",
+    "model": "NX-MSHFB-18CR410",
+    "name": "1.5HP Inverter Split AC with Kit",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 634000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Inverter Split AC with Kit; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MSHFB-18CR410 1.5HP Inverter Split AC with Kit"
+  },
+  {
+    "id": "NX-MAUFA-18CR32",
+    "model": "NX-MAUFA-18CR32",
+    "name": "2HP Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 634000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2HP Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-MAUFA-18CR32 2HP Inverter Split AC"
+  },
+  {
+    "id": "NX-SAC24000SFS",
+    "model": "NX-SAC24000SFS",
+    "name": "2.5HP Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 843000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2.5HP Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SAC24000SFS 2.5HP Floor-Standing AC"
+  },
+  {
+    "id": "NX-SAC30000SFS",
+    "model": "NX-SAC30000SFS",
+    "name": "3.5HP Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1122000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "3.5HP Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SAC30000SFS 3.5HP Floor-Standing AC"
+  },
+  {
+    "id": "NX-SAC48000SFS",
+    "model": "NX-SAC48000SFS",
+    "name": "5HP Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1810000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "5HP Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SAC48000SFS 5HP Floor-Standing AC"
+  },
+  {
+    "id": "NX-18AUINVFS",
+    "model": "NX-18AUINVFS",
+    "name": "2HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 989000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-18AUINVFS 2HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-18SHINVFS",
+    "model": "NX-18SHINVFS",
+    "name": "2HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 989000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-18SHINVFS 2HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-18WAINVFS",
+    "model": "NX-18WAINVFS",
+    "name": "2HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 989000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-18WAINVFS 2HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-24WAINVFS",
+    "model": "NX-24WAINVFS",
+    "name": "3HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1176000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "3HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-24WAINVFS 3HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-24AUINVFS",
+    "model": "NX-24AUINVFS",
+    "name": "3HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1176000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "3HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-24AUINVFS 3HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-30SHINVFS",
+    "model": "NX-30SHINVFS",
+    "name": "3.5HP Inverter Floor-Standing AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 1236000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "3.5HP Inverter Floor-Standing AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-30SHINVFS 3.5HP Inverter Floor-Standing AC"
+  },
+  {
+    "id": "NX-SH09INV",
+    "model": "NX-SH09INV",
+    "name": "1HP Premium Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 393000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1HP Premium Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SH09INV 1HP Premium Inverter Split AC"
+  },
+  {
+    "id": "NX-SH12INV",
+    "model": "NX-SH12INV",
+    "name": "1.5HP Premium Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 417000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Premium Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SH12INV 1.5HP Premium Inverter Split AC"
+  },
+  {
+    "id": "NX-CHB12INV",
+    "model": "NX-CHB12INV",
+    "name": "1.5HP Premium Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 453000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Premium Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-CHB12INV 1.5HP Premium Inverter Split AC"
+  },
+  {
+    "id": "NX-CHG12INV",
+    "model": "NX-CHG12INV",
+    "name": "1.5HP Premium Inverter Split AC",
+    "category": "Air Conditioners",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 453000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "1.5HP Premium Inverter Split AC; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-CHG12INV 1.5HP Premium Inverter Split AC"
+  },
+  {
+    "id": "NX-5055B-4+0",
+    "model": "NX-5055B-4+0",
+    "name": "50x50 Gas Cooker Black 4 Burner",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 158000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "50x50 Gas Cooker Black 4 Burner; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-5055B-4+0 50x50 Gas Cooker Black 4 Burner"
+  },
+  {
+    "id": "NX-5055B-WOOD",
+    "model": "NX-5055B-WOOD",
+    "name": "50x50 Gas Cooker Wood Finish",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 168000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "50x50 Gas Cooker Wood Finish; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-5055B-WOOD 50x50 Gas Cooker Wood Finish"
+  },
+  {
+    "id": "NX-5055B-3+1",
+    "model": "NX-5055B-3+1",
+    "name": "50x50 Gas Cooker Black 3+1",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 179000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "50x50 Gas Cooker Black 3+1; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-5055B-3+1 50x50 Gas Cooker Black 3+1"
+  },
+  {
+    "id": "NX-5055BC-IGN",
+    "model": "NX-5055BC-IGN",
+    "name": "50x50 Ignition Gas Cooker",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "50x50 Ignition Gas Cooker; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-5055BC-IGN 50x50 Ignition Gas Cooker"
+  },
+  {
+    "id": "NX-6005BSI",
+    "model": "NX-6005BSI",
+    "name": "60x60 Ignition Gas Cooker Grey",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 283000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "60x60 Ignition Gas Cooker Grey; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6005BSI 60x60 Ignition Gas Cooker Grey"
+  },
+  {
+    "id": "NX-6006BRI",
+    "model": "NX-6006BRI",
+    "name": "60x60 Ignition Gas Cooker Red",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 279000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "60x60 Ignition Gas Cooker Red; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6006BRI 60x60 Ignition Gas Cooker Red"
+  },
+  {
+    "id": "NX-6003",
+    "model": "NX-6003",
+    "name": "60x60 Turkey Gas Cooker Black",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 264000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "60x60 Turkey Gas Cooker Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6003 60x60 Turkey Gas Cooker Black"
+  },
+  {
+    "id": "NX-6004",
+    "model": "NX-6004",
+    "name": "60x60 Turkey Gas Cooker Black",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 277000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "60x60 Turkey Gas Cooker Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6004 60x60 Turkey Gas Cooker Black"
+  },
+  {
+    "id": "NX-9000S",
+    "model": "NX-9000S",
+    "name": "90x60 Gas Cooker",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 522000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "90x60 Gas Cooker; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9000S 90x60 Gas Cooker"
+  },
+  {
+    "id": "NX-EL229",
+    "model": "NX-EL229",
+    "name": "4-Face Sandwich Maker",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 32000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "4-Face Sandwich Maker; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-EL229 4-Face Sandwich Maker"
+  },
+  {
+    "id": "NX-EL239",
+    "model": "NX-EL239",
+    "name": "Sandwich Maker with Plate",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 37000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Sandwich Maker with Plate; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-EL239 Sandwich Maker with Plate"
+  },
+  {
+    "id": "NX-2076",
+    "model": "NX-2076",
+    "name": "Force Steam Iron",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 26000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Force Steam Iron; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-2076 Force Steam Iron"
+  },
+  {
+    "id": "NX-2086",
+    "model": "NX-2086",
+    "name": "Pro Steam Iron",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 30000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Pro Steam Iron; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-2086 Pro Steam Iron"
+  },
+  {
+    "id": "NX-101BK",
+    "model": "NX-101BK",
+    "name": "Water Dispenser Black",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 157000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-101BK Water Dispenser Black"
+  },
+  {
+    "id": "NX-102BL",
+    "model": "NX-102BL",
+    "name": "Water Dispenser Blue",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 157000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Blue; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-102BL Water Dispenser Blue"
+  },
+  {
+    "id": "NX-016BI",
+    "model": "NX-016BI",
+    "name": "Water Dispenser Blue",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Blue; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-016BI Water Dispenser Blue"
+  },
+  {
+    "id": "NX-016PI",
+    "model": "NX-016PI",
+    "name": "Water Dispenser Pink",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Pink; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-016PI Water Dispenser Pink"
+  },
+  {
+    "id": "NX-022",
+    "model": "NX-022",
+    "name": "Water Dispenser Coffee Finish",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Coffee Finish; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-022 Water Dispenser Coffee Finish"
+  },
+  {
+    "id": "NX-026",
+    "model": "NX-026",
+    "name": "Water Dispenser Silver Finish",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Silver Finish; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-026 Water Dispenser Silver Finish"
+  },
+  {
+    "id": "NX-028",
+    "model": "NX-028",
+    "name": "Water Dispenser Gold Finish",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 183000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "Water Dispenser Gold Finish; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-028 Water Dispenser Gold Finish"
+  },
+  {
+    "id": "NX-0301",
+    "model": "NX-0301",
+    "name": "2.2L Electric Kettle Black",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 19000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2.2L Electric Kettle Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-0301 2.2L Electric Kettle Black"
+  },
+  {
+    "id": "NX-0302",
+    "model": "NX-0302",
+    "name": "2.2L Electric Kettle Stainless Steel",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 19000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2.2L Electric Kettle Stainless Steel; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-0302 2.2L Electric Kettle Stainless Steel"
+  },
+  {
+    "id": "NX-SF4400B",
+    "model": "NX-SF4400B",
+    "name": "16-inch Standing Fan",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 31000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "16-inch Standing Fan; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SF4400B 16-inch Standing Fan"
+  },
+  {
+    "id": "NX-SF5400B",
+    "model": "NX-SF5400B",
+    "name": "18-inch Standing Fan",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 35000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "18-inch Standing Fan; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-SF5400B 18-inch Standing Fan"
+  },
+  {
+    "id": "NX-6416",
+    "model": "NX-6416",
+    "name": "16-inch Standing Fan Black",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 46000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "16-inch Standing Fan Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6416 16-inch Standing Fan Black"
+  },
+  {
+    "id": "NX-6418",
+    "model": "NX-6418",
+    "name": "18-inch Standing Fan Black",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 52000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "18-inch Standing Fan Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-6418 18-inch Standing Fan Black"
+  },
+  {
+    "id": "NX-7418",
+    "model": "NX-7418",
+    "name": "18-inch Standing Fan Purple Motor",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 45000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "18-inch Standing Fan Purple Motor; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-7418 18-inch Standing Fan Purple Motor"
+  },
+  {
+    "id": "NX-IF4818B",
+    "model": "NX-IF4818B",
+    "name": "18-inch Industrial Fan",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 90000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "18-inch Industrial Fan; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-IF4818B 18-inch Industrial Fan"
+  },
+  {
+    "id": "NX-IF4820B",
+    "model": "NX-IF4820B",
+    "name": "20-inch Industrial Fan",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 100000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "20-inch Industrial Fan; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-IF4820B 20-inch Industrial Fan"
+  },
+  {
+    "id": "NX-IF4826B",
+    "model": "NX-IF4826B",
+    "name": "26-inch Industrial Fan",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 110000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "26-inch Industrial Fan; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-IF4826B 26-inch Industrial Fan"
+  },
+  {
+    "id": "NX-RF4521R",
+    "model": "NX-RF4521R",
+    "name": "16-inch Rechargeable Fan with USB",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 85000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "16-inch Rechargeable Fan with USB; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-RF4521R 16-inch Rechargeable Fan with USB"
+  },
+  {
+    "id": "NX-RF4531R",
+    "model": "NX-RF4531R",
+    "name": "18-inch Rechargeable Fan with USB",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 95000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "18-inch Rechargeable Fan with USB; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-RF4531R 18-inch Rechargeable Fan with USB"
+  },
+  {
+    "id": "NX-9201B",
+    "model": "NX-9201B",
+    "name": "20L Solo Microwave Black",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 94000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "20L Solo Microwave Black; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9201B 20L Solo Microwave Black"
+  },
+  {
+    "id": "NX-9201R",
+    "model": "NX-9201R",
+    "name": "20L Solo Microwave Red",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 96000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "20L Solo Microwave Red; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9201R 20L Solo Microwave Red"
+  },
+  {
+    "id": "NX-9201W",
+    "model": "NX-9201W",
+    "name": "20L Grill Microwave White",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 109000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "20L Grill Microwave White; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9201W 20L Grill Microwave White"
+  },
+  {
+    "id": "AVR2000",
+    "model": "AVR2000",
+    "name": "2000VA Voltage Regulator",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 60000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "2000VA Voltage Regulator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus AVR2000 2000VA Voltage Regulator"
+  },
+  {
+    "id": "NX-WM-75ATL",
+    "model": "NX-WM-75ATL",
+    "name": "7.5kg Top-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 307000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "7.5kg Top-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-75ATL 7.5kg Top-Load Washing Machine"
+  },
+  {
+    "id": "NX-WM-85ATL",
+    "model": "NX-WM-85ATL",
+    "name": "8.5kg Top-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 331000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "8.5kg Top-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-85ATL 8.5kg Top-Load Washing Machine"
+  },
+  {
+    "id": "NX-WM-FLXQG80",
+    "model": "NX-WM-FLXQG80",
+    "name": "8kg Inverter Front-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "8kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FLXQG80 8kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "Supplier price-list code does not exactly match the catalogue's NX-WM-FL08S1409NB; price withheld pending confirmation."
+  },
+  {
+    "id": "NX-WM-FLG09WVE",
+    "model": "NX-WM-FLG09WVE",
+    "name": "9kg Inverter Front-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "9kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FLG09WVE 9kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "No exact matching model code found in the supplied catalogue; price withheld pending confirmation."
+  },
+  {
+    "id": "NX-WM-FL10SS01",
+    "model": "NX-WM-FL10SS01",
+    "name": "10kg Inverter Front-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "10kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FL10SS01 10kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "No exact matching model code found in the supplied catalogue; price withheld pending confirmation."
+  },
+  {
+    "id": "NX-WM-WDG10D6WVE",
+    "model": "NX-WM-WDG10D6WVE",
+    "name": "10kg/6kg Inverter Washer-Dryer",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "10kg/6kg Inverter Washer-Dryer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-WDG10D6WVE 10kg/6kg Inverter Washer-Dryer",
+    "priceReviewNote": "Supplier price-list code does not exactly match catalogue model NX-WM-WBG10B6; price withheld pending confirmation."
+  },
+  {
+    "id": "NX-WM-5SAK",
+    "model": "NX-WM-5SAK",
+    "name": "5.5kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 154000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "5.5kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-5SAK 5.5kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-6SAK",
+    "model": "NX-WM-6SAK",
+    "name": "6.5kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 181000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "6.5kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-6SAK 6.5kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-7SAK",
+    "model": "NX-WM-7SAK",
+    "name": "7.5kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 203000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "7.5kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-7SAK 7.5kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-9SAK",
+    "model": "NX-WM-9SAK",
+    "name": "9kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 238000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "9kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-9SAK 9kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-10SAK",
+    "model": "NX-WM-10SAK",
+    "name": "10kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 284000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "10kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-10SAK 10kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-11SAC",
+    "model": "NX-WM-11SAC",
+    "name": "11kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 276000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "11kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-11SAC 11kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-13SAK",
+    "model": "NX-WM-13SAK",
+    "name": "13kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 319000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "13kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-13SAK 13kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-15SAC",
+    "model": "NX-WM-15SAC",
+    "name": "15kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 362000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "15kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-15SAC 15kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-WM-19SAK",
+    "model": "NX-WM-19SAK",
+    "name": "19kg Twin-Tub Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 467000,
+    "enquiryOnly": false,
+    "image": "",
+    "description": "19kg Twin-Tub Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-19SAK 19kg Twin-Tub Washing Machine"
+  },
+  {
+    "id": "NX-1090C",
+    "model": "NX-1090C",
+    "name": "1,000L Big Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "1,000L Big Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-1090C 1,000L Big Chest Freezer"
+  },
+  {
+    "id": "NX-770",
+    "model": "NX-770",
+    "name": "700L Big Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "700L Big Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-770 700L Big Chest Freezer"
+  },
+  {
+    "id": "NX-875C",
+    "model": "NX-875C",
+    "name": "800L Big Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "800L Big Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-875C 800L Big Chest Freezer"
+  },
+  {
+    "id": "NX-695",
+    "model": "NX-695",
+    "name": "695L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "695L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-695 695L Chest Freezer"
+  },
+  {
+    "id": "NX-800",
+    "model": "NX-800",
+    "name": "800L Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "800L Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-800 800L Chest Freezer"
+  },
+  {
+    "id": "NX-415Q",
+    "model": "NX-415Q",
+    "name": "415L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "415L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-415Q 415L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-515Q",
+    "model": "NX-515Q",
+    "name": "515L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "515L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-515Q 515L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-355Q",
+    "model": "NX-355Q",
+    "name": "355L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "355L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-355Q 355L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-396Q",
+    "model": "NX-396Q",
+    "name": "396L Transparent-Top Chest Freezer",
+    "category": "Freezers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "396L Transparent-Top Chest Freezer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-396Q 396L Transparent-Top Chest Freezer"
+  },
+  {
+    "id": "NX-TV32H100",
+    "model": "NX-TV32H100",
+    "name": "32-inch HD Television",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "32-inch HD Television; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV32H100 32-inch HD Television"
+  },
+  {
+    "id": "NX-625FFWB",
+    "model": "NX-625FFWB",
+    "name": "625L Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "625L Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-625FFWB 625L Refrigerator"
+  },
+  {
+    "id": "NX-580FFBG",
+    "model": "NX-580FFBG",
+    "name": "580L Refrigerator",
+    "category": "Refrigerators",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "580L Refrigerator; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-580FFBG 580L Refrigerator"
+  },
+  {
+    "id": "NX-WM-WBG10B6",
+    "model": "NX-WM-WBG10B6",
+    "name": "Washer-Dryer",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "Washer-Dryer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-WBG10B6 Washer-Dryer"
+  },
+  {
+    "id": "NX-WM-FL06S10E1",
+    "model": "NX-WM-FL06S10E1",
+    "name": "Front-Load Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FL06S10E1 Front-Load Washing Machine"
+  },
+  {
+    "id": "NX-WM-FL07W12D2",
+    "model": "NX-WM-FL07W12D2",
+    "name": "7kg Washing Machine",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "7kg Washing Machine; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FL07W12D2 7kg Washing Machine"
+  },
+  {
+    "id": "NX-8001S",
+    "model": "NX-8001S",
+    "name": "90x60 Double-Oven Gas Cooker",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "90x60 Double-Oven Gas Cooker; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-8001S 90x60 Double-Oven Gas Cooker"
+  },
+  {
+    "id": "NX-50B55",
+    "model": "NX-50B55",
+    "name": "50x50 Gas Stove",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "50x50 Gas Stove; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-50B55 50x50 Gas Stove"
+  },
+  {
+    "id": "NX-018",
+    "model": "NX-018",
+    "name": "2-Tap Water Dispenser",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "2-Tap Water Dispenser; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-018 2-Tap Water Dispenser"
+  },
+  {
+    "id": "NX-12000",
+    "model": "NX-12000",
+    "name": "VitaPowerMix 2L Blender",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "VitaPowerMix 2L Blender; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-12000 VitaPowerMix 2L Blender"
+  },
+  {
+    "id": "NX-EC002",
+    "model": "NX-EC002",
+    "name": "Classic Espresso Coffee Maker",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "Classic Espresso Coffee Maker; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-EC002 Classic Espresso Coffee Maker"
+  },
+  {
+    "id": "NX-9255",
+    "model": "NX-9255",
+    "name": "23L Microwave with Air Fryer",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "23L Microwave with Air Fryer; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9255 23L Microwave with Air Fryer"
+  },
+  {
+    "id": "NX-9253",
+    "model": "NX-9253",
+    "name": "25L Grill Microwave",
+    "category": "Small Appliances",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "25L Grill Microwave; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9253 25L Grill Microwave"
+  },
+  {
+    "id": "NX-205BB",
+    "model": "NX-205BB",
+    "name": "Black Glass Gas Stove",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "Black Glass Gas Stove; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-205BB Black Glass Gas Stove"
+  },
+  {
+    "id": "NX-306BR",
+    "model": "NX-306BR",
+    "name": "Black Glass Gas Stove",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "Black Glass Gas Stove; see Nexus supplier catalogue for specifications.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-306BR Black Glass Gas Stove"
+  },
+  {
+    "id": "NX-TV50-U4K645D",
+    "model": "NX-TV50-U4K645D",
+    "name": "50-inch Google TV – catalogue model",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "50-inch Google TV – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV50-U4K645D 50-inch Google TV – catalogue model"
+  },
+  {
+    "id": "NX-TV55-U4K645D",
+    "model": "NX-TV55-U4K645D",
+    "name": "55-inch Google TV – catalogue model",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "55-inch Google TV – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV55-U4K645D 55-inch Google TV – catalogue model"
+  },
+  {
+    "id": "NX-WM-FL08S1409NB",
+    "model": "NX-WM-FL08S1409NB",
+    "name": "8kg Front-Load Washing Machine – catalogue model",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "8kg Front-Load Washing Machine – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FL08S1409NB 8kg Front-Load Washing Machine – catalogue model"
+  },
+  {
+    "id": "NX-9002",
+    "model": "NX-9002",
+    "name": "90x60 Gas Cooker 4+2 – catalogue model",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "90x60 Gas Cooker 4+2 – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9002 90x60 Gas Cooker 4+2 – catalogue model"
+  }
+]
