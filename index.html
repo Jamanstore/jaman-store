@@ -317,7 +317,13 @@ async function loadProducts(){
       maxUserWeightKg:p.max_user_weight_kg,sourceUrl:p.source_url||"",
       searchable:[p.name,p.product_code,p.description,(p.features||[]).join(" "),(p.sizes||[]).join(" ")].filter(Boolean).join(" ")
     }));
-    PRODUCTS=[...PRODUCTS,...NEXUS_CATALOGUE];
+    let nexusRows=[];
+    try{
+      const nexusRes=await fetch("/nexus-catalogue.json",{headers:{"Accept":"application/json"}});
+      if(!nexusRes.ok)throw new Error("Nexus catalogue file unavailable");
+      nexusRows=await nexusRes.json();
+    }catch(nexusErr){console.error("Nexus catalogue load error",nexusErr);nexusRows=NEXUS_CATALOGUE;}
+    PRODUCTS=[...PRODUCTS,...nexusRows.map(p=>({...p,dbId:null,model:p.model||p.id,brand:"Nexus",brandSlug:"nexus",price:Number(p.price||0),image:p.image||"",gallery:[],enquiryOnly:!!p.enquiryOnly,searchable:p.searchable||("Nexus "+p.id+" "+p.name)}))];
     BRAND_LIST=[{name:"All brands",slug:"All",description:"Explore the complete Jaman Store catalogue"},...brandRows.map(b=>({name:b.name,slug:b.slug,description:b.description||""})),{name:"VITAFOAM",slug:"vitafoam",description:"Mattresses, pillows and sleep comfort"},{name:"Nexus",slug:"nexus",description:"Electronics and home appliances"}];
     renderBrandFilters();
     categories();
