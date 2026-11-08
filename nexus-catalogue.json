@@ -771,15 +771,16 @@
     "category": "Refrigerators",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 1320000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "580L Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-580FFWD 580L Inverter Refrigerator"
+    "searchable": "Nexus NX-580FFWD 580L Inverter Refrigerator",
+    "priceReviewNote": "Supplier price list code differs from catalogue model NX-580FFBG; price withheld pending exact model confirmation."
   },
   {
     "id": "NX-625FFWD",
@@ -788,15 +789,16 @@
     "category": "Refrigerators",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 1416000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "625L French-Door Inverter Refrigerator; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-625FFWD 625L French-Door Inverter Refrigerator"
+    "searchable": "Nexus NX-625FFWD 625L French-Door Inverter Refrigerator",
+    "priceReviewNote": "Supplier price list code differs from catalogue model NX-625FFWB; price withheld pending exact model confirmation."
   },
   {
     "id": "NX-301",
@@ -992,15 +994,16 @@
     "category": "Televisions",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 396000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "50-inch QLED Google TV; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-TV50-U4K665D 50-inch QLED Google TV"
+    "searchable": "Nexus NX-TV50-U4K665D 50-inch QLED Google TV",
+    "priceReviewNote": "Supplier price list says U4K665D, while catalogue page 24 shows U4K645D; price withheld pending exact model confirmation."
   },
   {
     "id": "NX-TV55-U4K665D",
@@ -1009,15 +1012,16 @@
     "category": "Televisions",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 480000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "55-inch QLED Google TV; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-TV55-U4K665D 55-inch QLED Google TV"
+    "searchable": "Nexus NX-TV55-U4K665D 55-inch QLED Google TV",
+    "priceReviewNote": "Supplier price list says U4K665D, while catalogue page 25 shows U4K645D; price withheld pending exact model confirmation."
   },
   {
     "id": "NX-TV65-U4K645D",
@@ -2046,15 +2050,16 @@
     "category": "Washing Machines",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 449000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "8kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-WM-FLXQG80 8kg Inverter Front-Load Washing Machine"
+    "searchable": "Nexus NX-WM-FLXQG80 8kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "Supplier price-list code does not exactly match the catalogue's NX-WM-FL08S1409NB; price withheld pending confirmation."
   },
   {
     "id": "NX-WM-FLG09WVE",
@@ -2063,15 +2068,16 @@
     "category": "Washing Machines",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 498000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "9kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-WM-FLG09WVE 9kg Inverter Front-Load Washing Machine"
+    "searchable": "Nexus NX-WM-FLG09WVE 9kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "No exact matching model code found in the supplied catalogue; price withheld pending confirmation."
   },
   {
     "id": "NX-WM-FL10SS01",
@@ -2080,15 +2086,16 @@
     "category": "Washing Machines",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 541000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "10kg Inverter Front-Load Washing Machine; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-WM-FL10SS01 10kg Inverter Front-Load Washing Machine"
+    "searchable": "Nexus NX-WM-FL10SS01 10kg Inverter Front-Load Washing Machine",
+    "priceReviewNote": "No exact matching model code found in the supplied catalogue; price withheld pending confirmation."
   },
   {
     "id": "NX-WM-WDG10D6WVE",
@@ -2097,15 +2104,16 @@
     "category": "Washing Machines",
     "brand": "Nexus",
     "brandSlug": "nexus",
-    "price": 628000,
-    "enquiryOnly": false,
+    "price": 0,
+    "enquiryOnly": true,
     "image": "",
     "description": "10kg/6kg Inverter Washer-Dryer; see Nexus supplier catalogue for specifications.",
     "features": [],
     "sizes": [
       "Standard"
     ],
-    "searchable": "Nexus NX-WM-WDG10D6WVE 10kg/6kg Inverter Washer-Dryer"
+    "searchable": "Nexus NX-WM-WDG10D6WVE 10kg/6kg Inverter Washer-Dryer",
+    "priceReviewNote": "Supplier price-list code does not exactly match catalogue model NX-WM-WBG10B6; price withheld pending confirmation."
   },
   {
     "id": "NX-WM-5SAK",
@@ -2667,5 +2675,73 @@
       "Standard"
     ],
     "searchable": "Nexus NX-306BR Black Glass Gas Stove"
+  },
+  {
+    "id": "NX-TV50-U4K645D",
+    "model": "NX-TV50-U4K645D",
+    "name": "50-inch Google TV – catalogue model",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "50-inch Google TV – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV50-U4K645D 50-inch Google TV – catalogue model"
+  },
+  {
+    "id": "NX-TV55-U4K645D",
+    "model": "NX-TV55-U4K645D",
+    "name": "55-inch Google TV – catalogue model",
+    "category": "Televisions",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "55-inch Google TV – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-TV55-U4K645D 55-inch Google TV – catalogue model"
+  },
+  {
+    "id": "NX-WM-FL08S1409NB",
+    "model": "NX-WM-FL08S1409NB",
+    "name": "8kg Front-Load Washing Machine – catalogue model",
+    "category": "Washing Machines",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "8kg Front-Load Washing Machine – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-WM-FL08S1409NB 8kg Front-Load Washing Machine – catalogue model"
+  },
+  {
+    "id": "NX-9002",
+    "model": "NX-9002",
+    "name": "90x60 Gas Cooker 4+2 – catalogue model",
+    "category": "Gas Cookers",
+    "brand": "Nexus",
+    "brandSlug": "nexus",
+    "price": 0,
+    "enquiryOnly": true,
+    "image": "",
+    "description": "90x60 Gas Cooker 4+2 – catalogue model; exact supplier price/model match requires confirmation.",
+    "features": [],
+    "sizes": [
+      "Standard"
+    ],
+    "searchable": "Nexus NX-9002 90x60 Gas Cooker 4+2 – catalogue model"
   }
 ]
